@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [super viewDidLoad];
     UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Table" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
@@ -34,8 +33,9 @@
     //set some custom font for the label
 	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
 	[label setBackgroundColor:[UIColor clearColor]];
-	[label setTextColor:[UIColor redColor]];
+	[label setTextColor:[UIColor blackColor]];
 	[label setText:@"Facebook Profile"];
+    [self.navigationController.navigationBar.topItem setTitleView:label];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
 	// Do any additional setup after loading the view.
 }
