@@ -47,11 +47,11 @@
 }
 -(void) switchToTableScreen
 {
-
+    [self performSegueWithIdentifier:@"gotoTableView" sender:self];
     
 }
 -(void) switchToMapScreen
 {
-    
+    [self performSegueWithIdentifier:@"gotoMapView" sender:self];
 }
 @end
