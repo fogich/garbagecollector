@@ -22,6 +22,7 @@
 		F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35416BD2DA700FE9E6F /* MainTableViewController.m */; };
 		F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35616BD2DA700FE9E6F /* MapViewController.m */; };
 		F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */; };
+		F493B34116BD3F2E00EBA878 /* TestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = F493B34016BD3F2E00EBA878 /* TestClass.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		F421E35516BD2DA700FE9E6F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F421E35616BD2DA700FE9E6F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F42D596716BD344D00F1CA6E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		F493B33F16BD3F2E00EBA878 /* TestClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestClass.h; sourceTree = "<group>"; };
+		F493B34016BD3F2E00EBA878 /* TestClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestClass.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,8 @@
 		F421E33316BD2D7000FE9E6F /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
+				F493B33F16BD3F2E00EBA878 /* TestClass.h */,
+				F493B34016BD3F2E00EBA878 /* TestClass.m */,
 				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
 				F421E35316BD2DA700FE9E6F /* MainTableViewController.h */,
 				F421E35416BD2DA700FE9E6F /* MainTableViewController.m */,
@@ -196,6 +201,7 @@
 				F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */,
 				F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */,
 				F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */,
+				F493B34116BD3F2E00EBA878 /* TestClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
