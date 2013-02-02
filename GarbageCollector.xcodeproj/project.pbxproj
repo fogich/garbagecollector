@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F1B41BA616BD175800C0E6A7 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B41BA516BD175800C0E6A7 /* MainTableViewController.m */; };
-		F1B41BA916BD195900C0E6A7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B41BA816BD195900C0E6A7 /* MapViewController.m */; };
 		F4A2BDEF16BAFB9C004B2006 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A2BDEE16BAFB9C004B2006 /* UIKit.framework */; };
 		F4A2BDF116BAFB9C004B2006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A2BDF016BAFB9C004B2006 /* Foundation.framework */; };
 		F4A2BDF316BAFB9C004B2006 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A2BDF216BAFB9C004B2006 /* CoreGraphics.framework */; };
@@ -21,13 +19,11 @@
 		F4A2BE0816BAFB9D004B2006 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A2BE0616BAFB9D004B2006 /* MainStoryboard_iPhone.storyboard */; };
 		F4A2BE0B16BAFB9D004B2006 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4A2BE0916BAFB9D004B2006 /* MainStoryboard_iPad.storyboard */; };
 		F4A2BE0E16BAFB9D004B2006 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4A2BE0D16BAFB9D004B2006 /* ViewController.m */; };
+		F4E0A73016BD252D0019CA43 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0A72F16BD252D0019CA43 /* MainTableViewController.m */; };
+		F4E0A73316BD25460019CA43 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E0A73216BD25460019CA43 /* MapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F1B41BA416BD175800C0E6A7 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = ../MainTableViewController.h; sourceTree = "<group>"; };
-		F1B41BA516BD175800C0E6A7 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = ../MainTableViewController.m; sourceTree = "<group>"; };
-		F1B41BA716BD195900C0E6A7 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../MapViewController.h; sourceTree = "<group>"; };
-		F1B41BA816BD195900C0E6A7 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
 		F4A2BDEA16BAFB9C004B2006 /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2BDEE16BAFB9C004B2006 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4A2BDF016BAFB9C004B2006 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +41,10 @@
 		F4A2BE0A16BAFB9D004B2006 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F4A2BE0C16BAFB9D004B2006 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F4A2BE0D16BAFB9D004B2006 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F4E0A72D16BD25200019CA43 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		F4E0A72F16BD252D0019CA43 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		F4E0A73116BD25360019CA43 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		F4E0A73216BD25460019CA43 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,14 +91,14 @@
 		F4A2BDF416BAFB9C004B2006 /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
+				F4E0A73216BD25460019CA43 /* MapViewController.m */,
+				F4E0A73116BD25360019CA43 /* MapViewController.h */,
+				F4E0A72F16BD252D0019CA43 /* MainTableViewController.m */,
+				F4E0A72D16BD25200019CA43 /* MainTableViewController.h */,
 				F4A2BDFD16BAFB9C004B2006 /* AppDelegate.h */,
 				F4A2BDFE16BAFB9D004B2006 /* AppDelegate.m */,
 				F4A2BE0616BAFB9D004B2006 /* MainStoryboard_iPhone.storyboard */,
 				F4A2BE0916BAFB9D004B2006 /* MainStoryboard_iPad.storyboard */,
-				F1B41BA416BD175800C0E6A7 /* MainTableViewController.h */,
-				F1B41BA516BD175800C0E6A7 /* MainTableViewController.m */,
-				F1B41BA716BD195900C0E6A7 /* MapViewController.h */,
-				F1B41BA816BD195900C0E6A7 /* MapViewController.m */,
 				F4A2BE0C16BAFB9D004B2006 /* ViewController.h */,
 				F4A2BE0D16BAFB9D004B2006 /* ViewController.m */,
 				F4A2BDF516BAFB9C004B2006 /* Supporting Files */,
@@ -190,8 +190,8 @@
 				F4A2BDFB16BAFB9C004B2006 /* main.m in Sources */,
 				F4A2BDFF16BAFB9D004B2006 /* AppDelegate.m in Sources */,
 				F4A2BE0E16BAFB9D004B2006 /* ViewController.m in Sources */,
-				F1B41BA616BD175800C0E6A7 /* MainTableViewController.m in Sources */,
-				F1B41BA916BD195900C0E6A7 /* MapViewController.m in Sources */,
+				F4E0A73016BD252D0019CA43 /* MainTableViewController.m in Sources */,
+				F4E0A73316BD25460019CA43 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
