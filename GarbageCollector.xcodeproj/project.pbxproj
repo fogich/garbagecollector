@@ -21,6 +21,7 @@
 		F421E34D16BD2D7000FE9E6F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E34C16BD2D7000FE9E6F /* ViewController.m */; };
 		F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35416BD2DA700FE9E6F /* MainTableViewController.m */; };
 		F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35616BD2DA700FE9E6F /* MapViewController.m */; };
+		F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		F421E35416BD2DA700FE9E6F /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		F421E35516BD2DA700FE9E6F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F421E35616BD2DA700FE9E6F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		F42D596716BD344D00F1CA6E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		F421E33316BD2D7000FE9E6F /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
+				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
 				F421E35316BD2DA700FE9E6F /* MainTableViewController.h */,
 				F421E35416BD2DA700FE9E6F /* MainTableViewController.m */,
 				F421E35516BD2DA700FE9E6F /* MapViewController.h */,
@@ -192,6 +195,7 @@
 				F421E34D16BD2D7000FE9E6F /* ViewController.m in Sources */,
 				F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */,
 				F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */,
+				F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,8 +322,22 @@
 				F421E35216BD2D7000FE9E6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F42D596716BD344D00F1CA6E /* Model.xcdatamodel */,
+			);
+			currentVersion = F42D596716BD344D00F1CA6E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F421E32016BD2D7000FE9E6F /* Project object */;
 }
