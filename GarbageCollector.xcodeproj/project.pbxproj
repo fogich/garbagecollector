@@ -25,6 +25,7 @@
 		F42D597416BD401B00F1CA6E /* GarbageSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597316BD401B00F1CA6E /* GarbageSpot.m */; };
 		F42D597816BD401C00F1CA6E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597716BD401C00F1CA6E /* Comment.m */; };
 		F42D597B16BD401C00F1CA6E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597A16BD401C00F1CA6E /* User.m */; };
+		F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D598016BD46DD00F1CA6E /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		F42D597716BD401C00F1CA6E /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		F42D597916BD401C00F1CA6E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F42D597A16BD401C00F1CA6E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		F42D598016BD46DD00F1CA6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */,
 				F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */,
 				F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */,
 				F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */,
@@ -92,6 +95,7 @@
 		F421E32C16BD2D7000FE9E6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F42D598016BD46DD00F1CA6E /* CoreData.framework */,
 				F421E32D16BD2D7000FE9E6F /* UIKit.framework */,
 				F421E32F16BD2D7000FE9E6F /* Foundation.framework */,
 				F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */,
