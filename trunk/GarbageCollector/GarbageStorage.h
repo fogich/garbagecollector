@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GarbageSpot.h"
 
 @interface GarbageStorage : NSObject
+
+- (void)saveContext;
+- (void)addGarbageSpot:(GarbageSpot*) garbageSpot;
+-(NSArray*)allGarbageSpots;
+-(GarbageSpot*)createGarbageSpot;
 
 @end
