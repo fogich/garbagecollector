@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "MainTableViewController.h"
+#import "GarbageStorage.h"
+
 @interface ViewController ()
 
 @end
@@ -30,7 +32,15 @@
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     
-    
+    //test
+//    GarbageStorage* storage = [GarbageStorage instance];
+//    NSArray* garbageSpots = [storage allGarbageSpots];
+//
+//    for(int i = 0; i < garbageSpots.count; i++)
+//    {
+//        GarbageSpot* spot = [garbageSpots objectAtIndex:i];
+//        NSLog(@"%@", spot.address);
+//    }
 }
 
 - (void)didReceiveMemoryWarning
