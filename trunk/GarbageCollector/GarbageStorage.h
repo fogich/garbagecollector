@@ -15,5 +15,6 @@
 - (void)addGarbageSpot:(GarbageSpot*) garbageSpot;
 -(NSArray*)allGarbageSpots;
 -(GarbageSpot*)createGarbageSpot;
++(id)instance;
 
 @end

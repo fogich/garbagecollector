@@ -52,18 +52,38 @@
 
 -(void)initUser
 {
+    self.user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+    user.fbid = @"12303012301230";
+    user.fbName = @"Kurtev";
+    user.fbPictureFilename = @"pic_filename";
     
+    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
+    newGarbageSpot.address = @"some address";
+    newGarbageSpot.latitude = [NSNumber numberWithDouble:12.3];
+    newGarbageSpot.longitude = [NSNumber numberWithDouble:16.3];
+    newGarbageSpot.fbid = @"fbid";
+    newGarbageSpot.reporter = user;
+    
+    [self addGarbageSpot:newGarbageSpot];
+    
+    GarbageSpot* newGarbageSpot2 = [self createGarbageSpot];
+    newGarbageSpot2.address = @"some address 2";
+    newGarbageSpot2.latitude = [NSNumber numberWithDouble:12.3];
+    newGarbageSpot2.longitude = [NSNumber numberWithDouble:16.3];
+    newGarbageSpot2.fbid = @"fbid2";
+    newGarbageSpot2.reporter = user;
+    [self addGarbageSpot:newGarbageSpot2];
 }
 
 -(GarbageSpot*)createGarbageSpot
 {
-    GarbageSpot* g = [NSEntityDescription insertNewObjectForEntityForName:@"GarbageSpot" inManagedObjectContext:self.managedObjectContext];
-    return g;
+    GarbageSpot* garbageSpot = [NSEntityDescription insertNewObjectForEntityForName:@"GarbageSpot" inManagedObjectContext:self.managedObjectContext];
+    return garbageSpot;
 }
 
 -(void)addGarbageSpot:(GarbageSpot *)garbageSpot
 {
-    [user addReportsObject:garbageSpot];
+    [self.user addReportsObject:garbageSpot];
     [self saveContext];
 }
 
