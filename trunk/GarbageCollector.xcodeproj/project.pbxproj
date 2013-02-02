@@ -26,6 +26,7 @@
 		F42D597816BD401C00F1CA6E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597716BD401C00F1CA6E /* Comment.m */; };
 		F42D597B16BD401C00F1CA6E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597A16BD401C00F1CA6E /* User.m */; };
 		F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D598016BD46DD00F1CA6E /* CoreData.framework */; };
+		F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D598416BD47C900F1CA6E /* GarbageStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		F42D597916BD401C00F1CA6E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		F42D597A16BD401C00F1CA6E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F42D598016BD46DD00F1CA6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F42D598316BD47C900F1CA6E /* GarbageStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageStorage.h; sourceTree = "<group>"; };
+		F42D598416BD47C900F1CA6E /* GarbageStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */,
 				F421E34B16BD2D7000FE9E6F /* ViewController.h */,
 				F421E34C16BD2D7000FE9E6F /* ViewController.m */,
+				F42D598316BD47C900F1CA6E /* GarbageStorage.h */,
+				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
 			);
 			path = GarbageCollector;
@@ -218,6 +223,7 @@
 				F42D597416BD401B00F1CA6E /* GarbageSpot.m in Sources */,
 				F42D597816BD401C00F1CA6E /* Comment.m in Sources */,
 				F42D597B16BD401C00F1CA6E /* User.m in Sources */,
+				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
