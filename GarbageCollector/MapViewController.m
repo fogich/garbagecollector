@@ -75,8 +75,6 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [self.map setCenterCoordinate: self.map.userLocation.location.coordinate animated:NO];
-    
     CLLocationCoordinate2D defultLocation;
     
     defultLocation.latitude = 42.691126;
