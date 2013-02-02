@@ -94,7 +94,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="v0F-MD-c33"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v0F-MD-c33"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -106,7 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LQk-O1-YSh"/>
                     <connections>
-                        <outlet property="mapView" destination="v0F-MD-c33" id="meU-lt-0e7"/>
+                        <outlet property="map" destination="v0F-MD-c33" id="HUT-jI-wom"/>
                         <segue destination="F4V-Ol-mww" kind="modal" identifier="seeStats" id="2oY-Gm-xX1"/>
                         <segue destination="JQ3-ul-6at" kind="modal" identifier="fullInfo" id="O5O-xX-gH4"/>
                         <segue destination="IW1-TD-4TU" kind="modal" identifier="newGarbageSpot" id="90Y-lL-JS7"/>
@@ -276,7 +276,7 @@
         <class className="MapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

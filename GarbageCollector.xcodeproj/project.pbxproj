@@ -29,6 +29,8 @@
 		F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D598016BD46DD00F1CA6E /* CoreData.framework */; };
 		F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D598416BD47C900F1CA6E /* GarbageStorage.m */; };
 		F42D599716BD762600F1CA6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599616BD762600F1CA6E /* MapKit.framework */; };
+		F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599916BD791A00F1CA6E /* CoreLocation.framework */; };
+		F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,9 @@
 		F42D598316BD47C900F1CA6E /* GarbageStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageStorage.h; sourceTree = "<group>"; };
 		F42D598416BD47C900F1CA6E /* GarbageStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageStorage.m; sourceTree = "<group>"; };
 		F42D599616BD762600F1CA6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F42D599916BD791A00F1CA6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F42D599B16BD7D4000F1CA6E /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
+		F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */,
 				F42D599716BD762600F1CA6E /* MapKit.framework in Frameworks */,
 				F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */,
 				F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */,
@@ -104,6 +110,7 @@
 		F421E32C16BD2D7000FE9E6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F42D599916BD791A00F1CA6E /* CoreLocation.framework */,
 				F42D599616BD762600F1CA6E /* MapKit.framework */,
 				F42D598016BD46DD00F1CA6E /* CoreData.framework */,
 				F421E32D16BD2D7000FE9E6F /* UIKit.framework */,
@@ -116,6 +123,8 @@
 		F421E33316BD2D7000FE9E6F /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
+				F42D599B16BD7D4000F1CA6E /* PinAnnotation.h */,
+				F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */,
 				F421E33C16BD2D7000FE9E6F /* AppDelegate.h */,
 				F421E33D16BD2D7000FE9E6F /* AppDelegate.m */,
 				F42D597616BD401C00F1CA6E /* Comment.h */,
@@ -234,6 +243,7 @@
 				F42D597B16BD401C00F1CA6E /* User.m in Sources */,
 				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
 				F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */,
+				F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
