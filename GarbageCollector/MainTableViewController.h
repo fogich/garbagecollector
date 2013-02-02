@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MainTableViewController : UITableViewController
-
+-(void) changeFont;
 @end

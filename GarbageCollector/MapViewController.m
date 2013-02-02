@@ -29,17 +29,17 @@
     UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Table" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
-    //set some custom font for the label
-	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
-	[label setBackgroundColor:[UIColor clearColor]];
-	[label setTextColor:[UIColor blackColor]];
-	[label setText:@"Facebook Profile"];
-    [self.navigationController.navigationBar.topItem setTitleView:label];
+    UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
+    titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    titleView.textColor = [UIColor blackColor]; // Your color here
+    titleView.text=@"Facebook Profile";
+    self.navigationItem.titleView = titleView;
+    [titleView sizeToFit];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
 	// Do any additional setup after loading the view.
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

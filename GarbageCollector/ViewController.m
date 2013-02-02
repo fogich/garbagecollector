@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "MainTableViewController.h"
 @interface ViewController ()
 
 @end
@@ -46,5 +46,13 @@
 {
     [self performSegueWithIdentifier:@"gotoTableScreen" sender:self];
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"gotoTaleScreen"])
+    {
+        MainTableViewController* mvc=segue.destinationViewController;
+        [mvc changeFont];
+    }
+        
+}
 @end
