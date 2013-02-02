@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F1A6138316BD3A7E00FED17D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */; };
 		F1A6138416BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */; };
+		F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613A016BD59F500FED17D /* ImagePickerViewController.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
+		F1A613A016BD59F500FED17D /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -109,26 +112,28 @@
 		F421E33316BD2D7000FE9E6F /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
-				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
-				F42D597916BD401C00F1CA6E /* User.h */,
-				F42D597A16BD401C00F1CA6E /* User.m */,
+				F421E33C16BD2D7000FE9E6F /* AppDelegate.h */,
+				F421E33D16BD2D7000FE9E6F /* AppDelegate.m */,
 				F42D597616BD401C00F1CA6E /* Comment.h */,
 				F42D597716BD401C00F1CA6E /* Comment.m */,
 				F42D597216BD401B00F1CA6E /* GarbageSpot.h */,
 				F42D597316BD401B00F1CA6E /* GarbageSpot.m */,
+				F42D598316BD47C900F1CA6E /* GarbageStorage.h */,
+				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
+				F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */,
+				F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */,
 				F421E35316BD2DA700FE9E6F /* MainTableViewController.h */,
 				F421E35416BD2DA700FE9E6F /* MainTableViewController.m */,
 				F421E35516BD2DA700FE9E6F /* MapViewController.h */,
 				F421E35616BD2DA700FE9E6F /* MapViewController.m */,
-				F421E33C16BD2D7000FE9E6F /* AppDelegate.h */,
-				F421E33D16BD2D7000FE9E6F /* AppDelegate.m */,
-				F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */,
-				F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */,
+				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
+				F421E33416BD2D7000FE9E6F /* Supporting Files */,
+				F42D597916BD401C00F1CA6E /* User.h */,
+				F42D597A16BD401C00F1CA6E /* User.m */,
 				F421E34B16BD2D7000FE9E6F /* ViewController.h */,
 				F421E34C16BD2D7000FE9E6F /* ViewController.m */,
-				F42D598316BD47C900F1CA6E /* GarbageStorage.h */,
-				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
-				F421E33416BD2D7000FE9E6F /* Supporting Files */,
+				F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */,
+				F1A613A016BD59F500FED17D /* ImagePickerViewController.m */,
 			);
 			path = GarbageCollector;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				F42D597816BD401C00F1CA6E /* Comment.m in Sources */,
 				F42D597B16BD401C00F1CA6E /* User.m in Sources */,
 				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
+				F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
