@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1B41BA616BD175800C0E6A7 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B41BA516BD175800C0E6A7 /* MainTableViewController.m */; };
+		F1B41BA916BD195900C0E6A7 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B41BA816BD195900C0E6A7 /* MapViewController.m */; };
 		F4A2BDEF16BAFB9C004B2006 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A2BDEE16BAFB9C004B2006 /* UIKit.framework */; };
 		F4A2BDF116BAFB9C004B2006 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A2BDF016BAFB9C004B2006 /* Foundation.framework */; };
 		F4A2BDF316BAFB9C004B2006 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4A2BDF216BAFB9C004B2006 /* CoreGraphics.framework */; };
@@ -22,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F1B41BA416BD175800C0E6A7 /* MainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainTableViewController.h; path = ../MainTableViewController.h; sourceTree = "<group>"; };
+		F1B41BA516BD175800C0E6A7 /* MainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainTableViewController.m; path = ../MainTableViewController.m; sourceTree = "<group>"; };
+		F1B41BA716BD195900C0E6A7 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ../MapViewController.h; sourceTree = "<group>"; };
+		F1B41BA816BD195900C0E6A7 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ../MapViewController.m; sourceTree = "<group>"; };
 		F4A2BDEA16BAFB9C004B2006 /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4A2BDEE16BAFB9C004B2006 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F4A2BDF016BAFB9C004B2006 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +95,10 @@
 				F4A2BDFE16BAFB9D004B2006 /* AppDelegate.m */,
 				F4A2BE0616BAFB9D004B2006 /* MainStoryboard_iPhone.storyboard */,
 				F4A2BE0916BAFB9D004B2006 /* MainStoryboard_iPad.storyboard */,
+				F1B41BA416BD175800C0E6A7 /* MainTableViewController.h */,
+				F1B41BA516BD175800C0E6A7 /* MainTableViewController.m */,
+				F1B41BA716BD195900C0E6A7 /* MapViewController.h */,
+				F1B41BA816BD195900C0E6A7 /* MapViewController.m */,
 				F4A2BE0C16BAFB9D004B2006 /* ViewController.h */,
 				F4A2BE0D16BAFB9D004B2006 /* ViewController.m */,
 				F4A2BDF516BAFB9C004B2006 /* Supporting Files */,
@@ -180,6 +190,8 @@
 				F4A2BDFB16BAFB9C004B2006 /* main.m in Sources */,
 				F4A2BDFF16BAFB9D004B2006 /* AppDelegate.m in Sources */,
 				F4A2BE0E16BAFB9D004B2006 /* ViewController.m in Sources */,
+				F1B41BA616BD175800C0E6A7 /* MainTableViewController.m in Sources */,
+				F1B41BA916BD195900C0E6A7 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +318,7 @@
 				F4A2BE1316BAFB9D004B2006 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
