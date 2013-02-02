@@ -52,27 +52,38 @@
 
 -(void)initUser
 {
-    self.user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
-    user.fbid = @"12303012301230";
-    user.fbName = @"Kurtev";
-    user.fbPictureFilename = @"pic_filename";
     
-    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
-    newGarbageSpot.address = @"some address";
-    newGarbageSpot.latitude = [NSNumber numberWithDouble:12.3];
-    newGarbageSpot.longitude = [NSNumber numberWithDouble:16.3];
-    newGarbageSpot.fbid = @"fbid";
-    newGarbageSpot.reporter = user;
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+    request.entity = entity;
+    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:nil];
     
-    [self addGarbageSpot:newGarbageSpot];
+    self.user = [result objectAtIndex: 0];
     
-    GarbageSpot* newGarbageSpot2 = [self createGarbageSpot];
-    newGarbageSpot2.address = @"some address 2";
-    newGarbageSpot2.latitude = [NSNumber numberWithDouble:12.3];
-    newGarbageSpot2.longitude = [NSNumber numberWithDouble:16.3];
-    newGarbageSpot2.fbid = @"fbid2";
-    newGarbageSpot2.reporter = user;
-    [self addGarbageSpot:newGarbageSpot2];
+    //create user and some garbage spots
+    
+    
+//    self.user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+//    user.fbid = @"12303012301230";
+//    user.fbName = @"Kurtev";
+//    user.fbPictureFilename = @"pic_filename";
+//    
+//    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
+//    newGarbageSpot.address = @"some address";
+//    newGarbageSpot.latitude = [NSNumber numberWithDouble:12.3];
+//    newGarbageSpot.longitude = [NSNumber numberWithDouble:16.3];
+//    newGarbageSpot.fbid = @"fbid";
+//    newGarbageSpot.reporter = user;
+//    
+//    [self addGarbageSpot:newGarbageSpot];
+//    
+//    GarbageSpot* newGarbageSpot2 = [self createGarbageSpot];
+//    newGarbageSpot2.address = @"some address 2";
+//    newGarbageSpot2.latitude = [NSNumber numberWithDouble:12.3];
+//    newGarbageSpot2.longitude = [NSNumber numberWithDouble:16.3];
+//    newGarbageSpot2.fbid = @"fbid2";
+//    newGarbageSpot2.reporter = user;
+//    [self addGarbageSpot:newGarbageSpot2];
 }
 
 -(GarbageSpot*)createGarbageSpot
