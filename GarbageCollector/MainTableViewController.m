@@ -33,8 +33,9 @@
     //set some custom font for the label
 	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
 	[label setBackgroundColor:[UIColor clearColor]];
-	[label setTextColor:[UIColor redColor]];
+	[label setTextColor:[UIColor blackColor]];
 	[label setText:@"Facebook Profile"];
+    [self.navigationController.navigationBar.topItem setTitleView:label];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
