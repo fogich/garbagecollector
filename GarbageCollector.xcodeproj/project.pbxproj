@@ -31,6 +31,7 @@
 		F42D599716BD762600F1CA6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599616BD762600F1CA6E /* MapKit.framework */; };
 		F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599916BD791A00F1CA6E /* CoreLocation.framework */; };
 		F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */; };
+		F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49433EA16BDF9A4001712D3 /* DrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,9 +72,9 @@
 		F42D599916BD791A00F1CA6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F42D599B16BD7D4000F1CA6E /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
 		F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
-		F49433E516BDF6AD001712D3 /* DrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
-		F49433E616BDF6AD001712D3 /* DrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		F49433E716BDF6AE001712D3 /* Kaci.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kaci.jpg; sourceTree = "<group>"; };
+		F49433E916BDF9A4001712D3 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		F49433EA16BDF9A4001712D3 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +144,8 @@
 				F421E35516BD2DA700FE9E6F /* MapViewController.h */,
 				F421E35616BD2DA700FE9E6F /* MapViewController.m */,
 				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
-				F49433E516BDF6AD001712D3 /* DrawView.h */,
-				F49433E616BDF6AD001712D3 /* DrawView.m */,
+				F49433E916BDF9A4001712D3 /* DrawView.h */,
+				F49433EA16BDF9A4001712D3 /* DrawView.m */,
 				F49433E716BDF6AE001712D3 /* Kaci.jpg */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
 				F42D597916BD401C00F1CA6E /* User.h */,
@@ -250,6 +251,7 @@
 				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
 				F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */,
 				F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */,
+				F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
