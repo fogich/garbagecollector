@@ -201,10 +201,7 @@ void  drawLabel(CGContextRef c, CGPoint center, CGFloat r, CGFloat sa, CGFloat e
 }
 
 
-- (IBAction)random:(id)sender {
 
-    [self setNeedsDisplay];
-}
 
 //void  drawCircle(CGContextRef c, CGFloat x, CGFloat y, CGFloat r, CGFloat sa, CGFloat ea, int cl){
 //
