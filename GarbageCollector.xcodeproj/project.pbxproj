@@ -32,6 +32,7 @@
 		F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599916BD791A00F1CA6E /* CoreLocation.framework */; };
 		F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */; };
 		F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49433EA16BDF9A4001712D3 /* DrawView.m */; };
+		F49433ED16BDFB6A001712D3 /* Kaci.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F49433EC16BDFB6A001712D3 /* Kaci.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,9 +73,9 @@
 		F42D599916BD791A00F1CA6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F42D599B16BD7D4000F1CA6E /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
 		F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
-		F49433E716BDF6AE001712D3 /* Kaci.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kaci.jpg; sourceTree = "<group>"; };
 		F49433E916BDF9A4001712D3 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		F49433EA16BDF9A4001712D3 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		F49433EC16BDFB6A001712D3 /* Kaci.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kaci.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +147,7 @@
 				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
 				F49433E916BDF9A4001712D3 /* DrawView.h */,
 				F49433EA16BDF9A4001712D3 /* DrawView.m */,
-				F49433E716BDF6AE001712D3 /* Kaci.jpg */,
+				F49433EC16BDFB6A001712D3 /* Kaci.jpg */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
 				F42D597916BD401C00F1CA6E /* User.h */,
 				F42D597A16BD401C00F1CA6E /* User.m */,
@@ -229,6 +230,7 @@
 				F421E34416BD2D7000FE9E6F /* Default-568h@2x.png in Resources */,
 				F1A6138316BD3A7E00FED17D /* MainStoryboard_iPad.storyboard in Resources */,
 				F1A6138416BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard in Resources */,
+				F49433ED16BDFB6A001712D3 /* Kaci.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

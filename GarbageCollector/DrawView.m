@@ -70,7 +70,7 @@ UIColor *pieceColor;
     NSArray *labels = @[@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun"];
     
     //random array - debug/test/fun feature ;)
-    for (int i=0; i<sizeof(array)-1; i++) {
+    for (int i=0; i<sizeof(array); i++) {
         array[i]= arc4random() % 10;
         //NSLog(@"array[%d]=%d",i,array[i]);
     }
@@ -83,12 +83,12 @@ UIColor *pieceColor;
     
     //getting the total sum of all array elements
     unsigned int arraySum = 0;
-    for (int i=0; i<sizeof(array)-1; i++) {
+    for (int i=0; i<sizeof(array); i++) {
         arraySum+=array[i];
     }
     
     //start drawing the pie chart piece by piece
-    for (int i=0; i<sizeof(array)-1; i++) {
+    for (int i=0; i<sizeof(array); i++) {
         
         //how many % is the current piece? In fraction of 1.0
         float fraction = (float)array[i]/(float)arraySum;
