@@ -200,6 +200,9 @@ void  drawLabel(CGContextRef c, CGPoint center, CGFloat r, CGFloat sa, CGFloat e
     CGContextDrawPath(c, kCGPathFillStroke);
 }
 
+- (IBAction)random:(id)sender {
+    [self setNeedsDisplay];
+}
 
 
 

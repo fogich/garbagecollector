@@ -133,6 +133,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="random:" destination="oFJ-md-HeD" eventType="touchUpInside" id="YRd-lx-Lbk"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Kaci.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fQb-F2-CaY">
                                 <constraints>
