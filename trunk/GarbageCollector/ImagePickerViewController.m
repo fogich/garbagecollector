@@ -12,11 +12,13 @@
 @interface ImagePickerViewController ()
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
+@property (strong, nonatomic) GarbageSpot* garbageSpot;
 
 @end
 
 @implementation ImagePickerViewController
 @synthesize locationManager=_locationManager;
+@synthesize garbageSpot=_garbageSpot;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,10 +63,10 @@
 {
     NSString* address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", placemark.country, placemark.locality, placemark.subLocality, placemark.thoroughfare, placemark.subThoroughfare];
     
-    GarbageSpot* newSpot = [[GarbageStorage instance] createGarbageSpot];
-    newSpot.latitude = [NSNumber numberWithDouble: placemark.location.coordinate.latitude];
-    newSpot.longitude = [NSNumber numberWithDouble: placemark.location.coordinate.longitude];
-    newSpot.address = address;
+    self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
+    self.garbageSpot.latitude = [NSNumber numberWithDouble: placemark.location.coordinate.latitude];
+    self.garbageSpot.longitude = [NSNumber numberWithDouble: placemark.location.coordinate.longitude];
+    self.garbageSpot.address = address;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
