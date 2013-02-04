@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) GarbageSpot* garbageSpot;
+- (IBAction)testCLick:(id)sender;
 
 @end
 
@@ -33,6 +34,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [self saveImageToDocuments];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -67,6 +70,47 @@
     self.garbageSpot.latitude = [NSNumber numberWithDouble: placemark.location.coordinate.latitude];
     self.garbageSpot.longitude = [NSNumber numberWithDouble: placemark.location.coordinate.longitude];
     self.garbageSpot.address = address;
+    self.garbageSpot.pictureFilename = [self saveImageToDocuments];
+    
+    //start facebook post dialog
+    //get fbid from facebook
+    
+    //add the current user as a reporter
+    //save context
+}
+
+-(NSString*)saveImageToDocuments
+{
+    //copy the image into documents
+    //and get its new filename
+    //self.imageView.image;
+    
+    //set filename with timestamp
+    NSDate* date = [NSDate date];
+    NSCalendar* gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents* comps = [gregorian components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit|NSMinuteCalendarUnit|NSHourCalendarUnit|NSSecondCalendarUnit fromDate:date];
+    
+    int year = [comps year];
+    int month = [comps month];
+    int day = [comps day];
+    int hour = [comps hour];
+    int min = [comps minute];
+    int sec = [comps second];
+    
+    NSString *toPath = [self destinationPathForFile:@"somefilepath" filetype:@"jpg" directory:NSDocumentDirectory];
+    [UIImageJPEGRepresentation(self.imageView.image, 1.0) writeToFile:toPath atomically:YES];
+    
+    return toPath;
+}
+
+-(NSString*)destinationPathForFile: (NSString*)filename
+                      filetype: (NSString*)filetype
+                     directory: (NSSearchPathDirectory)directory
+{
+    NSString *dirPath = [NSSearchPathForDirectoriesInDomains(directory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString* resultPath = [NSString stringWithFormat: @"%@.%@", [NSString pathWithComponents: [NSArray arrayWithObjects:dirPath, filename, nil]], filetype];
+    return resultPath;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -90,7 +134,7 @@
 }
 
 -(IBAction)selectExitingPicture
-{
+{    
     if([UIImagePickerController isSourceTypeAvailable:
         UIImagePickerControllerSourceTypePhotoLibrary])
     {
