@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cn8-h7-1Ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1685" y="1201"/>
+            <point key="canvasLocation" x="1715" y="1151"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="NS4-OU-wNJ">
@@ -314,8 +314,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="SnD-N5-OYE"/>
         <segue reference="ika-uU-5U8"/>
         <segue reference="Ueo-jp-xd2"/>
+        <segue reference="90Y-lL-JS7"/>
     </inferredMetricsTieBreakers>
 </document>
