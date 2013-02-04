@@ -44,8 +44,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
 	// Do any additional setup after loading the view.
     
-    //initializing map
-    self.map.mapType = MKMapTypeStandard;
+    //initializing map annotations
     
     NSMutableArray* annots = [NSMutableArray array];
     PinAnnotation* p = [[PinAnnotation alloc] init];
@@ -71,12 +70,6 @@
 
     self.map.delegate = self;
     [self.map addAnnotations: annots];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(-42.691126,-23.319875), MKCoordinateSpanMake(0.05, 0.05));
-    self.map.region = [self.map regionThatFits:region];
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,5 +120,10 @@
     }
 }
 
+-(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
+{
+    MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.05, 0.05));
+    self.map.region = [self.map regionThatFits:region];
+}
 
 @end
