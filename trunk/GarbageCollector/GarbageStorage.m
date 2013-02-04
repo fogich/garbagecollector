@@ -10,15 +10,12 @@
 #import "User.h"
 #import <CoreData/CoreData.h>
 
-#import <CoreLocation/CoreLocation.h>
-
-@interface GarbageStorage ()<CLLocationManagerDelegate>
+@interface GarbageStorage ()
 
 @property (strong, nonatomic) User* user;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
 - (void)initUser;
 
 @end
@@ -64,55 +61,35 @@
     
     //create user and some garbage spots
     
-    
-    
 //    self.user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
 //    user.fbid = @"12303012301230";
 //    user.fbName = @"Kurtev";
 //    user.fbPictureFilename = @"pic_filename";
     
-//    //add the address with Geocoder
-    
-    CLLocationManager* locationManager = [[CLLocationManager alloc] init];
-    [locationManager startUpdatingLocation];
-    
-    
-    
-    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
-    newGarbageSpot.address = @"some address";
-    newGarbageSpot.latitude = [NSNumber numberWithDouble:42.691126];
-    newGarbageSpot.longitude = [NSNumber numberWithDouble:23.319875];
-    newGarbageSpot.fbid = @"fbid";
-    newGarbageSpot.reporter = user;
-    
-    [self addGarbageSpot:newGarbageSpot];
-    
-    GarbageSpot* newGarbageSpot2 = [self createGarbageSpot];
-    newGarbageSpot2.address = @"some address 2";
-    newGarbageSpot2.latitude = [NSNumber numberWithDouble:42.694442];
-    newGarbageSpot2.longitude = [NSNumber numberWithDouble:23.322512];
-    newGarbageSpot2.fbid = @"fbid2";
-    newGarbageSpot2.reporter = user;
-    [self addGarbageSpot:newGarbageSpot2];
-    
-    GarbageSpot* newGarbageSpot3 = [self createGarbageSpot];
-    newGarbageSpot3.address = @"some address 3";
-    newGarbageSpot3.latitude = [NSNumber numberWithDouble:42.694442];
-    newGarbageSpot3.longitude = [NSNumber numberWithDouble:23.322512];
-    newGarbageSpot3.fbid = @"fbid3";
-    newGarbageSpot3.reporter = user;
-    [self addGarbageSpot:newGarbageSpot3];
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    CLLocation* currentUserLocation = [locations lastObject];
-    CLGeocoder* geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:currentUserLocation completionHandler:^(NSArray* array, NSError* error)
-     {
-         //update the current garbage address
-         [manager stopUpdatingLocation];
-     }];
+//    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
+//    newGarbageSpot.address = @"some address";
+//    newGarbageSpot.latitude = [NSNumber numberWithDouble:42.691126];
+//    newGarbageSpot.longitude = [NSNumber numberWithDouble:23.319875];
+//    newGarbageSpot.fbid = @"fbid";
+//    newGarbageSpot.reporter = user;
+//    
+//    [self addGarbageSpot:newGarbageSpot];
+//    
+//    GarbageSpot* newGarbageSpot2 = [self createGarbageSpot];
+//    newGarbageSpot2.address = @"some address 2";
+//    newGarbageSpot2.latitude = [NSNumber numberWithDouble:42.694442];
+//    newGarbageSpot2.longitude = [NSNumber numberWithDouble:23.322512];
+//    newGarbageSpot2.fbid = @"fbid2";
+//    newGarbageSpot2.reporter = user;
+//    [self addGarbageSpot:newGarbageSpot2];
+//    
+//    GarbageSpot* newGarbageSpot3 = [self createGarbageSpot];
+//    newGarbageSpot3.address = @"some address 3";
+//    newGarbageSpot3.latitude = [NSNumber numberWithDouble:42.694442];
+//    newGarbageSpot3.longitude = [NSNumber numberWithDouble:23.322512];
+//    newGarbageSpot3.fbid = @"fbid3";
+//    newGarbageSpot3.reporter = user;
+//    [self addGarbageSpot:newGarbageSpot3];
 }
 
 -(GarbageSpot*)createGarbageSpot
