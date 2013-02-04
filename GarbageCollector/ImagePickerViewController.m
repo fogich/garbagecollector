@@ -7,6 +7,7 @@
 //
 
 #import "ImagePickerViewController.h"
+#import "GarbageStorage.h"
 
 @interface ImagePickerViewController ()
 
@@ -35,7 +36,6 @@
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [self.locationManager startUpdatingLocation];
 }
 
 -(void)locationManager:(CLLocationManager *)manager
@@ -46,14 +46,25 @@
     CLGeocoder* geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarkers, NSError* error)
     {
+        //error handling
+        [manager stopUpdatingLocation];
         CLPlacemark* placemark = [placemarkers objectAtIndex:0];
-        NSString* address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", placemark.country, placemark.locality, placemark.subLocality, placemark.thoroughfare, placemark.subThoroughfare];
         
         //update the current garbage address
         //and location
-        [manager stopUpdatingLocation];
+        [self performSelectorOnMainThread:@selector(addNewGarbageSpotWithPlaceMark:) withObject:placemark waitUntilDone:NO];
     }];
     
+}
+
+-(void)addNewGarbageSpotWithPlaceMark: (CLPlacemark*) placemark
+{
+    NSString* address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", placemark.country, placemark.locality, placemark.subLocality, placemark.thoroughfare, placemark.subThoroughfare];
+    
+    GarbageSpot* newSpot = [[GarbageStorage instance] createGarbageSpot];
+    newSpot.latitude = [NSNumber numberWithDouble: placemark.location.coordinate.latitude];
+    newSpot.longitude = [NSNumber numberWithDouble: placemark.location.coordinate.longitude];
+    newSpot.address = address;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -94,6 +105,8 @@
 {
     self.imageView.image = image;
     [picker dismissModalViewControllerAnimated:YES];
+    
+    [self.locationManager startUpdatingLocation];
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)  picker
