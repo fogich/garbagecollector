@@ -250,9 +250,6 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpe-jp-lGV">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="HVB-bD-uO7"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Library">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -265,39 +262,21 @@
                                     <action selector="selectExitingPicture" destination="IW1-TD-4TU" eventType="touchUpInside" id="x7r-sO-w5u"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Kaci.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-CA-Rys">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNw-CA-Rys">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="402" id="Ed3-3B-IYV"/>
+                                    <constraint firstAttribute="width" constant="239" id="ztO-T2-LSS"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-qi-iZd">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="Ah4-CL-Qza"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Test">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="testCLick:" destination="IW1-TD-4TU" eventType="touchUpInside" id="sHh-r8-Dg7"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vgg-qi-iZd" firstAttribute="top" secondItem="XNw-CA-Rys" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="FOk-cK-iVy"/>
-                            <constraint firstItem="vgg-qi-iZd" firstAttribute="centerX" secondItem="XNw-CA-Rys" secondAttribute="centerX" type="default" id="Hwr-iT-dzk"/>
+                            <constraint firstItem="XNw-CA-Rys" firstAttribute="centerX" secondItem="enf-dk-kKe" secondAttribute="centerX" type="default" id="ERc-CT-zuv"/>
                             <constraint firstItem="tpe-jp-lGV" firstAttribute="trailing" secondItem="XNw-CA-Rys" secondAttribute="trailing" type="default" id="VBe-2Q-i3A"/>
                             <constraint firstItem="tpe-jp-lGV" firstAttribute="baseline" secondItem="d2m-u3-tlu" secondAttribute="baseline" type="default" id="Zmr-P3-dSY"/>
                             <constraint firstItem="d2m-u3-tlu" firstAttribute="leading" secondItem="XNw-CA-Rys" secondAttribute="leading" type="default" id="anb-hf-1e4"/>
-                            <constraint firstItem="tpe-jp-lGV" firstAttribute="leading" secondItem="vgg-qi-iZd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ktL-VF-iRW"/>
                             <constraint firstAttribute="bottom" secondItem="d2m-u3-tlu" secondAttribute="bottom" constant="41" id="lby-fu-Kme"/>
                             <constraint firstItem="XNw-CA-Rys" firstAttribute="top" secondItem="enf-dk-kKe" secondAttribute="top" constant="25" id="uRF-jq-tSL"/>
-                            <constraint firstItem="vgg-qi-iZd" firstAttribute="centerX" secondItem="enf-dk-kKe" secondAttribute="centerX" type="default" id="yQJ-vg-m5k"/>
                         </constraints>
                     </view>
                     <connections>
@@ -329,37 +308,6 @@
     <resources>
         <image name="Kaci.jpg" width="660" height="528"/>
     </resources>
-    <classes>
-        <class className="DrawView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
-        </class>
-        <class className="ImagePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="getCameraPicture:"/>
-                <relationship kind="action" name="selectExitingPicture"/>
-                <relationship kind="action" name="testCLick:"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="selectFromCameraRollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MainTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTableViewController.h"/>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
