@@ -11,7 +11,7 @@
 
 @interface MapViewController ()
 
-@property (weak, nonatomic) IBOutlet MKMapView *map;
+
 
 @end
 
@@ -75,16 +75,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    CLLocationCoordinate2D defultLocation;
-    
-    defultLocation.latitude = 42.691126;
-    defultLocation.longitude = 23.319875;
-    
-    MKCoordinateRegion defaultRegion = MKCoordinateRegionMakeWithDistance(defultLocation, 800, 800);
-    [self.map setRegion:defaultRegion animated:YES];
-    
-//    self.map.region =
-//    MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.05, 0.05));
+    MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(-42.691126,-23.319875), MKCoordinateSpanMake(0.05, 0.05));
+    self.map.region = [self.map regionThatFits:region];
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,8 +102,8 @@
     }
     else
     {
-        //PinAnnotation* pA = (PinAnnotation*)annotation;
-        //pinView.annotation = pA;
+        PinAnnotation* pA = (PinAnnotation*)annotation;
+        pinView.annotation = pA;
     }
     
     return pinView;
@@ -134,7 +126,6 @@
         [alert show];
     }
 }
-
 
 
 @end
