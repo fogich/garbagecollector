@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) GarbageSpot* garbageSpot;
-- (IBAction)testCLick:(id)sender;
 
 @end
 
@@ -34,8 +33,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    [self saveImageToDocuments];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -97,8 +94,9 @@
     int hour = [comps hour];
     int min = [comps minute];
     int sec = [comps second];
+    NSString* dateString = [NSString stringWithFormat:@"%d_%d_%d_%d_%d_%d", year, month, day, hour, min, sec];
     
-    NSString *toPath = [self destinationPathForFile:@"somefilepath" filetype:@"jpg" directory:NSDocumentDirectory];
+    NSString *toPath = [self destinationPathForFile:dateString filetype:@"jpg" directory:NSDocumentDirectory];
     [UIImageJPEGRepresentation(self.imageView.image, 1.0) writeToFile:toPath atomically:YES];
     
     return toPath;
