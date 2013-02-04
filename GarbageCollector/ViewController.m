@@ -32,7 +32,10 @@
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     
+    
+    
     //test
+    //[[GarbageStorage instance] allGarbageSpots];
 //    GarbageStorage* storage = [GarbageStorage instance];
 //    NSArray* garbageSpots = [storage allGarbageSpots];
 //
@@ -58,11 +61,10 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"gotoTaleScreen"])
+    if([segue.identifier isEqualToString:@"gotoTableScreen"])
     {
         MainTableViewController* mvc=segue.destinationViewController;
         [mvc changeFont];
     }
-        
 }
 @end

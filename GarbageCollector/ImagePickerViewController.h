@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface ImagePickerViewController : UIViewController< UIImagePickerControllerDelegate , UINavigationControllerDelegate>
+@interface ImagePickerViewController : UIViewController< UIImagePickerControllerDelegate , UINavigationControllerDelegate, CLLocationManagerDelegate>
 {
 
 }
