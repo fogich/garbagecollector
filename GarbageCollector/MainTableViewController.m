@@ -59,6 +59,7 @@
 -(void) switchScreen
 {
     ViewController* mvc = self.navigationController.viewControllers[0];
+    [self.navigationController popToRootViewControllerAnimated:NO];
     [mvc switchToMapScreen];
 }
 - (void)didReceiveMemoryWarning
@@ -154,8 +155,11 @@
     [self performSegueWithIdentifier:@"fullInfo" sender:indexPath];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{   //tuk promenqme kakto si iskame dannite v infoViewController
-    NSIndexPath* indexPath=(NSIndexPath*) sender;
-    InfoViewController* mvc = segue.destinationViewController;
+{   if([segue.identifier isEqualToString:@"fullInfo"])
+    {
+        NSIndexPath* indexPath=(NSIndexPath*) sender;
+        InfoViewController* mvc = segue.destinationViewController;
+        mvc.currentIndex=indexPath.row;
+    }
 }
 @end

@@ -78,6 +78,7 @@
 -(void) switchScreen
 {
     ViewController* mvc = self.navigationController.viewControllers[0];
+    [self.navigationController popToRootViewControllerAnimated:NO];
     [mvc switchToTableScreen];
 }
 - (void)didReceiveMemoryWarning
