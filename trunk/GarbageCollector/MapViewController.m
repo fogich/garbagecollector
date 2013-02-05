@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "PinAnnotation.h"
-
+#import "ViewController.h"
 @interface MapViewController ()
 
 
@@ -71,7 +71,15 @@
     self.map.delegate = self;
     [self.map addAnnotations: annots];
 }
-
+-(void) addItem
+{
+    [self performSegueWithIdentifier:@"newGarbageSpot" sender:self];
+}
+-(void) switchScreen
+{
+    ViewController* mvc = self.navigationController.viewControllers[0];
+    [mvc switchToTableScreen];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
