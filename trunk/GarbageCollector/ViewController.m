@@ -59,12 +59,5 @@
 {
     [self performSegueWithIdentifier:@"gotoTableScreen" sender:self];
 }
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"gotoTableScreen"])
-    {
-        MainTableViewController* mvc=segue.destinationViewController;
-        [mvc changeFont];
-    }
-}
+
 @end

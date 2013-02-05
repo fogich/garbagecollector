@@ -10,6 +10,8 @@
 		F1A6138316BD3A7E00FED17D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */; };
 		F1A6138416BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */; };
 		F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613A016BD59F500FED17D /* ImagePickerViewController.m */; };
+		F1A613B016C10B9500FED17D /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613AF16C10B9400FED17D /* MainCell.m */; };
+		F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613B316C12B8900FED17D /* InfoViewController.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -40,6 +42,10 @@
 		F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
 		F1A613A016BD59F500FED17D /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
+		F1A613AE16C10B9400FED17D /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
+		F1A613AF16C10B9400FED17D /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		F1A613B216C12B8800FED17D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		F1A613B316C12B8900FED17D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -140,8 +146,12 @@
 				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
 				F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */,
 				F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */,
+				F1A613B216C12B8800FED17D /* InfoViewController.h */,
+				F1A613B316C12B8900FED17D /* InfoViewController.m */,
 				F421E35316BD2DA700FE9E6F /* MainTableViewController.h */,
 				F421E35416BD2DA700FE9E6F /* MainTableViewController.m */,
+				F1A613AE16C10B9400FED17D /* MainCell.h */,
+				F1A613AF16C10B9400FED17D /* MainCell.m */,
 				F421E35516BD2DA700FE9E6F /* MapViewController.h */,
 				F421E35616BD2DA700FE9E6F /* MapViewController.m */,
 				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
@@ -254,6 +264,8 @@
 				F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */,
 				F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */,
 				F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */,
+				F1A613B016C10B9500FED17D /* MainCell.m in Sources */,
+				F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

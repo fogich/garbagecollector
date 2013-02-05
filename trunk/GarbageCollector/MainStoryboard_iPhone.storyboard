@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="457" y="161"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="RhH-vC-UNc">
             <objects>
-                <viewController id="JQ3-ul-6at" sceneMemberID="viewController">
+                <viewController id="JQ3-ul-6at" customClass="InfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCQ-ga-dCA">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -166,9 +166,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="IeV-1d-dyE" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="5rP-Ng-7w3"/>
+                            <constraint firstItem="mGj-Uo-kyl" firstAttribute="centerX" secondItem="oFJ-md-HeD" secondAttribute="centerX" type="default" id="9Un-xt-RFS"/>
                             <constraint firstItem="mGj-Uo-kyl" firstAttribute="centerX" secondItem="IeV-1d-dyE" secondAttribute="centerX" type="default" id="BMP-Zd-sxY"/>
                             <constraint firstItem="IeV-1d-dyE" firstAttribute="top" secondItem="mGj-Uo-kyl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="mao-4A-qLy"/>
-                            <constraint firstItem="IeV-1d-dyE" firstAttribute="centerX" secondItem="oFJ-md-HeD" secondAttribute="centerX" type="default" id="vDC-Zt-bN2"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -185,7 +185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" rowHeight="120" id="n13-c9-WeM">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MainCell" rowHeight="120" id="n13-c9-WeM" customClass="MainCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -214,6 +214,10 @@
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="centerY" secondItem="n13-c9-WeM" secondAttribute="centerY" type="default" id="dyn-oW-kxL"/>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="bottom" secondItem="5fZ-Ah-Cxa" secondAttribute="bottom" type="default" id="xVR-Cg-fHC"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="cellPicture" destination="5fZ-Ah-Cxa" id="I6X-v1-mzh"/>
+                                    <outlet property="cellText" destination="0M4-fF-Z1k" id="MfU-ax-reV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -277,7 +281,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="g5U-M1-dE4" firstAttribute="centerX" secondItem="XNw-CA-Rys" secondAttribute="centerX" type="default" id="Ctj-Aa-1Lf"/>
-                            <constraint firstItem="g5U-M1-dE4" firstAttribute="top" secondItem="enf-dk-kKe" secondAttribute="top" constant="-8" id="IxS-7h-M2X"/>
+                            <constraint firstItem="g5U-M1-dE4" firstAttribute="top" secondItem="enf-dk-kKe" secondAttribute="top" type="default" id="RW6-Fq-uTh"/>
                             <constraint firstItem="XNw-CA-Rys" firstAttribute="top" secondItem="enf-dk-kKe" secondAttribute="top" constant="50" id="Syr-Pn-SCR"/>
                             <constraint firstItem="tpe-jp-lGV" firstAttribute="trailing" secondItem="XNw-CA-Rys" secondAttribute="trailing" type="default" id="VBe-2Q-i3A"/>
                             <constraint firstItem="tpe-jp-lGV" firstAttribute="baseline" secondItem="d2m-u3-tlu" secondAttribute="baseline" type="default" id="Zmr-P3-dSY"/>
@@ -290,7 +294,6 @@
                     <connections>
                         <outlet property="imageView" destination="XNw-CA-Rys" id="jTO-2W-rGK"/>
                         <outlet property="navigationBarItems" destination="DYh-NK-VMj" id="aVn-mG-MAq"/>
-                        <outlet property="navigationToolbar" destination="g5U-M1-dE4" id="TfV-ew-N15"/>
                         <outlet property="selectFromCameraRollButton" destination="tpe-jp-lGV" id="I72-Xb-jCQ"/>
                         <outlet property="takePictureButton" destination="d2m-u3-tlu" id="f7j-sH-3gm"/>
                     </connections>
@@ -318,14 +321,55 @@
     <resources>
         <image name="Kaci.jpg" width="660" height="528"/>
     </resources>
+    <classes>
+        <class className="DrawView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
+        </class>
+        <class className="ImagePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getCameraPicture:"/>
+                <relationship kind="action" name="selectExitingPicture"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="selectFromCameraRollButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+        </class>
+        <class className="MainCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTableViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ika-uU-5U8"/>
-        <segue reference="O5O-xX-gH4"/>
         <segue reference="SnD-N5-OYE"/>
+        <segue reference="SVA-fZ-1fk"/>
+        <segue reference="O5O-xX-gH4"/>
     </inferredMetricsTieBreakers>
 </document>

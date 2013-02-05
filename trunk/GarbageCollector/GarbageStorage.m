@@ -65,13 +65,14 @@
 //    user.fbid = @"12303012301230";
 //    user.fbName = @"Kurtev";
 //    user.fbPictureFilename = @"pic_filename";
-    
+//    
 //    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
 //    newGarbageSpot.address = @"some address";
 //    newGarbageSpot.latitude = [NSNumber numberWithDouble:42.691126];
 //    newGarbageSpot.longitude = [NSNumber numberWithDouble:23.319875];
 //    newGarbageSpot.fbid = @"fbid";
 //    newGarbageSpot.reporter = user;
+//    newGarbageSpot.pictureDescription=@"dumbshit description";
 //    
 //    [self addGarbageSpot:newGarbageSpot];
 //    
@@ -81,6 +82,7 @@
 //    newGarbageSpot2.longitude = [NSNumber numberWithDouble:23.322512];
 //    newGarbageSpot2.fbid = @"fbid2";
 //    newGarbageSpot2.reporter = user;
+//    newGarbageSpot2.pictureDescription=@"even stupider description";
 //    [self addGarbageSpot:newGarbageSpot2];
 //    
 //    GarbageSpot* newGarbageSpot3 = [self createGarbageSpot];
@@ -89,6 +91,7 @@
 //    newGarbageSpot3.longitude = [NSNumber numberWithDouble:23.322512];
 //    newGarbageSpot3.fbid = @"fbid3";
 //    newGarbageSpot3.reporter = user;
+//    newGarbageSpot3.pictureDescription=@"hobo alley";
 //    [self addGarbageSpot:newGarbageSpot3];
 }
 
