@@ -7,10 +7,13 @@
 //
 
 #import "MainTableViewController.h"
-#import "GarbageSpot.h"
+#import "MainCell.h"
 #import "ViewController.h"
+#import "GarbageSpot.h"
+#import "GarbageStorage.h"
+#import "InfoViewController.h"
 @interface MainTableViewController ()
-
+@property(nonatomic) NSArray* tableArray;
 @end
 
 @implementation MainTableViewController
@@ -22,10 +25,6 @@
         // Custom initialization
     }
     return self;
-}
--(void) changeFont
-{
-    
 }
 - (void)viewDidLoad
 {
@@ -44,6 +43,9 @@
     self.navigationItem.titleView = titleView;
     [titleView sizeToFit];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    self.tableArray=[[GarbageStorage instance] allGarbageSpots];
+    [self.tableView reloadData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -76,14 +78,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [self.tableArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    static NSString *CellIdentifier = @"MainCell";
+    MainCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    GarbageSpot* currentSpot = [self.tableArray objectAtIndex:indexPath.row];
+    cell.cellPicture.image=[UIImage imageNamed:currentSpot.pictureFilename];
+    cell.cellText.text=currentSpot.pictureDescription;
     // Configure the cell...
     
     return cell;
@@ -127,18 +131,31 @@
     return YES;
 }
 */
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(buttonClicked)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"See Graph" forState:UIControlStateNormal];
+    button.frame = CGRectMake(0, 0, 120.0, 40.0);
+    [view addSubview:button];
+    return view;
+}
+-(void) buttonClicked
+{
+    [self performSegueWithIdentifier:@"seeStats" sender:self];
+}
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    [self performSegueWithIdentifier:@"fullInfo" sender:indexPath];
 }
-
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{   //tuk promenqme kakto si iskame dannite v infoViewController
+    NSIndexPath* indexPath=(NSIndexPath*) sender;
+    InfoViewController* mvc = segue.destinationViewController;
+}
 @end
