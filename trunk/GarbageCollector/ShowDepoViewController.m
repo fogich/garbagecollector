@@ -7,8 +7,10 @@
 //
 
 #import "ShowDepoViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface ShowDepoViewController ()
+@property (weak, nonatomic) IBOutlet MKMapView *map;
 
 @end
 
