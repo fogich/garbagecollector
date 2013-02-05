@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "GarbageSpot.h"
 
-@interface ShowDepoViewController : UIViewController
+@interface ShowDepoViewController : UIViewController<MKMapViewDelegate>
+
+@property (nonatomic, retain) GarbageSpot* spotDetail;
 
 @end
