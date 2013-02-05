@@ -18,4 +18,6 @@
 @property(nonatomic) IBOutlet UIButton *selectFromCameraRollButton;
 -(IBAction)getCameraPicture:(id)sender;
 -(IBAction)selectExitingPicture;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItems;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationToolbar;
 @end

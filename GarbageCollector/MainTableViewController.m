@@ -8,6 +8,7 @@
 
 #import "MainTableViewController.h"
 #import "GarbageSpot.h"
+#import "ViewController.h"
 @interface MainTableViewController ()
 
 @end
@@ -31,7 +32,6 @@
     [super viewDidLoad];
     //set some custom font for the label
 
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
@@ -53,6 +53,11 @@
 -(void) addItem
 {
     [self performSegueWithIdentifier:@"newGarbageSpot" sender:self];
+}
+-(void) switchScreen
+{
+    ViewController* mvc = self.navigationController.viewControllers[0];
+    [mvc switchToMapScreen];
 }
 - (void)didReceiveMemoryWarning
 {
