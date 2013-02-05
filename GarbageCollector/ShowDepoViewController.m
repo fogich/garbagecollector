@@ -8,7 +8,8 @@
 
 #import "ShowDepoViewController.h"
 #import "PinAnnotation.h"
-
+#import "GoogleDirectionsService.h"
+#import "GarbageDepoService.h"
 
 @interface ShowDepoViewController ()
 
@@ -34,68 +35,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.latitude doubleValue], [self.spotDetail.longitude doubleValue]);
+    GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
+    CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
+    MKPolyline* polyline = [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
     
-    
-    NSString* googleDirectionsAPICall = @"https://maps.googleapis.com/maps/api/directions/json?origin=42.691126,23.319875&destination=42.694442,23.322512&sensor=false&mode=walking";
-    
-    NSURL* url = [NSURL URLWithString:googleDirectionsAPICall];
-    NSData* routeData = [NSData dataWithContentsOfURL:url];
-    
-    NSDictionary* rootDictionary = [NSJSONSerialization JSONObjectWithData:routeData options:NSJSONReadingAllowFragments error:nil];
-    NSDictionary* firstRoot = [[rootDictionary objectForKey:@"routes"] objectAtIndex:0];
-    
-    NSDictionary* startLocation = [[[firstRoot objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"start_location"];
-    
-    NSNumber* startLat = [startLocation objectForKey:@"lat"];
-    NSNumber* startLng = [startLocation objectForKey:@"lng"];
-    
-    CLLocationCoordinate2D startCoordinate = CLLocationCoordinate2DMake([startLat doubleValue], [startLng doubleValue]);
-    NSArray* steps = [[[firstRoot objectForKey:@"legs"] objectAtIndex:0] objectForKey:@"steps"];
-    
-    CLLocationCoordinate2D arrayofCoordinates[steps.count + 1];
-    arrayofCoordinates[0] = startCoordinate;
-    
-    for(int i = 0; i < steps.count; i++)
-    {
-        NSDictionary* step = [steps objectAtIndex:i];
-        
-        NSDictionary* endLocation = [step objectForKey:@"end_location"];
-        NSNumber* endLat = [endLocation objectForKey:@"lat"];
-        NSNumber* endLng = [endLocation objectForKey:@"lng"];
-        
-        CLLocationCoordinate2D endCoordinate = CLLocationCoordinate2DMake([endLat doubleValue], [endLng doubleValue]);
-        
-        arrayofCoordinates[i+1] = endCoordinate;
-    }
-    
-    NSLog(@"%f", arrayofCoordinates[0].latitude);
-    NSLog(@"%f", arrayofCoordinates[1].latitude);
-    NSLog(@"%f", arrayofCoordinates[2].latitude);
-    NSLog(@"%f", arrayofCoordinates[3].latitude);
-    
-    self.polyline = [MKPolyline polylineWithCoordinates:arrayofCoordinates count:4];
-    
+    self.polyline = polyline;
     NSMutableArray* annots = [NSMutableArray array];
     PinAnnotation* p = [[PinAnnotation alloc] init];
-    p.name = @"Jim Beam Center";
-    p.subName = @"Tel : 0878 454647";
-    p.x = 42.691126;
-    p.y = 23.319875;
+    p.name = self.spotDetail.address;
+    p.subName = @"some more";
+    p.x = [self.spotDetail.latitude floatValue];
+    p.y = [self.spotDetail.longitude floatValue];
     [annots addObject: p];
     
     PinAnnotation* p1 = [[PinAnnotation alloc] init];
-    p1.name = @"Rock N Rolla";
-    p1.subName = @"Tel: 0886 242020";
-    p1.x = 42.694442;
-    p1.y = 23.322512;
+    p1.name = @"Depo 1";
+    p1.subName = @"Depo 1 phone number";
+    p1.x = endLocationCoordinate.latitude;
+    p1.y = endLocationCoordinate.longitude;
     [annots addObject: p1];
-    
-    PinAnnotation* p2 = [[PinAnnotation alloc] init];
-    p2.name = @"Rock it";
-    p2.subName = @"Tel: 09898703535";
-    p2.x = 42.698692;
-    p2.y = 23.328907;
-    [annots addObject: p2];
     
     self.map.delegate = self;
     [self.map addOverlay:self.polyline];
@@ -106,8 +65,8 @@
 {
     MKPolylineView* lineView = [[MKPolylineView alloc] initWithPolyline:self.polyline];
     lineView.fillColor = [UIColor greenColor];
-    lineView.strokeColor = [UIColor blueColor];
-    lineView.lineWidth = 4;
+    lineView.strokeColor = [UIColor greenColor];
+    lineView.lineWidth = 10;
     return lineView;
 }
 
