@@ -34,6 +34,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    
+    
     NSString* googleDirectionsAPICall = @"https://maps.googleapis.com/maps/api/directions/json?origin=42.691126,23.319875&destination=42.694442,23.322512&sensor=false&mode=walking";
     
     NSURL* url = [NSURL URLWithString:googleDirectionsAPICall];
