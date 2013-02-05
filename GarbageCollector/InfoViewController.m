@@ -7,7 +7,7 @@
 //
 
 #import "InfoViewController.h"
-#import "GarbageSpot.h"
+
 #import "GarbageStorage.h"
 @interface InfoViewController ()
 
@@ -27,8 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
-    UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
+    UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(returnToPreviousScreen)];
+    UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"FindPath" style:UIBarButtonItemStyleBordered target:self action:@selector(findPath)];
     self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
     UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
     titleView.backgroundColor = [UIColor clearColor];
@@ -39,16 +39,14 @@
     self.navigationBarItems.titleView = titleView;
     [titleView sizeToFit];
     self.navigationBarItems.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
-    NSArray* garbageArray=[[GarbageStorage instance] allGarbageSpots];
-    GarbageSpot* garbageSpot=[garbageArray objectAtIndex:self.currentIndex];
-    self.infoPicture.image = [UIImage imageNamed:garbageSpot.pictureFilename];
-    self.addressLabel.text = garbageSpot.address;
+    self.infoPicture.image = [UIImage imageNamed:self.garbageSpot.pictureFilename];
+    self.addressLabel.text = self.garbageSpot.address;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    NSString *formattedDateString = [dateFormatter stringFromDate:garbageSpot.dateCreated];
+    NSString *formattedDateString = [dateFormatter stringFromDate:self.garbageSpot.dateCreated];
     self.dateLabel.text = formattedDateString;
-    self.descriptionLabel.text=garbageSpot.pictureDescription;
+    self.descriptionLabel.text=self.garbageSpot.pictureDescription;
 	// Do any additional setup after loading the view.
 }
 
@@ -57,6 +55,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
+-(void) returnToPreviousScreen
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void) findPath
+{
+    //add stuff here for finding nearest dump spot
+}
 @end
