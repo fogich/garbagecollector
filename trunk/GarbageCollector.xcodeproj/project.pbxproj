@@ -12,6 +12,7 @@
 		F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613A016BD59F500FED17D /* ImagePickerViewController.m */; };
 		F1A613B016C10B9500FED17D /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613AF16C10B9400FED17D /* MainCell.m */; };
 		F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613B316C12B8900FED17D /* InfoViewController.m */; };
+		F406535516C1511100EC985C /* ShowDepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535416C1511100EC985C /* ShowDepoViewController.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -46,6 +47,8 @@
 		F1A613AF16C10B9400FED17D /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		F1A613B216C12B8800FED17D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		F1A613B316C12B8900FED17D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		F406535316C1511100EC985C /* ShowDepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDepoViewController.h; sourceTree = "<group>"; };
+		F406535416C1511100EC985C /* ShowDepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDepoViewController.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -165,6 +168,8 @@
 				F421E34C16BD2D7000FE9E6F /* ViewController.m */,
 				F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */,
 				F1A613A016BD59F500FED17D /* ImagePickerViewController.m */,
+				F406535316C1511100EC985C /* ShowDepoViewController.h */,
+				F406535416C1511100EC985C /* ShowDepoViewController.m */,
 			);
 			path = GarbageCollector;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */,
 				F1A613B016C10B9500FED17D /* MainCell.m in Sources */,
 				F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */,
+				F406535516C1511100EC985C /* ShowDepoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
