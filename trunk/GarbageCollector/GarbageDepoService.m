@@ -8,6 +8,18 @@
 
 #import "GarbageDepoService.h"
 
+
 @implementation GarbageDepoService
+
+-(GarbageDepo*)getNearestGarbageDepoFromPoint:(CLLocationCoordinate2D)point
+{
+    NSString* depoServiceCall = [NSString stringWithFormat:@"http://www.garbagebg.net/Default.aspx?lat=%f&lng=%f", point.latitude, point.longitude];
+    
+    NSURL* url = [NSURL URLWithString:depoServiceCall];
+    NSData* depoData = [NSData dataWithContentsOfURL:url];
+    
+    GarbageDepo* depo = [[[JSONParser alloc] init] getDepoLocationFromData:depoData];
+    return depo;
+}
 
 @end

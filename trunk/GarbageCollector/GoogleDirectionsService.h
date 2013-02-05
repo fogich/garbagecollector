@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
 @interface GoogleDirectionsService : NSObject
+
+-(MKPolyline*) getKeyLocationsBetweenPointA: (CLLocationCoordinate2D) locationA pointB: (CLLocationCoordinate2D) locationB;
 
 @end

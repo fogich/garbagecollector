@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
+#import "GarbageDepo.h"
 
 @interface JSONParser : NSObject
+
+-(MKPolyline*)getKeyLocationsFromData: (NSData*) data;
+-(GarbageDepo*)getDepoLocationFromData: (NSData*) data;
 
 @end

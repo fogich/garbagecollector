@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
+#import "JSONParser.h"
 
 @interface GarbageDepoService : NSObject
+
+-(GarbageDepo*) getNearestGarbageDepoFromPoint: (CLLocationCoordinate2D) point;
 
 @end
