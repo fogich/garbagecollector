@@ -7,7 +7,8 @@
 //
 
 #import "InfoViewController.h"
-
+#import "GarbageSpot.h"
+#import "GarbageStorage.h"
 @interface InfoViewController ()
 
 @end
@@ -26,6 +27,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
+    UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
+    self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
+    UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleView.backgroundColor = [UIColor clearColor];
+    titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
+    titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
+    titleView.textColor = [UIColor blackColor]; // Your color here
+    titleView.text=@"Facebook Profile";
+    self.navigationBarItems.titleView = titleView;
+    [titleView sizeToFit];
+    self.navigationBarItems.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    NSArray* garbageArray=[[GarbageStorage instance] allGarbageSpots];
+    GarbageSpot* garbageSpot=[garbageArray objectAtIndex:self.currentIndex];
+    self.infoPicture.image = [UIImage imageNamed:garbageSpot.pictureFilename];
+    self.addressLabel.text = garbageSpot.address;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    NSString *formattedDateString = [dateFormatter stringFromDate:garbageSpot.dateCreated];
+    self.dateLabel.text = formattedDateString;
+    self.descriptionLabel.text=garbageSpot.pictureDescription;
 	// Do any additional setup after loading the view.
 }
 
@@ -34,5 +57,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end
