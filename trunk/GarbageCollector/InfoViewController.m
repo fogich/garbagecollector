@@ -7,8 +7,9 @@
 //
 
 #import "InfoViewController.h"
-
 #import "GarbageStorage.h"
+#import "ShowDepoViewController.h"
+
 @interface InfoViewController ()
 
 @end
@@ -59,8 +60,19 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"showDepoSegue"])
+    {
+        ShowDepoViewController* showDepoVC = segue.destinationViewController;
+        showDepoVC.spotDetail = self.garbageSpot;
+    }
+}
+
 -(void) findPath
 {
-    //add stuff here for finding nearest dump spot
+    [self performSegueWithIdentifier:@"showDepoSegue" sender:self];
 }
+
 @end
