@@ -16,6 +16,7 @@
 		F406535916C1616F00EC985C /* GarbageDepoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535816C1616F00EC985C /* GarbageDepoService.m */; };
 		F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535B16C1619900EC985C /* GoogleDirectionsService.m */; };
 		F406535F16C161D300EC985C /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535E16C161D300EC985C /* JSONParser.m */; };
+		F406536616C17BF700EC985C /* GarbageDepo.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536516C17BF700EC985C /* GarbageDepo.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -58,6 +59,8 @@
 		F406535B16C1619900EC985C /* GoogleDirectionsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleDirectionsService.m; sourceTree = "<group>"; };
 		F406535D16C161D300EC985C /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
 		F406535E16C161D300EC985C /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
+		F406536416C17BF700EC985C /* GarbageDepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageDepo.h; sourceTree = "<group>"; };
+		F406536516C17BF700EC985C /* GarbageDepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageDepo.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -185,6 +188,8 @@
 				F406535B16C1619900EC985C /* GoogleDirectionsService.m */,
 				F406535D16C161D300EC985C /* JSONParser.h */,
 				F406535E16C161D300EC985C /* JSONParser.m */,
+				F406536416C17BF700EC985C /* GarbageDepo.h */,
+				F406536516C17BF700EC985C /* GarbageDepo.m */,
 			);
 			path = GarbageCollector;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				F406535916C1616F00EC985C /* GarbageDepoService.m in Sources */,
 				F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */,
 				F406535F16C161D300EC985C /* JSONParser.m in Sources */,
+				F406536616C17BF700EC985C /* GarbageDepo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
