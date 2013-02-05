@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GarbageSpot.h"
 @interface InfoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *infoPicture;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -15,5 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItems;
-@property (nonatomic) int currentIndex;
+@property (nonatomic) GarbageSpot* garbageSpot;
 @end

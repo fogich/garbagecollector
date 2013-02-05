@@ -159,7 +159,7 @@
     {
         NSIndexPath* indexPath=(NSIndexPath*) sender;
         InfoViewController* mvc = segue.destinationViewController;
-        mvc.currentIndex=indexPath.row;
+        mvc.garbageSpot=[self.tableArray objectAtIndex:indexPath.row];
     }
 }
 @end
