@@ -17,6 +17,8 @@
 		F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535B16C1619900EC985C /* GoogleDirectionsService.m */; };
 		F406535F16C161D300EC985C /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535E16C161D300EC985C /* JSONParser.m */; };
 		F406536616C17BF700EC985C /* GarbageDepo.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536516C17BF700EC985C /* GarbageDepo.m */; };
+		F406536916C290B400EC985C /* GarbageSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536816C290B400EC985C /* GarbageSpot.m */; };
+		F406536C16C295D700EC985C /* DepoPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536B16C295D600EC985C /* DepoPinAnnotation.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -30,7 +32,6 @@
 		F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35416BD2DA700FE9E6F /* MainTableViewController.m */; };
 		F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35616BD2DA700FE9E6F /* MapViewController.m */; };
 		F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */; };
-		F42D597416BD401B00F1CA6E /* GarbageSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597316BD401B00F1CA6E /* GarbageSpot.m */; };
 		F42D597816BD401C00F1CA6E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597716BD401C00F1CA6E /* Comment.m */; };
 		F42D597B16BD401C00F1CA6E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597A16BD401C00F1CA6E /* User.m */; };
 		F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D598016BD46DD00F1CA6E /* CoreData.framework */; };
@@ -61,6 +62,10 @@
 		F406535E16C161D300EC985C /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		F406536416C17BF700EC985C /* GarbageDepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageDepo.h; sourceTree = "<group>"; };
 		F406536516C17BF700EC985C /* GarbageDepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageDepo.m; sourceTree = "<group>"; };
+		F406536716C290B300EC985C /* GarbageSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpot.h; sourceTree = "<group>"; };
+		F406536816C290B400EC985C /* GarbageSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpot.m; sourceTree = "<group>"; };
+		F406536A16C295D600EC985C /* DepoPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepoPinAnnotation.h; sourceTree = "<group>"; };
+		F406536B16C295D600EC985C /* DepoPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepoPinAnnotation.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,8 +86,6 @@
 		F421E35516BD2DA700FE9E6F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F421E35616BD2DA700FE9E6F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F42D596716BD344D00F1CA6E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		F42D597216BD401B00F1CA6E /* GarbageSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpot.h; sourceTree = "<group>"; };
-		F42D597316BD401B00F1CA6E /* GarbageSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpot.m; sourceTree = "<group>"; };
 		F42D597616BD401C00F1CA6E /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		F42D597716BD401C00F1CA6E /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		F42D597916BD401C00F1CA6E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -151,12 +154,12 @@
 			children = (
 				F42D599B16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.h */,
 				F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */,
+				F406536A16C295D600EC985C /* DepoPinAnnotation.h */,
+				F406536B16C295D600EC985C /* DepoPinAnnotation.m */,
 				F421E33C16BD2D7000FE9E6F /* AppDelegate.h */,
 				F421E33D16BD2D7000FE9E6F /* AppDelegate.m */,
 				F42D597616BD401C00F1CA6E /* Comment.h */,
 				F42D597716BD401C00F1CA6E /* Comment.m */,
-				F42D597216BD401B00F1CA6E /* GarbageSpot.h */,
-				F42D597316BD401B00F1CA6E /* GarbageSpot.m */,
 				F42D598316BD47C900F1CA6E /* GarbageStorage.h */,
 				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
 				F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */,
@@ -170,6 +173,8 @@
 				F421E35516BD2DA700FE9E6F /* MapViewController.h */,
 				F421E35616BD2DA700FE9E6F /* MapViewController.m */,
 				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
+				F406536716C290B300EC985C /* GarbageSpot.h */,
+				F406536816C290B400EC985C /* GarbageSpot.m */,
 				F49433E916BDF9A4001712D3 /* DrawView.h */,
 				F49433EA16BDF9A4001712D3 /* DrawView.m */,
 				F49433EC16BDFB6A001712D3 /* Kaci.jpg */,
@@ -282,7 +287,6 @@
 				F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */,
 				F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */,
 				F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */,
-				F42D597416BD401B00F1CA6E /* GarbageSpot.m in Sources */,
 				F42D597816BD401C00F1CA6E /* Comment.m in Sources */,
 				F42D597B16BD401C00F1CA6E /* User.m in Sources */,
 				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
@@ -296,6 +300,8 @@
 				F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */,
 				F406535F16C161D300EC985C /* JSONParser.m in Sources */,
 				F406536616C17BF700EC985C /* GarbageDepo.m in Sources */,
+				F406536916C290B400EC985C /* GarbageSpot.m in Sources */,
+				F406536C16C295D700EC985C /* DepoPinAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

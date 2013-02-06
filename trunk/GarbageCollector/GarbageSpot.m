@@ -2,11 +2,13 @@
 //  GarbageSpot.m
 //  GarbageCollector
 //
-//  Created by Student06 on 2/2/13.
+//  Created by Student06 on 2/6/13.
 //  Copyright (c) 2013 MMAcademy. All rights reserved.
 //
 
 #import "GarbageSpot.h"
+#import "Comment.h"
+#import "User.h"
 
 
 @implementation GarbageSpot

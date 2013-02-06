@@ -9,10 +9,13 @@
 #import "MapViewController.h"
 #import "GarbageSpotPinAnnotation.h"
 #import "ViewController.h"
+#import "GarbageStorage.h"
+#import "InfoViewController.h"
+
 @interface MapViewController ()
 
-
-
+@property BOOL firstLoad;
+@property id<MKAnnotation> selectedAnnotation;
 @end
 
 @implementation MapViewController
@@ -46,28 +49,17 @@
     
     //initializing map annotations
     
+    self.firstLoad = YES;
+    NSArray* garbages = [[GarbageStorage instance] allGarbageSpots];
     NSMutableArray* annots = [NSMutableArray array];
-    GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
-    p.name = @"Jim Beam Center";
-    p.subName = @"Tel : 0878 454647";
-    p.x = 42.691126;
-    p.y = 23.319875;
-    [annots addObject: p];
-    
-    GarbageSpotPinAnnotation* p1 = [[GarbageSpotPinAnnotation alloc] init];
-    p1.name = @"Rock N Rolla";
-    p1.subName = @"Tel: 0886 242020";
-    p1.x = 42.694442;
-    p1.y = 23.322512;
-    [annots addObject: p1];
-    
-    GarbageSpotPinAnnotation* p2 = [[GarbageSpotPinAnnotation alloc] init];
-    p2.name = @"Rock it";
-    p2.subName = @"Tel: 09898703535";
-    p2.x = 42.698692;
-    p2.y = 23.328907;
-    [annots addObject: p2];
 
+    for(int i = 0; i < garbages.count; i++)
+    {
+        GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
+        p.garbageSpot = [garbages objectAtIndex:i];
+        [annots addObject: p];
+    }
+    
     self.map.delegate = self;
     [self.map addAnnotations: annots];
 }
@@ -75,12 +67,14 @@
 {
     [self performSegueWithIdentifier:@"newGarbageSpot" sender:self];
 }
+
 -(void) switchScreen
 {
     ViewController* mvc = self.navigationController.viewControllers[0];
     [self.navigationController popToRootViewControllerAnimated:NO];
     [mvc switchToTableScreen];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -94,13 +88,8 @@
         pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinView"];
         pinView.canShowCallout = YES;
         
-        UIButton* b = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        b.tag = 1;
-        pinView.leftCalloutAccessoryView = b;
-        
-        UIButton* b2 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        b2.tag = 2;
-        pinView.rightCalloutAccessoryView = b2;
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        pinView.rightCalloutAccessoryView = button;
     }
     else
     {
@@ -113,28 +102,29 @@
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    if(control.tag == 1)
+    self.selectedAnnotation = view.annotation;
+    [self performSegueWithIdentifier:@"fullInfo" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"fullInfo"])
     {
-        GarbageSpotPinAnnotation* pinAnotation = (GarbageSpotPinAnnotation*)view.annotation;
-        
-        NSString* message = [NSString stringWithFormat:@"%@ %@", pinAnotation.title, pinAnotation.subtitle];
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
-    else
-    {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Table Reserved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        InfoViewController* infoViewController = segue.destinationViewController;
+        GarbageSpotPinAnnotation* selectedPin = self.selectedAnnotation;
+        infoViewController.garbageSpot = selectedPin.garbageSpot;
     }
 }
 
 -(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
-    //center on the first spot
-    
-    MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.01, 0.01));
-    self.map.region = [self.map regionThatFits:region];
+    if(self.firstLoad)
+    {
+        //center on the first spot
+        MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.01, 0.01));
+        self.map.region = [self.map regionThatFits:region];
+        self.firstLoad = NO;
+    }
 }
 
 @end

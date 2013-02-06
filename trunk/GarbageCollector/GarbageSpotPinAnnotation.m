@@ -8,25 +8,23 @@
 
 #import "GarbageSpotPinAnnotation.h"
 
+
 @implementation GarbageSpotPinAnnotation
-@synthesize x;
-@synthesize y;
-@synthesize name;
-@synthesize subName;
+@synthesize garbageSpot;
 
 -(CLLocationCoordinate2D)coordinate
 {
-    return CLLocationCoordinate2DMake(self.x, self.y);
+    return CLLocationCoordinate2DMake([self.garbageSpot.latitude doubleValue], [self.garbageSpot.longitude doubleValue]);
 }
 
 -(NSString *)title
 {
-    return self.name;
+    return self.garbageSpot.address;
 }
 
 -(NSString *)subtitle
 {
-   return self.subName;
+    return [NSString stringWithFormat: @"Reported by: %@", self.garbageSpot.reporter.fbName];
 }
 
 @end
