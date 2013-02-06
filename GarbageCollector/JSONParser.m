@@ -46,12 +46,19 @@
 -(GarbageDepo*)getDepoLocationFromData:(NSData *)data
 {
     NSDictionary* rootDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    double lat = [[rootDictionary objectForKey:@"lat"] doubleValue];
-    double lng = [[rootDictionary objectForKey:@"lng"] doubleValue];
+    NSNumber* lat = [rootDictionary objectForKey:@"lat"];
+    NSNumber* lng = [rootDictionary objectForKey:@"lng"];
+    NSString* name = [rootDictionary objectForKey:@"name"];
+    NSString* phone = [rootDictionary objectForKey:@"phone"];
+    NSString* description = [rootDictionary objectForKey:@"description"];
     
     GarbageDepo* depo = [[GarbageDepo alloc] init];
-    depo.latitude = lat;
-    depo.longitude = lng;
+    depo.latitude = [lat doubleValue];
+    depo.longitude = [lng doubleValue];
+    depo.name = name;
+    depo.phone = phone;
+    depo.aDescription = description;
+    
     return depo;
 }
 
