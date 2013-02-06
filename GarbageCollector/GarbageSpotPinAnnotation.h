@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "GarbageSpot.h"
+#import "User.h"
 
 @interface GarbageSpotPinAnnotation : NSObject<MKAnnotation>
 
-@property float x;
-@property float y;
-@property NSString* name;
-@property NSString* subName;
-
+@property GarbageSpot* garbageSpot;
 
 @end

@@ -10,6 +10,7 @@
 #import "GarbageSpotPinAnnotation.h"
 #import "GoogleDirectionsService.h"
 #import "GarbageDepoService.h"
+#import "DepoPinAnnotation.h"
 
 @interface ShowDepoViewController ()
 
@@ -52,17 +53,11 @@
             
             NSMutableArray* annots = [NSMutableArray array];
             GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
-            p.name = self.spotDetail.address;
-            p.subName = @"some more";
-            p.x = [self.spotDetail.latitude floatValue];
-            p.y = [self.spotDetail.longitude floatValue];
+            p.garbageSpot = self.spotDetail;
             [annots addObject: p];
             
-            GarbageSpotPinAnnotation* p1 = [[GarbageSpotPinAnnotation alloc] init];
-            p1.name = @"Depo 1";
-            p1.subName = @"Depo 1 phone number";
-            p1.x = endLocationCoordinate.latitude;
-            p1.y = endLocationCoordinate.longitude;
+            DepoPinAnnotation* p1 = [[DepoPinAnnotation alloc] init];
+            p1.garbageDepo = nearestDepo;
             [annots addObject: p1];
             
             self.map.delegate = self;
@@ -141,44 +136,37 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    MKPinAnnotationView *pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
-    if (!pinView) {
-        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinView"];
-        pinView.canShowCallout = YES;
-        
-        UIButton* b = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        b.tag = 1;
-        pinView.leftCalloutAccessoryView = b;
-        
-        UIButton* b2 = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        b2.tag = 2;
-        pinView.rightCalloutAccessoryView = b2;
-    }
-    else
+    MKPinAnnotationView* pinView = nil;
+    
+    if([annotation isKindOfClass:[GarbageSpotPinAnnotation class]])
     {
-        GarbageSpotPinAnnotation* pA = (GarbageSpotPinAnnotation*)annotation;
-        pinView.annotation = pA;
+        pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"garbageAnnotationView"];
+        if (!pinView) {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"garbageAnnotationView"];
+            pinView.canShowCallout = YES;
+        }
+        else
+        {
+            GarbageSpotPinAnnotation* garbageAnnotation = (GarbageSpotPinAnnotation*)annotation;
+            pinView.annotation = garbageAnnotation;
+        }
+    }
+    else //class depopinannotation
+    {
+        pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"depoAnnotationView"];
+        if (!pinView) {
+            pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"depoAnnotationView"];
+            pinView.canShowCallout = YES;
+            pinView.pinColor=MKPinAnnotationColorGreen;
+        }
+        else
+        {
+            DepoPinAnnotation* depoPinAnnotation = (DepoPinAnnotation*)annotation;
+            pinView.annotation = depoPinAnnotation;
+        }
     }
     
     return pinView;
-}
-
--(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
-{
-    if(control.tag == 1)
-    {
-        GarbageSpotPinAnnotation* pinAnotation = (GarbageSpotPinAnnotation*)view.annotation;
-        
-        NSString* message = [NSString stringWithFormat:@"%@ %@", pinAnotation.title, pinAnotation.subtitle];
-        
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
-    else
-    {
-        UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Table Reserved" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
-    }
 }
 
 - (void)didReceiveMemoryWarning

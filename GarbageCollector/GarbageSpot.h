@@ -2,13 +2,14 @@
 //  GarbageSpot.h
 //  GarbageCollector
 //
-//  Created by Student06 on 2/2/13.
+//  Created by Student06 on 2/6/13.
 //  Copyright (c) 2013 MMAcademy. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Comment, User;
 
 @interface GarbageSpot : NSManagedObject
 
@@ -21,13 +22,13 @@
 @property (nonatomic, retain) NSString * pictureDescription;
 @property (nonatomic, retain) NSString * pictureFilename;
 @property (nonatomic, retain) NSSet *comments;
-@property (nonatomic, retain) NSManagedObject *reporter;
+@property (nonatomic, retain) User *reporter;
 @end
 
 @interface GarbageSpot (CoreDataGeneratedAccessors)
 
-- (void)addCommentsObject:(NSManagedObject *)value;
-- (void)removeCommentsObject:(NSManagedObject *)value;
+- (void)addCommentsObject:(Comment *)value;
+- (void)removeCommentsObject:(Comment *)value;
 - (void)addComments:(NSSet *)values;
 - (void)removeComments:(NSSet *)values;
 
