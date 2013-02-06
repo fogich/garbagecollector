@@ -7,7 +7,7 @@
 //
 
 #import "ShowDepoViewController.h"
-#import "PinAnnotation.h"
+#import "GarbageSpotPinAnnotation.h"
 #import "GoogleDirectionsService.h"
 #import "GarbageDepoService.h"
 
@@ -51,14 +51,14 @@
             self.phoneLabel.text = [NSString stringWithFormat:@"  Phone: %@", nearestDepo.phone];
             
             NSMutableArray* annots = [NSMutableArray array];
-            PinAnnotation* p = [[PinAnnotation alloc] init];
+            GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
             p.name = self.spotDetail.address;
             p.subName = @"some more";
             p.x = [self.spotDetail.latitude floatValue];
             p.y = [self.spotDetail.longitude floatValue];
             [annots addObject: p];
             
-            PinAnnotation* p1 = [[PinAnnotation alloc] init];
+            GarbageSpotPinAnnotation* p1 = [[GarbageSpotPinAnnotation alloc] init];
             p1.name = @"Depo 1";
             p1.subName = @"Depo 1 phone number";
             p1.x = endLocationCoordinate.latitude;
@@ -156,7 +156,7 @@
     }
     else
     {
-        PinAnnotation* pA = (PinAnnotation*)annotation;
+        GarbageSpotPinAnnotation* pA = (GarbageSpotPinAnnotation*)annotation;
         pinView.annotation = pA;
     }
     
@@ -167,7 +167,7 @@
 {
     if(control.tag == 1)
     {
-        PinAnnotation* pinAnotation = (PinAnnotation*)view.annotation;
+        GarbageSpotPinAnnotation* pinAnotation = (GarbageSpotPinAnnotation*)view.annotation;
         
         NSString* message = [NSString stringWithFormat:@"%@ %@", pinAnotation.title, pinAnotation.subtitle];
         

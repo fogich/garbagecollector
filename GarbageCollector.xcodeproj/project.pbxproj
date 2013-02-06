@@ -37,7 +37,7 @@
 		F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D598416BD47C900F1CA6E /* GarbageStorage.m */; };
 		F42D599716BD762600F1CA6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599616BD762600F1CA6E /* MapKit.framework */; };
 		F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599916BD791A00F1CA6E /* CoreLocation.framework */; };
-		F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */; };
+		F42D599D16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */; };
 		F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49433EA16BDF9A4001712D3 /* DrawView.m */; };
 		F49433ED16BDFB6A001712D3 /* Kaci.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F49433EC16BDFB6A001712D3 /* Kaci.jpg */; };
 /* End PBXBuildFile section */
@@ -92,8 +92,8 @@
 		F42D598416BD47C900F1CA6E /* GarbageStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageStorage.m; sourceTree = "<group>"; };
 		F42D599616BD762600F1CA6E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		F42D599916BD791A00F1CA6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		F42D599B16BD7D4000F1CA6E /* PinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinAnnotation.h; sourceTree = "<group>"; };
-		F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinAnnotation.m; sourceTree = "<group>"; };
+		F42D599B16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpotPinAnnotation.h; sourceTree = "<group>"; };
+		F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpotPinAnnotation.m; sourceTree = "<group>"; };
 		F49433E916BDF9A4001712D3 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		F49433EA16BDF9A4001712D3 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		F49433EC16BDFB6A001712D3 /* Kaci.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Kaci.jpg; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 		F421E33316BD2D7000FE9E6F /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
-				F42D599B16BD7D4000F1CA6E /* PinAnnotation.h */,
-				F42D599C16BD7D4000F1CA6E /* PinAnnotation.m */,
+				F42D599B16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.h */,
+				F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */,
 				F421E33C16BD2D7000FE9E6F /* AppDelegate.h */,
 				F421E33D16BD2D7000FE9E6F /* AppDelegate.m */,
 				F42D597616BD401C00F1CA6E /* Comment.h */,
@@ -287,7 +287,7 @@
 				F42D597B16BD401C00F1CA6E /* User.m in Sources */,
 				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
 				F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */,
-				F42D599D16BD7D4000F1CA6E /* PinAnnotation.m in Sources */,
+				F42D599D16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m in Sources */,
 				F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */,
 				F1A613B016C10B9500FED17D /* MainCell.m in Sources */,
 				F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */,

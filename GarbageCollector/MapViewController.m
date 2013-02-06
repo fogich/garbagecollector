@@ -7,7 +7,7 @@
 //
 
 #import "MapViewController.h"
-#import "PinAnnotation.h"
+#import "GarbageSpotPinAnnotation.h"
 #import "ViewController.h"
 @interface MapViewController ()
 
@@ -47,21 +47,21 @@
     //initializing map annotations
     
     NSMutableArray* annots = [NSMutableArray array];
-    PinAnnotation* p = [[PinAnnotation alloc] init];
+    GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
     p.name = @"Jim Beam Center";
     p.subName = @"Tel : 0878 454647";
     p.x = 42.691126;
     p.y = 23.319875;
     [annots addObject: p];
     
-    PinAnnotation* p1 = [[PinAnnotation alloc] init];
+    GarbageSpotPinAnnotation* p1 = [[GarbageSpotPinAnnotation alloc] init];
     p1.name = @"Rock N Rolla";
     p1.subName = @"Tel: 0886 242020";
     p1.x = 42.694442;
     p1.y = 23.322512;
     [annots addObject: p1];
     
-    PinAnnotation* p2 = [[PinAnnotation alloc] init];
+    GarbageSpotPinAnnotation* p2 = [[GarbageSpotPinAnnotation alloc] init];
     p2.name = @"Rock it";
     p2.subName = @"Tel: 09898703535";
     p2.x = 42.698692;
@@ -104,7 +104,7 @@
     }
     else
     {
-        PinAnnotation* pA = (PinAnnotation*)annotation;
+        GarbageSpotPinAnnotation* pA = (GarbageSpotPinAnnotation*)annotation;
         pinView.annotation = pA;
     }
     
@@ -115,7 +115,7 @@
 {
     if(control.tag == 1)
     {
-        PinAnnotation* pinAnotation = (PinAnnotation*)view.annotation;
+        GarbageSpotPinAnnotation* pinAnotation = (GarbageSpotPinAnnotation*)view.annotation;
         
         NSString* message = [NSString stringWithFormat:@"%@ %@", pinAnotation.title, pinAnotation.subtitle];
         
@@ -131,7 +131,9 @@
 
 -(void)mapViewDidFinishLoadingMap:(MKMapView *)mapView
 {
-    MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.05, 0.05));
+    //center on the first spot
+    
+    MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.01, 0.01));
     self.map.region = [self.map regionThatFits:region];
 }
 
