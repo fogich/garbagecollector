@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (nonatomic, retain) MKPolyline* polyline;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
+@property (weak, nonatomic) IBOutlet UITextView *depoDescriptionTextView;
 
 
 @end
@@ -45,6 +47,9 @@
         MKPolyline* polyline = [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
         
         dispatch_async(dispatch_get_main_queue(),^{
+            self.depoDescriptionTextView.text = nearestDepo.aDescription;
+            self.phoneLabel.text = [NSString stringWithFormat:@"  Phone: %@", nearestDepo.phone];
+            
             NSMutableArray* annots = [NSMutableArray array];
             PinAnnotation* p = [[PinAnnotation alloc] init];
             p.name = self.spotDetail.address;
@@ -122,7 +127,7 @@
     
     double deltaMax = deltaLatitude > deltaLongitude ? deltaLatitude : deltaLongitude;
     
-    return MKCoordinateSpanMake(2* deltaMax, 2* deltaMax);
+    return MKCoordinateSpanMake(3* deltaMax, 3* deltaMax);
 }
 
 - (MKOverlayView*)mapView:(MKMapView*)theMapView viewForOverlay:(id <MKOverlay>)overlay

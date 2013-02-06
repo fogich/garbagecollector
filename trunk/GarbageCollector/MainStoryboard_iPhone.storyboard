@@ -159,39 +159,39 @@
                                     <constraint firstAttribute="height" constant="278" type="user" id="VYw-HA-6DK"/>
                                 </constraints>
                             </mapView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-7i-EN4">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" type="user" id="2wy-KQ-kwH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wki-o9-6rI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="  Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wki-o9-6rI">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dKZ-9C-fx4"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Depo description" translatesAutoresizingMaskIntoConstraints="NO" id="F2p-ie-m6d">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="m7J-7i-EN4" firstAttribute="leading" secondItem="hp9-4w-cN4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0h6-gy-ICr"/>
-                            <constraint firstAttribute="trailing" secondItem="m7J-7i-EN4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="46c-1H-rlS"/>
-                            <constraint firstAttribute="bottom" secondItem="Wki-o9-6rI" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="6Uu-In-7As"/>
                             <constraint firstItem="68P-6s-oFz" firstAttribute="leading" secondItem="hp9-4w-cN4" secondAttribute="leading" constant="20" type="user" id="6kj-SK-d4s"/>
+                            <constraint firstItem="F2p-ie-m6d" firstAttribute="leading" secondItem="hp9-4w-cN4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6ku-2b-ztP"/>
+                            <constraint firstItem="Wki-o9-6rI" firstAttribute="top" secondItem="68P-6s-oFz" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="73a-k1-yMI"/>
                             <constraint firstItem="68P-6s-oFz" firstAttribute="top" secondItem="hp9-4w-cN4" secondAttribute="top" constant="20" type="user" id="7xc-Jn-Dbz"/>
                             <constraint firstItem="Wki-o9-6rI" firstAttribute="leading" secondItem="hp9-4w-cN4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8rC-ST-OBS"/>
                             <constraint firstItem="dKZ-9C-fx4" firstAttribute="centerY" secondItem="68P-6s-oFz" secondAttribute="centerY" type="default" id="BZ7-QV-HEO"/>
+                            <constraint firstAttribute="trailing" secondItem="F2p-ie-m6d" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Chf-Pn-7SF"/>
+                            <constraint firstItem="Wki-o9-6rI" firstAttribute="centerX" secondItem="dKZ-9C-fx4" secondAttribute="centerX" type="default" id="J7T-ym-NYp"/>
                             <constraint firstAttribute="trailing" secondItem="68P-6s-oFz" secondAttribute="trailing" constant="20" type="user" id="VNe-XR-Ccd"/>
-                            <constraint firstItem="Wki-o9-6rI" firstAttribute="top" secondItem="m7J-7i-EN4" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hdy-sm-w4m"/>
+                            <constraint firstItem="F2p-ie-m6d" firstAttribute="top" secondItem="Wki-o9-6rI" secondAttribute="bottom" constant="15" type="user" id="WfQ-zp-VfB"/>
                             <constraint firstAttribute="trailing" secondItem="Wki-o9-6rI" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="oSP-m2-2mI"/>
-                            <constraint firstItem="dKZ-9C-fx4" firstAttribute="centerX" secondItem="68P-6s-oFz" secondAttribute="centerX" type="default" id="yHI-sB-ZIg"/>
+                            <constraint firstAttribute="bottom" secondItem="F2p-ie-m6d" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="ykM-VA-C42"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="dKZ-9C-fx4" id="1lx-Av-INP"/>
+                        <outlet property="depoDescriptionTextView" destination="F2p-ie-m6d" id="tyc-v3-2ib"/>
                         <outlet property="map" destination="68P-6s-oFz" id="WUt-YK-TDc"/>
+                        <outlet property="phoneLabel" destination="Wki-o9-6rI" id="cLS-eX-8g1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRI-uV-AL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -442,6 +442,9 @@
     <classes>
         <class className="DrawView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
+            <relationships>
+                <relationship kind="action" name="random:"/>
+            </relationships>
         </class>
         <class className="ImagePickerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
@@ -488,7 +491,9 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDepoViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="depoDescriptionTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="ViewController" superclassName="UIViewController">

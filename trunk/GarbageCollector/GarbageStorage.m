@@ -93,6 +93,15 @@
 //    newGarbageSpot3.reporter = user;
 //    newGarbageSpot3.pictureDescription=@"hobo alley";
 //    [self addGarbageSpot:newGarbageSpot3];
+    
+//        GarbageSpot* newGarbageSpot4 = [self createGarbageSpot];
+//        newGarbageSpot4.address = @"some address 4";
+//        newGarbageSpot4.latitude = [NSNumber numberWithDouble:42.737683];
+//        newGarbageSpot4.longitude = [NSNumber numberWithDouble:23.298225];
+//        newGarbageSpot4.fbid = @"fbid4";
+//       newGarbageSpot4.reporter = user;
+//       newGarbageSpot4.pictureDescription=@"abcdefeg";
+//       [self addGarbageSpot:newGarbageSpot4];
 }
 
 -(GarbageSpot*)createGarbageSpot
