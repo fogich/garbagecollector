@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 @property (nonatomic, retain) MKPolyline* polyline;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 
 @end
@@ -35,38 +36,101 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.latitude doubleValue], [self.spotDetail.longitude doubleValue]);
-    GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
-    CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
-    MKPolyline* polyline = [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
+    [self.activityIndicator startAnimating];
     
-    self.polyline = polyline;
-    NSMutableArray* annots = [NSMutableArray array];
-    PinAnnotation* p = [[PinAnnotation alloc] init];
-    p.name = self.spotDetail.address;
-    p.subName = @"some more";
-    p.x = [self.spotDetail.latitude floatValue];
-    p.y = [self.spotDetail.longitude floatValue];
-    [annots addObject: p];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.latitude doubleValue], [self.spotDetail.longitude doubleValue]);
+        GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
+        CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
+        MKPolyline* polyline = [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
+        
+        dispatch_async(dispatch_get_main_queue(),^{
+            NSMutableArray* annots = [NSMutableArray array];
+            PinAnnotation* p = [[PinAnnotation alloc] init];
+            p.name = self.spotDetail.address;
+            p.subName = @"some more";
+            p.x = [self.spotDetail.latitude floatValue];
+            p.y = [self.spotDetail.longitude floatValue];
+            [annots addObject: p];
+            
+            PinAnnotation* p1 = [[PinAnnotation alloc] init];
+            p1.name = @"Depo 1";
+            p1.subName = @"Depo 1 phone number";
+            p1.x = endLocationCoordinate.latitude;
+            p1.y = endLocationCoordinate.longitude;
+            [annots addObject: p1];
+            
+            self.map.delegate = self;
+            [self.map addAnnotations: annots];
+            
+            self.polyline = polyline;
+            [self.map addOverlay:self.polyline];
+            
+            MKCoordinateSpan span = [self findGeographicalRect:self.polyline];
+            self.map.region = MKCoordinateRegionMake(self.polyline.coordinate, span);
+            
+            [self.activityIndicator stopAnimating];
+            self.activityIndicator.hidden = TRUE;
+        });
+    });
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.activityIndicator startAnimating];
+}
+
+-(MKCoordinateSpan)findGeographicalRect: (MKPolyline*) polyline
+{
+    NSRange range;
+    range.location = 0;
+    range.length = polyline.pointCount;
+    CLLocationCoordinate2D coordinates[polyline.pointCount];
+    [polyline getCoordinates:coordinates range:range];
     
-    PinAnnotation* p1 = [[PinAnnotation alloc] init];
-    p1.name = @"Depo 1";
-    p1.subName = @"Depo 1 phone number";
-    p1.x = endLocationCoordinate.latitude;
-    p1.y = endLocationCoordinate.longitude;
-    [annots addObject: p1];
+    double minLeft = 180;
+    double maxTop = -90;
+    double maxRight = -180;
+    double minBottom = 90;
     
-    self.map.delegate = self;
-    [self.map addOverlay:self.polyline];
-    [self.map addAnnotations: annots];
+    for(int i = 0; i < polyline.pointCount; i++)
+    {
+        if(coordinates[i].latitude < minLeft)
+        {
+            minLeft = coordinates[i].latitude;
+        }
+        
+        if(coordinates[i].latitude > maxRight)
+        {
+            maxRight = coordinates[i].latitude;
+        }
+        
+        if(coordinates[i].longitude < maxTop)
+        {
+            minLeft = coordinates[i].longitude;
+        }
+        
+        if(coordinates[i].longitude > minBottom)
+        {
+            minLeft = coordinates[i].longitude;
+        }
+    }
+    
+    double deltaLatitude = (maxRight-minLeft);
+    double deltaLongitude = (maxTop - minBottom);
+    
+    double deltaMax = deltaLatitude > deltaLongitude ? deltaLatitude : deltaLongitude;
+    
+    return MKCoordinateSpanMake(2* deltaMax, 2* deltaMax);
 }
 
 - (MKOverlayView*)mapView:(MKMapView*)theMapView viewForOverlay:(id <MKOverlay>)overlay
 {
     MKPolylineView* lineView = [[MKPolylineView alloc] initWithPolyline:self.polyline];
     lineView.fillColor = [UIColor greenColor];
-    lineView.strokeColor = [UIColor greenColor];
-    lineView.lineWidth = 10;
+    lineView.strokeColor = [UIColor blueColor];
+    lineView.lineWidth = 3;
     return lineView;
 }
 
