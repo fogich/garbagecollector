@@ -11,5 +11,6 @@
 @interface MainCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *cellPicture;
 @property (weak, nonatomic) IBOutlet UILabel *cellText;
+@property (weak, nonatomic) IBOutlet UIImageView *checkMarkImage;
 
 @end

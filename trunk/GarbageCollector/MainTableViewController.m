@@ -85,8 +85,10 @@
     static NSString *CellIdentifier = @"MainCell";
     MainCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     GarbageSpot* currentSpot = [self.tableArray objectAtIndex:indexPath.row];
-    cell.cellPicture.image=[UIImage imageNamed:currentSpot.pictureFilename];
+    //cell.cellPicture.image=[UIImage imageNamed:currentSpot.pictureFilename];
     cell.cellText.text=currentSpot.pictureDescription;
+    if(currentSpot.dateCleaned!=nil)
+        cell.checkMarkImage.alpha=0.3;
     // Configure the cell...
     
     return cell;
@@ -138,9 +140,13 @@
                action:@selector(buttonClicked)
      forControlEvents:UIControlEventTouchDown];
     [button setTitle:@"See Graph" forState:UIControlStateNormal];
-    button.frame = CGRectMake(0, 0, 120.0, 40.0);
+    button.frame = CGRectMake(self.view.window.center.x-60, 0, 120.0, 40.0);
     [view addSubview:button];
     return view;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
 }
 -(void) buttonClicked
 {
@@ -154,16 +160,8 @@
 }
 - (void) deleteObject:(GarbageSpot*) garbageSpot;
 {
-    NSManagedObjectContext * managedObjectContext=[[GarbageStorage instance] managedObjectContext];
-    [managedObjectContext deleteObject:garbageSpot];
-    NSError *error = nil;
-    if (![managedObjectContext save:&error]) {
-        // Handle the error.
-    }
-    int index=[self.tableArray indexOfObject:garbageSpot];
-    [self.tableArray removeObjectAtIndex:index];
-    NSIndexPath* indexPath=[NSIndexPath indexPathForRow:index inSection:0];
-    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+    garbageSpot.dateCleaned=[NSDate dateWithTimeIntervalSinceNow:0];
+   // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.tableView reloadData];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

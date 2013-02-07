@@ -300,10 +300,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fZ-Ah-Cxa">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Kaci.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5fZ-Ah-Cxa">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="90" id="1q2-KD-vgT"/>
-                                                <constraint firstAttribute="width" constant="90" id="55L-xf-GzC"/>
+                                                <constraint firstAttribute="width" constant="90" id="ZuQ-FI-3Ss"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="182" translatesAutoresizingMaskIntoConstraints="NO" id="0M4-fF-Z1k">
@@ -311,20 +311,30 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" image="green_checkmark.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-2c-HQY">
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="HPC-93-xZM"/>
+                                                <constraint firstAttribute="height" constant="59" id="Ok0-GS-fJk"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="leading" secondItem="5fZ-Ah-Cxa" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BnA-uX-cRs"/>
+                                    <constraint firstItem="5fa-2c-HQY" firstAttribute="centerX" secondItem="5fZ-Ah-Cxa" secondAttribute="centerX" type="default" id="N1n-4D-c9Q"/>
                                     <constraint firstAttribute="trailing" secondItem="0M4-fF-Z1k" secondAttribute="trailing" constant="20" type="default" id="PZK-Cf-PPc"/>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="top" secondItem="5fZ-Ah-Cxa" secondAttribute="top" type="default" id="TPJ-Y8-Nh9"/>
                                     <constraint firstItem="5fZ-Ah-Cxa" firstAttribute="leading" secondItem="n13-c9-WeM" secondAttribute="leading" constant="20" type="default" id="VkM-0S-Zo0"/>
-                                    <constraint firstItem="0M4-fF-Z1k" firstAttribute="centerY" secondItem="n13-c9-WeM" secondAttribute="centerY" type="default" id="dyn-oW-kxL"/>
+                                    <constraint firstItem="0M4-fF-Z1k" firstAttribute="centerY" secondItem="n13-c9-WeM" secondAttribute="centerY" type="default" id="ex3-We-KVd"/>
+                                    <constraint firstItem="5fa-2c-HQY" firstAttribute="centerY" secondItem="5fZ-Ah-Cxa" secondAttribute="centerY" type="default" id="ndg-by-MHi"/>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="bottom" secondItem="5fZ-Ah-Cxa" secondAttribute="bottom" type="default" id="xVR-Cg-fHC"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cellPicture" destination="5fZ-Ah-Cxa" id="I6X-v1-mzh"/>
                                     <outlet property="cellText" destination="0M4-fF-Z1k" id="MfU-ax-reV"/>
+                                    <outlet property="checkMarkImage" destination="5fa-2c-HQY" id="9A0-36-sh8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -453,6 +463,7 @@
     </scenes>
     <resources>
         <image name="Kaci.jpg" width="660" height="528"/>
+        <image name="green_checkmark.jpg" width="225" height="225"/>
     </resources>
     <classes>
         <class className="DrawView" superclassName="UIView">
@@ -485,6 +496,7 @@
             <relationships>
                 <relationship kind="outlet" name="cellPicture" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkMarkImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="MainTableViewController" superclassName="UITableViewController">
@@ -519,7 +531,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ika-uU-5U8"/>
+        <segue reference="SVA-fZ-1fk"/>
         <segue reference="Ueo-jp-xd2"/>
         <segue reference="SnD-N5-OYE"/>
     </inferredMetricsTieBreakers>
