@@ -11,6 +11,8 @@
 #import "GoogleDirectionsService.h"
 #import "GarbageDepoService.h"
 #import "DepoPinAnnotation.h"
+#import <CoreGraphics/CoreGraphics.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ShowDepoViewController ()
 
@@ -20,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UITextView *depoDescriptionTextView;
 - (IBAction)closeScreen:(id)sender;
+- (IBAction)sendMail:(id)sender;
 
 
 @end
@@ -123,7 +126,7 @@
     
     double deltaMax = deltaLatitude > deltaLongitude ? deltaLatitude : deltaLongitude;
     
-    return MKCoordinateSpanMake(3* deltaMax, 3* deltaMax);
+    return MKCoordinateSpanMake(2* deltaMax, 2* deltaMax);
 }
 
 - (MKOverlayView*)mapView:(MKMapView*)theMapView viewForOverlay:(id <MKOverlay>)overlay
@@ -178,5 +181,44 @@
 
 - (IBAction)closeScreen:(id)sender {
     [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+- (IBAction)sendMail:(id)sender {
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+        mailer.mailComposeDelegate = self;
+        [mailer setSubject:@"garbage report"];
+        NSArray *toRecipients = [NSArray arrayWithObject:@"fisrtMail@example.com"];
+        [mailer setToRecipients:toRecipients];
+        
+        //take a screenshot of the map view
+        UIGraphicsBeginImageContext(CGSizeMake(self.map.bounds.size.width,self.map.bounds.size.height));
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [self.map.layer renderInContext:context];
+        UIImage *screenShot = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        NSData *imageData = UIImagePNGRepresentation(screenShot);
+        [mailer addAttachmentData:imageData mimeType:@"image/png" fileName:@"location"];
+        
+        NSString *emailBody = [NSString stringWithFormat: @"<div>We have found and packed some garbage. It is located at <b>%@</b>. Please come to pick it up.<div>", self.spotDetail.address];
+        [mailer setMessageBody:emailBody isHTML:YES];
+        [self presentViewController:mailer animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"Your device doesn't support the composer sheet"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller dismissViewControllerAnimated:NO completion:nil];
 }
 @end
