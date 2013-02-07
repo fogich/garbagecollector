@@ -12,6 +12,7 @@
 		F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613A016BD59F500FED17D /* ImagePickerViewController.m */; };
 		F1A613B016C10B9500FED17D /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613AF16C10B9400FED17D /* MainCell.m */; };
 		F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613B316C12B8900FED17D /* InfoViewController.m */; };
+		F1A613CA16C42E6800FED17D /* green_checkmark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1A613C916C42E6600FED17D /* green_checkmark.jpg */; };
 		F406535516C1511100EC985C /* ShowDepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535416C1511100EC985C /* ShowDepoViewController.m */; };
 		F406535916C1616F00EC985C /* GarbageDepoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535816C1616F00EC985C /* GarbageDepoService.m */; };
 		F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535B16C1619900EC985C /* GoogleDirectionsService.m */; };
@@ -54,6 +55,7 @@
 		F1A613AF16C10B9400FED17D /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		F1A613B216C12B8800FED17D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		F1A613B316C12B8900FED17D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		F1A613C916C42E6600FED17D /* green_checkmark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_checkmark.jpg; sourceTree = "<group>"; };
 		F406535316C1511100EC985C /* ShowDepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDepoViewController.h; sourceTree = "<group>"; };
 		F406535416C1511100EC985C /* ShowDepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDepoViewController.m; sourceTree = "<group>"; };
 		F406535716C1616F00EC985C /* GarbageDepoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageDepoService.h; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				F49433E916BDF9A4001712D3 /* DrawView.h */,
 				F49433EA16BDF9A4001712D3 /* DrawView.m */,
 				F49433EC16BDFB6A001712D3 /* Kaci.jpg */,
+				F1A613C916C42E6600FED17D /* green_checkmark.jpg */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
 				F42D597916BD401C00F1CA6E /* User.h */,
 				F42D597A16BD401C00F1CA6E /* User.m */,
@@ -279,6 +282,7 @@
 				F1A6138316BD3A7E00FED17D /* MainStoryboard_iPad.storyboard in Resources */,
 				F1A6138416BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard in Resources */,
 				F49433ED16BDFB6A001712D3 /* Kaci.jpg in Resources */,
+				F1A613CA16C42E6800FED17D /* green_checkmark.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
