@@ -9,11 +9,10 @@
 #import "MainTableViewController.h"
 #import "MainCell.h"
 #import "ViewController.h"
-#import "GarbageSpot.h"
 #import "GarbageStorage.h"
 #import "InfoViewController.h"
-@interface MainTableViewController ()
-@property(nonatomic) NSArray* tableArray;
+@interface MainTableViewController ()<InfoModalDelegate>
+@property(nonatomic) NSMutableArray* tableArray;
 @end
 
 @implementation MainTableViewController
@@ -44,7 +43,7 @@
     [titleView sizeToFit];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     
-    self.tableArray=[[GarbageStorage instance] allGarbageSpots];
+    self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -153,12 +152,27 @@
 {
     [self performSegueWithIdentifier:@"fullInfo" sender:indexPath];
 }
+- (void) deleteObject:(GarbageSpot*) garbageSpot;
+{
+    NSManagedObjectContext * managedObjectContext=[[GarbageStorage instance] managedObjectContext];
+    [managedObjectContext deleteObject:garbageSpot];
+    NSError *error = nil;
+    if (![managedObjectContext save:&error]) {
+        // Handle the error.
+    }
+    int index=[self.tableArray indexOfObject:garbageSpot];
+    [self.tableArray removeObjectAtIndex:index];
+    NSIndexPath* indexPath=[NSIndexPath indexPathForRow:index inSection:0];
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+    [self.tableView reloadData];
+}
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {   if([segue.identifier isEqualToString:@"fullInfo"])
     {
         NSIndexPath* indexPath=(NSIndexPath*) sender;
         InfoViewController* mvc = segue.destinationViewController;
         mvc.garbageSpot=[self.tableArray objectAtIndex:indexPath.row];
+        mvc.delegate = self;
     }
 }
 @end

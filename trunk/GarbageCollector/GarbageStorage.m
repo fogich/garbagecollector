@@ -64,7 +64,7 @@
 //    self.user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
 //    user.fbid = @"12303012301230";
 //    user.fbName = @"Kurtev";
-//    user.fbPictureFilename = @"pic_filename";
+//    user.fbPictureFilename = @"shitpic";
 //    
 //    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
 //    newGarbageSpot.address = @"some address";
@@ -93,7 +93,7 @@
 //    newGarbageSpot3.reporter = user;
 //    newGarbageSpot3.pictureDescription=@"hobo alley";
 //    [self addGarbageSpot:newGarbageSpot3];
-    
+//    
 //        GarbageSpot* newGarbageSpot4 = [self createGarbageSpot];
 //        newGarbageSpot4.address = @"some address 4";
 //        newGarbageSpot4.latitude = [NSNumber numberWithDouble:42.737683];

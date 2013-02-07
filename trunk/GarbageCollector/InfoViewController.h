@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GarbageSpot.h"
+@protocol InfoModalDelegate
+- (void) deleteObject:(GarbageSpot*) garbageSpot;
+@end
 @interface InfoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *infoPicture;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -16,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItems;
 @property (nonatomic) GarbageSpot* garbageSpot;
+@property (nonatomic) id<InfoModalDelegate> delegate;
 @end
