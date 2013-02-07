@@ -9,7 +9,7 @@
 #import "InfoViewController.h"
 #import "GarbageStorage.h"
 #import "ShowDepoViewController.h"
-
+#import "MainTableViewController.h"
 @interface InfoViewController ()
 
 @end
@@ -50,7 +50,22 @@
     self.descriptionLabel.text=self.garbageSpot.pictureDescription;
 	// Do any additional setup after loading the view.
 }
+-(BOOL)canBecomeFirstResponder{
+	return YES;
+}
 
+-(void)viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:animated];
+	[self becomeFirstResponder];
+}
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+	if (event.subtype == UIEventSubtypeMotionShake)
+	{   //Dobavi kakvoto iskame da pravi pri shake gesture tuk
+        [self.delegate deleteObject:self.garbageSpot];
+        [self returnToPreviousScreen];
+        
+	}
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
