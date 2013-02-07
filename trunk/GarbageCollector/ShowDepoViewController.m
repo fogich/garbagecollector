@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UITextView *depoDescriptionTextView;
+- (IBAction)closeScreen:(id)sender;
 
 
 @end
@@ -175,4 +176,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)closeScreen:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 @end
