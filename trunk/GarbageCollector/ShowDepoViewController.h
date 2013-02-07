@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "GarbageSpot.h"
+#import <MessageUI/MessageUI.h>
 
-@interface ShowDepoViewController : UIViewController<MKMapViewDelegate>
+@interface ShowDepoViewController : UIViewController<MKMapViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, retain) GarbageSpot* spotDetail;
 
