@@ -15,6 +15,7 @@
 @synthesize name;
 @synthesize phone;
 @synthesize aDescription;
+@synthesize email;
 
 
 @end

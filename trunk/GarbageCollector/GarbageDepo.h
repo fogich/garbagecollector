@@ -15,5 +15,6 @@
 @property NSString* name;
 @property NSString* phone;
 @property NSString* aDescription;
+@property NSString* email;
 
 @end
