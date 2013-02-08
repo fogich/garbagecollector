@@ -51,6 +51,7 @@
     NSString* name = [rootDictionary objectForKey:@"name"];
     NSString* phone = [rootDictionary objectForKey:@"phone"];
     NSString* description = [rootDictionary objectForKey:@"description"];
+    NSString* email = [rootDictionary objectForKey:@"email"];
     
     GarbageDepo* depo = [[GarbageDepo alloc] init];
     depo.latitude = [lat doubleValue];
@@ -58,6 +59,7 @@
     depo.name = name;
     depo.phone = phone;
     depo.aDescription = description;
+    depo.email = email;
     
     return depo;
 }

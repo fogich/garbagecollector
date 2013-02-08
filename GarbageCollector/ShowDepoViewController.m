@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UITextView *depoDescriptionTextView;
+@property GarbageDepo* depo;
+
 - (IBAction)closeScreen:(id)sender;
 - (IBAction)sendMail:(id)sender;
 
@@ -48,6 +50,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.latitude doubleValue], [self.spotDetail.longitude doubleValue]);
         GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
+        self.depo = nearestDepo;
         CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
         MKPolyline* polyline = [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
         
@@ -189,7 +192,7 @@
         MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
         mailer.mailComposeDelegate = self;
         [mailer setSubject:@"garbage report"];
-        NSArray *toRecipients = [NSArray arrayWithObject:@"fisrtMail@example.com"];
+        NSArray *toRecipients = [NSArray arrayWithObject:self.depo.email];
         [mailer setToRecipients:toRecipients];
         
         //take a screenshot of the map view
