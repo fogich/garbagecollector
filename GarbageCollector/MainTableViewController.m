@@ -88,7 +88,7 @@
     //cell.cellPicture.image=[UIImage imageNamed:currentSpot.pictureFilename];
     cell.cellText.text=currentSpot.pictureDescription;
     if(currentSpot.dateCleaned!=nil)
-        cell.checkMarkImage.alpha=0.3;
+        cell.checkMarkImage.alpha=1;
     // Configure the cell...
     
     return cell;
@@ -158,7 +158,7 @@
 {
     [self performSegueWithIdentifier:@"fullInfo" sender:indexPath];
 }
-- (void) deleteObject:(GarbageSpot*) garbageSpot;
+- (void) cleanObject:(GarbageSpot*) garbageSpot;
 {
     garbageSpot.dateCleaned=[NSDate dateWithTimeIntervalSinceNow:0];
    // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];

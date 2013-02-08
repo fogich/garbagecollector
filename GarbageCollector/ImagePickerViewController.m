@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) GarbageSpot* garbageSpot;
-
+@property (nonatomic)  UIPopoverController* popOver;
 @end
 
 @implementation ImagePickerViewController
@@ -141,10 +141,22 @@
 {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
+    
     picker.sourceType = (sender == self.takePictureButton) ?    UIImagePickerControllerSourceTypeCamera :
     UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    [self presentViewController:picker animated:YES completion:nil];
-}
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        UIPopoverController *tempPopOver = [[UIPopoverController alloc] initWithContentViewController:picker];
+        [tempPopOver presentPopoverFromRect:[[self takePictureButton] frame] inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        [self setPopOver:tempPopOver];
+    }
+    else
+    {
+        [self presentViewController:picker animated:YES completion:nil];
+
+    }
+
+    }
 
 -(IBAction)selectExitingPicture
 {    
@@ -154,7 +166,17 @@
         UIImagePickerController *picker= [[UIImagePickerController alloc]init];
         picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:picker animated:YES completion:nil];
+        if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+            
+            UIPopoverController *tempPopOver = [[UIPopoverController alloc] initWithContentViewController:picker];
+            [tempPopOver presentPopoverFromRect:[[self selectFromCameraRollButton] frame] inView:[self view] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            [self setPopOver:tempPopOver];
+            
+        }
+        else {
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+        
     }
 }
 
@@ -163,8 +185,14 @@
                  editingInfo:(NSDictionary *)editingInfo
 {
     self.imageView.image = image;
-    [picker dismissModalViewControllerAnimated:YES];
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        [[self popOver] dismissPopoverAnimated:YES];
+    }
+    else{
     
+    [picker dismissModalViewControllerAnimated:YES];
+    }
     [self.locationManager startUpdatingLocation];
 }
 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GarbageSpot.h"
 @interface MainTableViewController : UITableViewController
-- (void) deleteObject:(GarbageSpot*) garbageSpot;
+- (void) cleanObject:(GarbageSpot*) garbageSpot;
 
 @end

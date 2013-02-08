@@ -13,6 +13,8 @@
 		F1A613B016C10B9500FED17D /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613AF16C10B9400FED17D /* MainCell.m */; };
 		F1A613B416C12B8B00FED17D /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613B316C12B8900FED17D /* InfoViewController.m */; };
 		F1A613CA16C42E6800FED17D /* green_checkmark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F1A613C916C42E6600FED17D /* green_checkmark.jpg */; };
+		F1ABB07A16C540DD00022480 /* MainCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ABB07916C540DD00022480 /* MainCollectionCell.m */; };
+		F1ABB07E16C540FC00022480 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1ABB07D16C540FC00022480 /* CollectionViewController.m */; };
 		F406535516C1511100EC985C /* ShowDepoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535416C1511100EC985C /* ShowDepoViewController.m */; };
 		F406535916C1616F00EC985C /* GarbageDepoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535816C1616F00EC985C /* GarbageDepoService.m */; };
 		F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535B16C1619900EC985C /* GoogleDirectionsService.m */; };
@@ -56,6 +58,10 @@
 		F1A613B216C12B8800FED17D /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		F1A613B316C12B8900FED17D /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		F1A613C916C42E6600FED17D /* green_checkmark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_checkmark.jpg; sourceTree = "<group>"; };
+		F1ABB07816C540DD00022480 /* MainCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainCollectionCell.h; path = ../MainCollectionCell.h; sourceTree = "<group>"; };
+		F1ABB07916C540DD00022480 /* MainCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainCollectionCell.m; path = ../MainCollectionCell.m; sourceTree = "<group>"; };
+		F1ABB07C16C540FC00022480 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionViewController.h; path = ../CollectionViewController.h; sourceTree = "<group>"; };
+		F1ABB07D16C540FC00022480 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionViewController.m; path = ../CollectionViewController.m; sourceTree = "<group>"; };
 		F406535316C1511100EC985C /* ShowDepoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDepoViewController.h; sourceTree = "<group>"; };
 		F406535416C1511100EC985C /* ShowDepoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDepoViewController.m; sourceTree = "<group>"; };
 		F406535716C1616F00EC985C /* GarbageDepoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageDepoService.h; sourceTree = "<group>"; };
@@ -174,6 +180,10 @@
 				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
 				F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */,
 				F1A6138216BD3A7E00FED17D /* MainStoryboard_iPhone.storyboard */,
+				F1ABB07C16C540FC00022480 /* CollectionViewController.h */,
+				F1ABB07D16C540FC00022480 /* CollectionViewController.m */,
+				F1ABB07816C540DD00022480 /* MainCollectionCell.h */,
+				F1ABB07916C540DD00022480 /* MainCollectionCell.m */,
 				F1A613B216C12B8800FED17D /* InfoViewController.h */,
 				F1A613B316C12B8900FED17D /* InfoViewController.m */,
 				F421E35316BD2DA700FE9E6F /* MainTableViewController.h */,
@@ -314,6 +324,8 @@
 				F406536616C17BF700EC985C /* GarbageDepo.m in Sources */,
 				F406536916C290B400EC985C /* GarbageSpot.m in Sources */,
 				F406536C16C295D700EC985C /* DepoPinAnnotation.m in Sources */,
+				F1ABB07A16C540DD00022480 /* MainCollectionCell.m in Sources */,
+				F1ABB07E16C540FC00022480 /* CollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
