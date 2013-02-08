@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GarbageSpot.h"
 @protocol InfoModalDelegate
-- (void) deleteObject:(GarbageSpot*) garbageSpot;
+- (void) cleanObject:(GarbageSpot*) garbageSpot;
 @end
 @interface InfoViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *infoPicture;

@@ -61,7 +61,7 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
 	if (event.subtype == UIEventSubtypeMotionShake)
 	{   //Dobavi kakvoto iskame da pravi pri shake gesture tuk
-        [self.delegate deleteObject:self.garbageSpot];
+        [self.delegate cleanObject:self.garbageSpot];
         [self returnToPreviousScreen];
         
 	}

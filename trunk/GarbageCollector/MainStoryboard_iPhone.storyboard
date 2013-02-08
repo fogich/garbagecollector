@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o3A-QT-eRG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o3A-QT-eRG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -319,8 +319,8 @@
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" image="green_checkmark.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5fa-2c-HQY">
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="HPC-93-xZM"/>
-                                                <constraint firstAttribute="height" constant="59" id="Ok0-GS-fJk"/>
+                                                <constraint firstAttribute="height" constant="30" id="9LT-ch-JOr"/>
+                                                <constraint firstAttribute="width" constant="30" id="Lo1-eo-dnQ"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -328,13 +328,13 @@
                                 </view>
                                 <constraints>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="leading" secondItem="5fZ-Ah-Cxa" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="BnA-uX-cRs"/>
-                                    <constraint firstItem="5fa-2c-HQY" firstAttribute="centerX" secondItem="5fZ-Ah-Cxa" secondAttribute="centerX" type="default" id="N1n-4D-c9Q"/>
+                                    <constraint firstItem="5fa-2c-HQY" firstAttribute="bottom" secondItem="5fZ-Ah-Cxa" secondAttribute="bottom" type="default" id="JSG-gH-3FN"/>
                                     <constraint firstAttribute="trailing" secondItem="0M4-fF-Z1k" secondAttribute="trailing" constant="20" type="default" id="PZK-Cf-PPc"/>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="top" secondItem="5fZ-Ah-Cxa" secondAttribute="top" type="default" id="TPJ-Y8-Nh9"/>
+                                    <constraint firstItem="5fa-2c-HQY" firstAttribute="bottom" secondItem="0M4-fF-Z1k" secondAttribute="bottom" type="default" id="Tmn-DF-zcz"/>
                                     <constraint firstItem="5fZ-Ah-Cxa" firstAttribute="leading" secondItem="n13-c9-WeM" secondAttribute="leading" constant="20" type="default" id="VkM-0S-Zo0"/>
                                     <constraint firstItem="0M4-fF-Z1k" firstAttribute="centerY" secondItem="n13-c9-WeM" secondAttribute="centerY" type="default" id="ex3-We-KVd"/>
-                                    <constraint firstItem="5fa-2c-HQY" firstAttribute="centerY" secondItem="5fZ-Ah-Cxa" secondAttribute="centerY" type="default" id="ndg-by-MHi"/>
-                                    <constraint firstItem="0M4-fF-Z1k" firstAttribute="bottom" secondItem="5fZ-Ah-Cxa" secondAttribute="bottom" type="default" id="xVR-Cg-fHC"/>
+                                    <constraint firstItem="0M4-fF-Z1k" firstAttribute="leading" secondItem="5fa-2c-HQY" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="pxn-Xz-2uK"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cellPicture" destination="5fZ-Ah-Cxa" id="I6X-v1-mzh"/>
@@ -504,6 +504,7 @@
             <relationships>
                 <relationship kind="outlet" name="cellPicture" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkMarkImage" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="MainTableViewController" superclassName="UITableViewController">
