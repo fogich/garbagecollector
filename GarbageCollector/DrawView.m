@@ -121,7 +121,7 @@ UIColor *pieceColor;
         
         //saving lable points for later use
         labelPoints[i]=currentLabelPoint;
-        //NSLog(@"sizeof(labelPoints): %ld",sizeof(<#expression-or-type#>));
+        //NSLog(@"sizeof(labelPoints): %ld",sizeof(expression-or-type));
         
         //updateing the current angle
         currentAngle = M_PI*2*fraction+currentAngle;

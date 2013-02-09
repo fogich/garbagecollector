@@ -420,9 +420,6 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="useImageClicked:" destination="IW1-TD-4TU" eventType="touchUpInside" id="eVV-lO-HZ7"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -473,14 +470,75 @@
         <image name="Kaci.jpg" width="660" height="528"/>
         <image name="green_checkmark.jpg" width="225" height="225"/>
     </resources>
+    <classes>
+        <class className="DrawView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
+        </class>
+        <class className="ImagePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getCameraPicture:"/>
+                <relationship kind="action" name="selectExitingPicture"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="selectFromCameraRollButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="commentTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="infoPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="MainCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkMarkImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MainTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTableViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ShowDepoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDepoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeScreen:"/>
+                <relationship kind="action" name="sendMail:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="depoDescriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="O5O-xX-gH4"/>
         <segue reference="SVA-fZ-1fk"/>
+        <segue reference="Ueo-jp-xd2"/>
         <segue reference="SnD-N5-OYE"/>
     </inferredMetricsTieBreakers>
 </document>
