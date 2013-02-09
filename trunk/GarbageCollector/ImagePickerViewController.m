@@ -8,6 +8,8 @@
 
 #import "ImagePickerViewController.h"
 #import "GarbageStorage.h"
+#import <Social/Social.h>
+#import <Accounts/Accounts.h>
 
 @interface ImagePickerViewController ()
 
@@ -85,11 +87,72 @@
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
     
     //start facebook post dialog
-    //get fbid from facebook
+    [self postToFacebook];
     
-    //add the current user as a reporter
+    //get fbid from facebook... naahh, maybe not :)
+    
+    //add the current user as a reporter - useless as there are no other posters
+
+    
     //save context
 }
+
+
+//getting username from the accounts framework requires Facebook developers account to generate facebook app ID
+//-(void)getUsername{
+//    
+//    ACAccountStore *accStore = [ACAccountStore new];
+//    ACAccountType *accType = [accStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+//    
+//    NSDictionary *options = @{@"ACFacebookAppIdKey" : @""};
+//    
+//    [accStore requestAccessToAccountsWithType:accType options:options completion:^(BOOL granted, NSError *err){
+//        
+//        if (granted == YES) {
+//            NSLog(@"Granted");
+//            NSArray *accArray = [accStore accountsWithAccountType:accType];
+//            ACAccount *fbAcc = [accArray lastObject];
+//            
+//            NSLog(@"Account desc: %@ UserName: %@ Identifier: %@", fbAcc.description, fbAcc.username, fbAcc.identifier);
+//        }
+//                    NSLog(@"Something else!");
+//        
+//    }];
+//    
+//}
+
+- (void)postToFacebook{
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+        
+        NSLog(@"Connected");
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+        
+        SLComposeViewControllerCompletionHandler fbBlock = ^(SLComposeViewControllerResult result){
+            
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"Canceld");
+            }else{
+                
+                NSLog(@"Done posting!");
+            }
+            
+            
+        };
+        
+        [controller setInitialText:[NSString stringWithFormat:@"I have found a new garbage spot at %@", self.garbageSpot.address]];
+        [controller addImage:self.imageView.image];
+        controller.completionHandler = fbBlock;
+        
+        [self presentViewController:controller animated:YES completion:nil];
+        
+    }else{
+        
+        NSLog(@"NOT connected");
+    }
+    
+}
+
 
 -(NSString*)saveImageToDocuments
 {
@@ -194,6 +257,7 @@
     [picker dismissModalViewControllerAnimated:YES];
     }
     [self.locationManager startUpdatingLocation];
+    
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)  picker
