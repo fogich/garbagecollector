@@ -24,6 +24,8 @@
 		F406536C16C295D700EC985C /* DepoPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536B16C295D600EC985C /* DepoPinAnnotation.m */; };
 		F40653AD16C4309700EC985C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653AC16C4309600EC985C /* MessageUI.framework */; };
 		F40653AF16C43A5800EC985C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653AE16C43A5800EC985C /* QuartzCore.framework */; };
+		F40653B916C681CB00EC985C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653B816C681CB00EC985C /* Accounts.framework */; };
+		F40653BC16C681E000EC985C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653BB16C681E000EC985C /* Social.framework */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -78,6 +80,8 @@
 		F406536B16C295D600EC985C /* DepoPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepoPinAnnotation.m; sourceTree = "<group>"; };
 		F40653AC16C4309600EC985C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F40653AE16C43A5800EC985C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F40653B816C681CB00EC985C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		F40653BB16C681E000EC985C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -119,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F40653BC16C681E000EC985C /* Social.framework in Frameworks */,
+				F40653B916C681CB00EC985C /* Accounts.framework in Frameworks */,
 				F40653AF16C43A5800EC985C /* QuartzCore.framework in Frameworks */,
 				F40653AD16C4309700EC985C /* MessageUI.framework in Frameworks */,
 				F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */,
@@ -136,6 +142,8 @@
 		F421E31E16BD2D7000FE9E6F = {
 			isa = PBXGroup;
 			children = (
+				F40653BB16C681E000EC985C /* Social.framework */,
+				F40653B816C681CB00EC985C /* Accounts.framework */,
 				F421E33316BD2D7000FE9E6F /* GarbageCollector */,
 				F421E32C16BD2D7000FE9E6F /* Frameworks */,
 				F421E32A16BD2D7000FE9E6F /* Products */,
