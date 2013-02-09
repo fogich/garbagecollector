@@ -87,6 +87,7 @@
     GarbageSpot* currentSpot = [self.tableArray objectAtIndex:indexPath.row];
     //cell.cellPicture.image=[UIImage imageNamed:currentSpot.pictureFilename];
     cell.cellText.text=currentSpot.pictureDescription;
+    cell.cellPicture.image=[UIImage imageNamed:currentSpot.pictureFilename];
     if(currentSpot.dateCleaned!=nil)
         cell.checkMarkImage.alpha=1;
     // Configure the cell...
