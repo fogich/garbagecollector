@@ -10,7 +10,8 @@
 #import "GarbageSpot.h"
 #import "GarbageStorage.h"
 #import "MainCollectionCell.h"
-@interface CollectionViewController ()
+#import "InfoViewController.h"
+@interface CollectionViewController ()<InfoModalDelegate>
 @property (nonatomic) NSArray* garbageArray;
 @end
 
@@ -44,6 +45,11 @@
     self.garbageArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
 	// Do any additional setup after loading the view.
 }
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 -(void) addItem
 {
     [self performSegueWithIdentifier:@"newGarbageSpot" sender:self];
@@ -75,11 +81,28 @@
     
     return myCell;
 }
-
-- (void)didReceiveMemoryWarning
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self performSegueWithIdentifier:@"fullInfo" sender:indexPath];
 }
-
+- (void) cleanObject:(GarbageSpot*) garbageSpot;
+{
+    garbageSpot.dateCleaned=[NSDate dateWithTimeIntervalSinceNow:0];
+    // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+    [self.collectionView reloadData];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{   if([segue.identifier isEqualToString:@"fullInfo"])
+    {
+        NSIndexPath* indexPath=(NSIndexPath*) sender;
+        InfoViewController* mvc = segue.destinationViewController;
+        mvc.garbageSpot=[self.garbageArray objectAtIndex:indexPath.row];
+        mvc.delegate = self;
+    }
+}
+-(void) viewDidAppear:(BOOL)animated
+{
+    self.garbageArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+    [self.collectionView reloadData];
+}
 @end
