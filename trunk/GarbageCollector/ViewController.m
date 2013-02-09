@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "MainTableViewController.h"
 #import "GarbageStorage.h"
+#import "AppDelegate.h"
+
 
 @interface ViewController ()
 
@@ -20,19 +22,27 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
-    //set some custom font for the label
-	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
-	[label setBackgroundColor:[UIColor clearColor]];
-	[label setTextColor:[UIColor blackColor]];
-	[label setText:@"Facebook Profile"];
-	[self.navigationController.navigationBar.topItem setTitleView:label];
+   
+//Moved to updateUI
+    
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+//    //set some custom font for the label
+//	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
+//	[label setBackgroundColor:[UIColor clearColor]];
+//	[label setTextColor:[UIColor blackColor]];
+//	[label setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
+//	[self.navigationController.navigationBar.topItem setTitleView:label];
+    
+    
     UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchToMapScreen)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Table" style:UIBarButtonItemStyleBordered target:self action:@selector(switchToTableScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"image.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     
     
+//Moved to updateUI
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture] style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUI:) name:@"pictureDownloaded" object:nil];
     
     //test
     //[[GarbageStorage instance] allGarbageSpots];
@@ -44,6 +54,19 @@
 //        GarbageSpot* spot = [garbageSpots objectAtIndex:i];
 //        NSLog(@"%@", spot.address);
 //    }
+}
+
+-(void)updateUI: (NSNotification *) not{
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    //set some custom font for the label
+	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
+	[label setBackgroundColor:[UIColor clearColor]];
+	[label setTextColor:[UIColor blackColor]];
+	[label setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
+	[self.navigationController.navigationBar.topItem setTitleView:label];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture] style:UIBarButtonItemStylePlain target:self action:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,5 +82,50 @@
 {
     [self performSegueWithIdentifier:@"gotoTableScreen" sender:self];
 }
+
+//-(void)getProfileInfo{
+//    
+//    ACAccountStore *acc = [ACAccountStore new];
+//    ACAccountType *accType = [acc accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+//    
+//    
+//    [acc requestAccessToAccountsWithType:accType options:nil completion:^(BOOL granted, NSError *err){
+//        
+//        if (granted == YES) {
+//            NSArray *accArray = [acc accountsWithAccountType:accType];
+//            ACAccount *twAcc = [accArray lastObject];
+//            
+//            NSString *userID = [[twAcc valueForKey:@"properties"] valueForKey:@"user_id"];
+//            
+//            //NSLog(@"USER_ID: %@",userID);
+//            
+//            NSURL *reqURL = [NSURL URLWithString:@"https://api.twitter.com/1.1/users/show.json"];
+//            
+//            NSDictionary  *params = @{@"user_id":userID};
+//            
+//            SLRequest *userInfoReq = [SLRequest requestForServiceType:SLServiceTypeTwitter requestMethod:SLRequestMethodGET URL:reqURL parameters:params];
+//            
+//            userInfoReq.account = twAcc;
+//            [userInfoReq performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *err){
+//                
+//                //NSLog(@"Posting done!");
+//                //NSLog(@"Response: %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
+//                //NSLog(@"urlResponse %d: %@",[urlResponse statusCode], [NSHTTPURLResponse localizedStringForStatusCode:[urlResponse statusCode]]);
+//                //NSLog(@"NSdata: %@", NSHTTPURLResponse);
+//                
+//                //NSError *err = nil;
+//                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error: &err];
+//                
+//                self.userName = twAcc.username;
+//                self.profilePicture = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:jsonObject[@"profile_image_url"]]]];
+//                NSLog(@"User info - done!");
+//                
+//            }];
+//        }
+//        
+//        
+//    }];
+//    
+//}
 
 @end
