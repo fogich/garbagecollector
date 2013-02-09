@@ -37,6 +37,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self getUsername];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -82,47 +84,46 @@
     NSString* address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", placemark.country, placemark.locality, placemark.subLocality, placemark.thoroughfare, placemark.subThoroughfare];
     
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
+    self.garbageSpot.dateCreated = [NSDate date];
     
-    self.garbageSpot.fbid = @"test_facebook_id";
+    Location* location = [[GarbageStorage instance] createLocationWithLatitude:placemark.location.coordinate.latitude Longitude:placemark.location.coordinate.longitude Address:address Region: placemark.subLocality];
     
-    self.garbageSpot.latitude = [NSNumber numberWithDouble: placemark.location.coordinate.latitude];
-    self.garbageSpot.longitude = [NSNumber numberWithDouble: placemark.location.coordinate.longitude];
-    self.garbageSpot.address = address;
+    self.garbageSpot.location = location;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
     
     //start facebook post dialog
-    //[self postToFacebook];
+    [self postToFacebook];
     
     //get fbid from facebook... naahh, maybe not :)
     
     //save context
     [[GarbageStorage instance] addGarbageSpot:self.garbageSpot];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //
 }
 
 
 //getting username from the accounts framework requires Facebook developers account to generate facebook app ID
-//-(void)getUsername{
-//    
-//    ACAccountStore *accStore = [ACAccountStore new];
-//    ACAccountType *accType = [accStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
-//    
-//    NSDictionary *options = @{@"ACFacebookAppIdKey" : @""};
-//    
-//    [accStore requestAccessToAccountsWithType:accType options:options completion:^(BOOL granted, NSError *err){
-//        
-//        if (granted == YES) {
-//            NSLog(@"Granted");
-//            NSArray *accArray = [accStore accountsWithAccountType:accType];
-//            ACAccount *fbAcc = [accArray lastObject];
-//            
-//            NSLog(@"Account desc: %@ UserName: %@ Identifier: %@", fbAcc.description, fbAcc.username, fbAcc.identifier);
-//        }
-//                    NSLog(@"Something else!");
-//        
-//    }];
-//    
-//}
+-(void)getUsername{
+    
+    ACAccountStore *accStore = [ACAccountStore new];
+    ACAccountType *accType = [accStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+    
+    //NSDictionary *options = @{@"ACFacebookAppIdKey" : @"426647264082273", @"ACFacebookPermissionsKey", @""};
+    
+    [accStore requestAccessToAccountsWithType:accType options:nil completion:^(BOOL granted, NSError *err){
+        
+        if (granted == YES) {
+            NSLog(@"Granted");
+            NSArray *accArray = [accStore accountsWithAccountType:accType];
+            ACAccount *fbAcc = [accArray lastObject];
+            
+            NSLog(@"Account desc: %@ UserName: %@ Identifier: %@", fbAcc.description, fbAcc.username, fbAcc.identifier);
+        }
+                    NSLog(@"Something else!");
+        
+    }];
+    
+}
 
 - (void)postToFacebook{
     
@@ -138,12 +139,11 @@
             }else{
                 
                 NSLog(@"Done posting!");
+                [self dismissViewControllerAnimated:YES completion:nil];
             }
-            
-            
         };
         
-        [controller setInitialText:[NSString stringWithFormat:@"I have found a new garbage spot at %@", self.garbageSpot.address]];
+        [controller setInitialText:[NSString stringWithFormat:@"I have found a new garbage spot at %@", self.garbageSpot.location.address]];
         [controller addImage:self.imageView.image];
         controller.completionHandler = fbBlock;
         

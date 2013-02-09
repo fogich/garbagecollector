@@ -28,9 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(returnToPreviousScreen)];
-    UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"FindPath" style:UIBarButtonItemStyleBordered target:self action:@selector(findPath)];
-    self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
+    //UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(returnToPreviousScreen)];
+    
+    UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Find Depo" style:UIBarButtonItemStyleBordered target:self action:@selector(findPath)];
+    self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObjects:butt1 ,nil];
     UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
     titleView.backgroundColor = [UIColor clearColor];
     titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
@@ -39,9 +40,11 @@
     titleView.text=@"Facebook Profile";
     self.navigationBarItems.titleView = titleView;
     [titleView sizeToFit];
-    self.navigationBarItems.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem* imageButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(returnToPreviousScreen)];
+    self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObjects:backButton, imageButton, nil];    
     self.infoPicture.image = [UIImage imageNamed:self.garbageSpot.pictureFilename];
-    self.addressLabel.text = self.garbageSpot.address;
+    self.addressLabel.text = self.garbageSpot.location.address;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
