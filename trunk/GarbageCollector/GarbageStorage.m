@@ -7,33 +7,21 @@
 //
 
 #import "GarbageStorage.h"
-#import "User.h"
 #import <CoreData/CoreData.h>
+
 
 @interface GarbageStorage ()
 
-@property (strong, nonatomic) User* user;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-- (void)initUser;
 
 @end
 
 @implementation GarbageStorage
-@synthesize user;
 @synthesize managedObjectContext=_managedObjectContext;
 @synthesize managedObjectModel=_managedObjectModel;
 @synthesize persistentStoreCoordinator=_persistentStoreCoordinator;
-
--(id)init
-{
-    self = [super init];
-    if (self) {
-        [self initUser];
-    }
-    return self;
-}
 
 +(id)instance
 {
@@ -49,67 +37,51 @@
     return [self instance];
 }
 
--(void)initUser
-{
-    
-    NSFetchRequest* request = [[NSFetchRequest alloc]init];
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
-    request.entity = entity;
-    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:nil];
-    
-    self.user = [result objectAtIndex: 0];
-    
-    //create user and some garbage spots
-    
-//    self.user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
-//    user.fbid = @"12303012301230";
-//    user.fbName = @"Kurtev";
-//    user.fbPictureFilename = @"shitpic";
-//    
-//    GarbageSpot* newGarbageSpot = [self createGarbageSpot];
-//    newGarbageSpot.address = @"some address";
-//    newGarbageSpot.latitude = [NSNumber numberWithDouble:42.691126];
-//    newGarbageSpot.longitude = [NSNumber numberWithDouble:23.319875];
-//    newGarbageSpot.fbid = @"fbid";
-//    newGarbageSpot.pictureDescription=@"dumbshit description";
-//    
-//    [self addGarbageSpot:newGarbageSpot];
-//    
-//    GarbageSpot* newGarbageSpot2 = [self createGarbageSpot];
-//    newGarbageSpot2.address = @"some address 2";
-//    newGarbageSpot2.latitude = [NSNumber numberWithDouble:42.694442];
-//    newGarbageSpot2.longitude = [NSNumber numberWithDouble:23.322512];
-//    newGarbageSpot2.fbid = @"fbid2";
-//    newGarbageSpot2.pictureDescription=@"even stupider description";
-//    [self addGarbageSpot:newGarbageSpot2];
-//    
-//    GarbageSpot* newGarbageSpot3 = [self createGarbageSpot];
-//    newGarbageSpot3.address = @"some address 3";
-//    newGarbageSpot3.latitude = [NSNumber numberWithDouble:42.694442];
-//    newGarbageSpot3.longitude = [NSNumber numberWithDouble:23.322512];
-//    newGarbageSpot3.fbid = @"fbid3";
-//    newGarbageSpot3.pictureDescription=@"hobo alley";
-//    [self addGarbageSpot:newGarbageSpot3];
-//    
-//        GarbageSpot* newGarbageSpot4 = [self createGarbageSpot];
-//        newGarbageSpot4.address = @"some address 4";
-//        newGarbageSpot4.latitude = [NSNumber numberWithDouble:42.737683];
-//        newGarbageSpot4.longitude = [NSNumber numberWithDouble:23.298225];
-//        newGarbageSpot4.fbid = @"fbid4";
-//       newGarbageSpot4.pictureDescription=@"abcdefeg";
-//       [self addGarbageSpot:newGarbageSpot4];
-}
-
 -(GarbageSpot*)createGarbageSpot
 {
     GarbageSpot* garbageSpot = [NSEntityDescription insertNewObjectForEntityForName:@"GarbageSpot" inManagedObjectContext:self.managedObjectContext];
     return garbageSpot;
 }
 
+-(Location*)createLocationWithLatitude:(double) latitude Longitude: (double) longitude Address: (NSString*)address Region: (NSString*) regionName
+{
+    Location* location = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
+    location.latitude = [NSNumber numberWithDouble: latitude];
+    location.longitude = [NSNumber numberWithDouble: longitude];
+    location.address = address;
+    
+    //checkRegion
+    Region* region = [self getRegionWithName:regionName];
+    [region addSpotLocationsObject: location];
+    
+    return location;
+}
+
+-(Region*) getRegionWithName: (NSString*) regionName
+{
+    NSFetchRequest* request = [[NSFetchRequest alloc]init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"GarbageSpot" inManagedObjectContext:self.managedObjectContext];
+    request.entity = entity;
+    request.predicate = [NSPredicate predicateWithFormat:@"name==%@", regionName];
+    
+    NSArray* result = [self.managedObjectContext executeFetchRequest:request error:nil];
+    
+    Region* region = nil;
+    if(!result || result.count==0)
+    {
+        //create region and add this location
+        region = [NSEntityDescription insertNewObjectForEntityForName:@"Region" inManagedObjectContext:self.managedObjectContext];
+    }
+    else
+    {
+        region = [result objectAtIndex:0];
+    }
+    
+    return region;
+}
+
 -(void)addGarbageSpot:(GarbageSpot *)garbageSpot
 {
-    garbageSpot.reporter = self.user;
-    [self.user addReportsObject:garbageSpot];
     [self saveContext];
 }
 
@@ -120,7 +92,7 @@
     NSEntityDescription* entity = [NSEntityDescription entityForName:@"GarbageSpot" inManagedObjectContext:self.managedObjectContext];
     request.entity = entity;
     
-    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"fbid" ascending:YES]];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"dateCreated" ascending:YES]];
     
     NSArray* result = [self.managedObjectContext executeFetchRequest:request error:nil];
     //check for error
