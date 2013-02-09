@@ -173,4 +173,9 @@
         mvc.delegate = self;
     }
 }
+-(void) viewDidAppear:(BOOL)animated
+{
+    self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+    [self.tableView reloadData];
+}
 @end
