@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "GarbageSpot.h"
-#import "User.h"
+#import "Location.h"
 
 @interface GarbageSpotPinAnnotation : NSObject<MKAnnotation>
 

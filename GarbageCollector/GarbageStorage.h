@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "GarbageSpot.h"
+#import "Location.h"
+#import "Region.h"
 
 @interface GarbageStorage : NSObject
 
@@ -15,6 +17,9 @@
 - (void)addGarbageSpot:(GarbageSpot*) garbageSpot;
 -(NSArray*)allGarbageSpots;
 -(GarbageSpot*)createGarbageSpot;
+-(Location*)createLocationWithLatitude:(double) latitude Longitude: (double) longitude Address: (NSString*)address Region: (NSString*) regionName;
+-(Region*) getRegionWithName: (NSString*) regionName;
+
 - (NSManagedObjectContext *)managedObjectContext;
 +(id)instance;
 

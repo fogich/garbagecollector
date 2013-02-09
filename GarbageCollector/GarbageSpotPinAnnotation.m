@@ -14,17 +14,17 @@
 
 -(CLLocationCoordinate2D)coordinate
 {
-    return CLLocationCoordinate2DMake([self.garbageSpot.latitude doubleValue], [self.garbageSpot.longitude doubleValue]);
+    return CLLocationCoordinate2DMake([self.garbageSpot.location.latitude doubleValue], [self.garbageSpot.location.longitude doubleValue]);
 }
 
 -(NSString *)title
 {
-    return self.garbageSpot.address;
+    return self.garbageSpot.location.address;
 }
 
 -(NSString *)subtitle
 {
-    return [NSString stringWithFormat: @"Reported by: %@", self.garbageSpot.reporter.fbName];
+    return [NSString stringWithFormat: @"Since: %@", self.garbageSpot.dateCreated];
 }
 
 @end
