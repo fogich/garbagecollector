@@ -26,6 +26,8 @@
 		F40653B916C681CB00EC985C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653B816C681CB00EC985C /* Accounts.framework */; };
 		F40653BC16C681E000EC985C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653BB16C681E000EC985C /* Social.framework */; };
 		F40653C516C6BAA800EC985C /* GarbageSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F40653C416C6BAA700EC985C /* GarbageSpot.m */; };
+		F40653D316C6D17400EC985C /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = F40653CE16C6D17400EC985C /* Location.m */; };
+		F40653D516C6D17400EC985C /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = F40653D216C6D17400EC985C /* Region.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -80,6 +82,10 @@
 		F40653BB16C681E000EC985C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		F40653C316C6BAA700EC985C /* GarbageSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpot.h; sourceTree = "<group>"; };
 		F40653C416C6BAA700EC985C /* GarbageSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpot.m; sourceTree = "<group>"; };
+		F40653CD16C6D17400EC985C /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		F40653CE16C6D17400EC985C /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		F40653D116C6D17400EC985C /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		F40653D216C6D17400EC985C /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -170,6 +176,10 @@
 		F421E33316BD2D7000FE9E6F /* GarbageCollector */ = {
 			isa = PBXGroup;
 			children = (
+				F40653CD16C6D17400EC985C /* Location.h */,
+				F40653CE16C6D17400EC985C /* Location.m */,
+				F40653D116C6D17400EC985C /* Region.h */,
+				F40653D216C6D17400EC985C /* Region.m */,
 				F42D599B16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.h */,
 				F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */,
 				F406536A16C295D600EC985C /* DepoPinAnnotation.h */,
@@ -322,6 +332,8 @@
 				F1ABB07A16C540DD00022480 /* MainCollectionCell.m in Sources */,
 				F1ABB07E16C540FC00022480 /* CollectionViewController.m in Sources */,
 				F40653C516C6BAA800EC985C /* GarbageSpot.m in Sources */,
+				F40653D316C6D17400EC985C /* Location.m in Sources */,
+				F40653D516C6D17400EC985C /* Region.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
