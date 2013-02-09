@@ -20,12 +20,14 @@
 		F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535B16C1619900EC985C /* GoogleDirectionsService.m */; };
 		F406535F16C161D300EC985C /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F406535E16C161D300EC985C /* JSONParser.m */; };
 		F406536616C17BF700EC985C /* GarbageDepo.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536516C17BF700EC985C /* GarbageDepo.m */; };
-		F406536916C290B400EC985C /* GarbageSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536816C290B400EC985C /* GarbageSpot.m */; };
 		F406536C16C295D700EC985C /* DepoPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F406536B16C295D600EC985C /* DepoPinAnnotation.m */; };
 		F40653AD16C4309700EC985C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653AC16C4309600EC985C /* MessageUI.framework */; };
 		F40653AF16C43A5800EC985C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653AE16C43A5800EC985C /* QuartzCore.framework */; };
 		F40653B916C681CB00EC985C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653B816C681CB00EC985C /* Accounts.framework */; };
 		F40653BC16C681E000EC985C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F40653BB16C681E000EC985C /* Social.framework */; };
+		F40653C216C6BAA600EC985C /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = F40653C116C6BAA600EC985C /* Location.m */; };
+		F40653C516C6BAA800EC985C /* GarbageSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = F40653C416C6BAA700EC985C /* GarbageSpot.m */; };
+		F40653C816C6C24000EC985C /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = F40653C716C6C23F00EC985C /* Region.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -39,8 +41,6 @@
 		F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35416BD2DA700FE9E6F /* MainTableViewController.m */; };
 		F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F421E35616BD2DA700FE9E6F /* MapViewController.m */; };
 		F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */; };
-		F42D597816BD401C00F1CA6E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597716BD401C00F1CA6E /* Comment.m */; };
-		F42D597B16BD401C00F1CA6E /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D597A16BD401C00F1CA6E /* User.m */; };
 		F42D598116BD46DD00F1CA6E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D598016BD46DD00F1CA6E /* CoreData.framework */; };
 		F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D598416BD47C900F1CA6E /* GarbageStorage.m */; };
 		F42D599716BD762600F1CA6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599616BD762600F1CA6E /* MapKit.framework */; };
@@ -74,14 +74,18 @@
 		F406535E16C161D300EC985C /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		F406536416C17BF700EC985C /* GarbageDepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageDepo.h; sourceTree = "<group>"; };
 		F406536516C17BF700EC985C /* GarbageDepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageDepo.m; sourceTree = "<group>"; };
-		F406536716C290B300EC985C /* GarbageSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpot.h; sourceTree = "<group>"; };
-		F406536816C290B400EC985C /* GarbageSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpot.m; sourceTree = "<group>"; };
 		F406536A16C295D600EC985C /* DepoPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DepoPinAnnotation.h; sourceTree = "<group>"; };
 		F406536B16C295D600EC985C /* DepoPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DepoPinAnnotation.m; sourceTree = "<group>"; };
 		F40653AC16C4309600EC985C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F40653AE16C43A5800EC985C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F40653B816C681CB00EC985C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		F40653BB16C681E000EC985C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F40653C016C6BAA600EC985C /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		F40653C116C6BAA600EC985C /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		F40653C316C6BAA700EC985C /* GarbageSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpot.h; sourceTree = "<group>"; };
+		F40653C416C6BAA700EC985C /* GarbageSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpot.m; sourceTree = "<group>"; };
+		F40653C616C6C23E00EC985C /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
+		F40653C716C6C23F00EC985C /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,10 +106,6 @@
 		F421E35516BD2DA700FE9E6F /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		F421E35616BD2DA700FE9E6F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		F42D596716BD344D00F1CA6E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		F42D597616BD401C00F1CA6E /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
-		F42D597716BD401C00F1CA6E /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
-		F42D597916BD401C00F1CA6E /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		F42D597A16BD401C00F1CA6E /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		F42D598016BD46DD00F1CA6E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F42D598316BD47C900F1CA6E /* GarbageStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageStorage.h; sourceTree = "<group>"; };
 		F42D598416BD47C900F1CA6E /* GarbageStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageStorage.m; sourceTree = "<group>"; };
@@ -182,8 +182,6 @@
 				F406536B16C295D600EC985C /* DepoPinAnnotation.m */,
 				F421E33C16BD2D7000FE9E6F /* AppDelegate.h */,
 				F421E33D16BD2D7000FE9E6F /* AppDelegate.m */,
-				F42D597616BD401C00F1CA6E /* Comment.h */,
-				F42D597716BD401C00F1CA6E /* Comment.m */,
 				F42D598316BD47C900F1CA6E /* GarbageStorage.h */,
 				F42D598416BD47C900F1CA6E /* GarbageStorage.m */,
 				F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */,
@@ -201,15 +199,17 @@
 				F421E35516BD2DA700FE9E6F /* MapViewController.h */,
 				F421E35616BD2DA700FE9E6F /* MapViewController.m */,
 				F42D596616BD344D00F1CA6E /* Model.xcdatamodeld */,
-				F406536716C290B300EC985C /* GarbageSpot.h */,
-				F406536816C290B400EC985C /* GarbageSpot.m */,
+				F40653C616C6C23E00EC985C /* Region.h */,
+				F40653C716C6C23F00EC985C /* Region.m */,
+				F40653C316C6BAA700EC985C /* GarbageSpot.h */,
+				F40653C416C6BAA700EC985C /* GarbageSpot.m */,
+				F40653C016C6BAA600EC985C /* Location.h */,
+				F40653C116C6BAA600EC985C /* Location.m */,
 				F49433E916BDF9A4001712D3 /* DrawView.h */,
 				F49433EA16BDF9A4001712D3 /* DrawView.m */,
 				F49433EC16BDFB6A001712D3 /* Kaci.jpg */,
 				F1A613C916C42E6600FED17D /* green_checkmark.jpg */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
-				F42D597916BD401C00F1CA6E /* User.h */,
-				F42D597A16BD401C00F1CA6E /* User.m */,
 				F421E34B16BD2D7000FE9E6F /* ViewController.h */,
 				F421E34C16BD2D7000FE9E6F /* ViewController.m */,
 				F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */,
@@ -317,8 +317,6 @@
 				F421E35716BD2DA700FE9E6F /* MainTableViewController.m in Sources */,
 				F421E35816BD2DA700FE9E6F /* MapViewController.m in Sources */,
 				F42D596816BD344D00F1CA6E /* Model.xcdatamodeld in Sources */,
-				F42D597816BD401C00F1CA6E /* Comment.m in Sources */,
-				F42D597B16BD401C00F1CA6E /* User.m in Sources */,
 				F42D598516BD47C900F1CA6E /* GarbageStorage.m in Sources */,
 				F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */,
 				F42D599D16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m in Sources */,
@@ -330,10 +328,12 @@
 				F406535C16C1619900EC985C /* GoogleDirectionsService.m in Sources */,
 				F406535F16C161D300EC985C /* JSONParser.m in Sources */,
 				F406536616C17BF700EC985C /* GarbageDepo.m in Sources */,
-				F406536916C290B400EC985C /* GarbageSpot.m in Sources */,
 				F406536C16C295D700EC985C /* DepoPinAnnotation.m in Sources */,
 				F1ABB07A16C540DD00022480 /* MainCollectionCell.m in Sources */,
 				F1ABB07E16C540FC00022480 /* CollectionViewController.m in Sources */,
+				F40653C216C6BAA600EC985C /* Location.m in Sources */,
+				F40653C516C6BAA800EC985C /* GarbageSpot.m in Sources */,
+				F40653C816C6C24000EC985C /* Region.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
