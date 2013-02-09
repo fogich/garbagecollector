@@ -9,6 +9,7 @@
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="spot" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GarbageSpot" inverseName="location" inverseEntity="GarbageSpot" syncable="YES"/>
@@ -19,7 +20,7 @@
     </entity>
     <elements>
         <element name="GarbageSpot" positionX="-182" positionY="-378" width="128" height="120"/>
+        <element name="Location" positionX="-360" positionY="-270" width="128" height="120"/>
         <element name="Region" positionX="-567" positionY="-246" width="128" height="75"/>
-        <element name="Location" positionX="-360" positionY="-270" width="128" height="105"/>
     </elements>
 </model>
