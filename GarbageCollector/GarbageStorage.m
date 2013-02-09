@@ -68,18 +68,8 @@
     
     Region* region = nil;
     if(!result || result.count==0)
-    {
-        //create region and add this location
-        region = [NSEntityDescription insertNewObjectForEntityForName:@"Region" inManagedObjectContext:self.managedObjectContext];
-    }
-    else
-    {
-        region = [result objectAtIndex:0];
-    }
-    
     return region;
 }
-
 -(void)addGarbageSpot:(GarbageSpot *)garbageSpot
 {
     [self saveContext];
