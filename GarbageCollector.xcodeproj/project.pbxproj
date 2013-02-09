@@ -142,8 +142,6 @@
 		F421E31E16BD2D7000FE9E6F = {
 			isa = PBXGroup;
 			children = (
-				F40653BB16C681E000EC985C /* Social.framework */,
-				F40653B816C681CB00EC985C /* Accounts.framework */,
 				F421E33316BD2D7000FE9E6F /* GarbageCollector */,
 				F421E32C16BD2D7000FE9E6F /* Frameworks */,
 				F421E32A16BD2D7000FE9E6F /* Products */,
@@ -161,6 +159,8 @@
 		F421E32C16BD2D7000FE9E6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F40653BB16C681E000EC985C /* Social.framework */,
+				F40653B816C681CB00EC985C /* Accounts.framework */,
 				F40653AE16C43A5800EC985C /* QuartzCore.framework */,
 				F40653AC16C4309600EC985C /* MessageUI.framework */,
 				F42D599916BD791A00F1CA6E /* CoreLocation.framework */,

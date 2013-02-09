@@ -16,6 +16,7 @@
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) GarbageSpot* garbageSpot;
 @property (nonatomic)  UIPopoverController* popOver;
+- (IBAction)useImageClicked:(id)sender;
 @end
 
 @implementation ImagePickerViewController
@@ -81,20 +82,22 @@
     NSString* address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", placemark.country, placemark.locality, placemark.subLocality, placemark.thoroughfare, placemark.subThoroughfare];
     
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
+    
+    self.garbageSpot.fbid = @"test_facebook_id";
+    
     self.garbageSpot.latitude = [NSNumber numberWithDouble: placemark.location.coordinate.latitude];
     self.garbageSpot.longitude = [NSNumber numberWithDouble: placemark.location.coordinate.longitude];
     self.garbageSpot.address = address;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
     
     //start facebook post dialog
-    [self postToFacebook];
+    //[self postToFacebook];
     
     //get fbid from facebook... naahh, maybe not :)
     
-    //add the current user as a reporter - useless as there are no other posters
-
-    
     //save context
+    [[GarbageStorage instance] addGarbageSpot:self.garbageSpot];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -252,12 +255,10 @@
     {
         [[self popOver] dismissPopoverAnimated:YES];
     }
-    else{
-    
-    [picker dismissModalViewControllerAnimated:YES];
+    else
+    {
+        [picker dismissModalViewControllerAnimated:YES];
     }
-    [self.locationManager startUpdatingLocation];
-    
 }
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)  picker
@@ -265,4 +266,8 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)useImageClicked:(id)sender
+{
+    [self.locationManager startUpdatingLocation];
+}
 @end
