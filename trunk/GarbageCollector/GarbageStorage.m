@@ -68,6 +68,15 @@
     
     Region* region = nil;
     if(!result || result.count==0)
+    {
+        region = [NSEntityDescription insertNewObjectForEntityForName:@"Region" inManagedObjectContext:self.managedObjectContext];
+        region.name = regionName;
+    }
+    else
+    {
+        [result objectAtIndex:0];
+    }
+    
     return region;
 }
 -(void)addGarbageSpot:(GarbageSpot *)garbageSpot
