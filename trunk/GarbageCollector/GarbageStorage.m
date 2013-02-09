@@ -71,7 +71,6 @@
 //    newGarbageSpot.latitude = [NSNumber numberWithDouble:42.691126];
 //    newGarbageSpot.longitude = [NSNumber numberWithDouble:23.319875];
 //    newGarbageSpot.fbid = @"fbid";
-//    newGarbageSpot.reporter = user;
 //    newGarbageSpot.pictureDescription=@"dumbshit description";
 //    
 //    [self addGarbageSpot:newGarbageSpot];
@@ -81,7 +80,6 @@
 //    newGarbageSpot2.latitude = [NSNumber numberWithDouble:42.694442];
 //    newGarbageSpot2.longitude = [NSNumber numberWithDouble:23.322512];
 //    newGarbageSpot2.fbid = @"fbid2";
-//    newGarbageSpot2.reporter = user;
 //    newGarbageSpot2.pictureDescription=@"even stupider description";
 //    [self addGarbageSpot:newGarbageSpot2];
 //    
@@ -90,7 +88,6 @@
 //    newGarbageSpot3.latitude = [NSNumber numberWithDouble:42.694442];
 //    newGarbageSpot3.longitude = [NSNumber numberWithDouble:23.322512];
 //    newGarbageSpot3.fbid = @"fbid3";
-//    newGarbageSpot3.reporter = user;
 //    newGarbageSpot3.pictureDescription=@"hobo alley";
 //    [self addGarbageSpot:newGarbageSpot3];
 //    
@@ -99,7 +96,6 @@
 //        newGarbageSpot4.latitude = [NSNumber numberWithDouble:42.737683];
 //        newGarbageSpot4.longitude = [NSNumber numberWithDouble:23.298225];
 //        newGarbageSpot4.fbid = @"fbid4";
-//       newGarbageSpot4.reporter = user;
 //       newGarbageSpot4.pictureDescription=@"abcdefeg";
 //       [self addGarbageSpot:newGarbageSpot4];
 }
@@ -112,6 +108,7 @@
 
 -(void)addGarbageSpot:(GarbageSpot *)garbageSpot
 {
+    garbageSpot.reporter = self.user;
     [self.user addReportsObject:garbageSpot];
     [self saveContext];
 }
