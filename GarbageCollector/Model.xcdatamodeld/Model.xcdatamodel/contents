@@ -1,31 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11G63" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Comment" representedClassName="Comment" syncable="YES">
-        <attribute name="text" attributeType="String" syncable="YES"/>
-        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
-        <relationship name="commentedBy" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
-    </entity>
     <entity name="GarbageSpot" representedClassName="GarbageSpot" syncable="YES">
-        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateCleaned" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="fbid" attributeType="String" syncable="YES"/>
-        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
         <attribute name="pictureDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pictureFilename" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" syncable="YES"/>
-        <relationship name="reporter" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="reports" inverseEntity="User" syncable="YES"/>
+        <relationship name="location" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="spot" inverseEntity="Location" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="User" syncable="YES">
-        <attribute name="fbid" attributeType="String" syncable="YES"/>
-        <attribute name="fbName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fbPictureFilename" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="reports" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GarbageSpot" inverseName="reporter" inverseEntity="GarbageSpot" syncable="YES"/>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="spot" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GarbageSpot" inverseName="location" inverseEntity="GarbageSpot" syncable="YES"/>
+    </entity>
+    <entity name="Region" representedClassName="Region" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="spotLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Comment" positionX="27" positionY="-387" width="128" height="90"/>
-        <element name="GarbageSpot" positionX="-153" positionY="-306" width="128" height="195"/>
-        <element name="User" positionX="126" positionY="-93" width="128" height="105"/>
+        <element name="GarbageSpot" positionX="-182" positionY="-378" width="128" height="120"/>
+        <element name="Region" positionX="-567" positionY="-246" width="128" height="75"/>
+        <element name="Location" positionX="-360" positionY="-270" width="128" height="105"/>
     </elements>
 </model>

@@ -48,7 +48,7 @@
     [self.activityIndicator startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.latitude doubleValue], [self.spotDetail.longitude doubleValue]);
+        CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.location.latitude doubleValue], [self.spotDetail.location.longitude doubleValue]);
         GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
         self.depo = nearestDepo;
         CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
@@ -205,7 +205,7 @@
         NSData *imageData = UIImagePNGRepresentation(screenShot);
         [mailer addAttachmentData:imageData mimeType:@"image/png" fileName:@"location"];
         
-        NSString *emailBody = [NSString stringWithFormat: @"<div>We have found and packed some garbage. It is located at <b>%@</b>. Please come to pick it up.<div>", self.spotDetail.address];
+        NSString *emailBody = [NSString stringWithFormat: @"<div>We have found and packed some garbage. It is located at <b>%@</b>. Please come to pick it up.<div>", self.spotDetail.location.address];
         [mailer setMessageBody:emailBody isHTML:YES];
         [self presentViewController:mailer animated:YES completion:nil];
     }
