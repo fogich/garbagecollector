@@ -60,7 +60,7 @@
 -(Region*) getRegionWithName: (NSString*) regionName
 {
     NSFetchRequest* request = [[NSFetchRequest alloc]init];
-    NSEntityDescription* entity = [NSEntityDescription entityForName:@"GarbageSpot" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Region" inManagedObjectContext:self.managedObjectContext];
     request.entity = entity;
     request.predicate = [NSPredicate predicateWithFormat:@"name==%@", regionName];
     

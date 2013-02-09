@@ -37,8 +37,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self getUsername];
-    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -94,7 +92,7 @@
     NSLog(@"%@", self.garbageSpot.pictureFilename);
     
     //start facebook post dialog
-    [self postToFacebook];
+    //[self postToFacebook];
     
     //get fbid from facebook... naahh, maybe not :)
     
