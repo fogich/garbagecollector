@@ -94,7 +94,8 @@
     GarbageSpot* currentSpot = [self.garbageArray objectAtIndex:indexPath.row];
     myCell.cellImage.image=[UIImage imageWithContentsOfFile:currentSpot.pictureFilename];
     myCell.cellText.text=currentSpot.pictureDescription;
-    if(currentSpot.dateCleaned!=nil)
+    NSLog(@"%@",currentSpot.dateCleaned);
+    if(currentSpot.dateCleaned)
     {
         [myCell.greenCheckmarkImage setHidden:NO];
         [myCell.cleanedTextIdentifier setHidden:NO];
@@ -108,9 +109,9 @@
 }
 - (void) cleanObject:(GarbageSpot*) garbageSpot;
 {
-    garbageSpot.dateCleaned=[NSDate date];
-    [[GarbageStorage instance] saveContext];
-    // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+
+    self.garbageArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+    
     [self.collectionView reloadData];
     NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty trash" withExtension:@"aif"];
     NSError *error;
@@ -129,7 +130,7 @@
         mvc.delegate = self;
     }
 }
--(void) viewDidAppear:(BOOL)animated
+-(void) viewWillAppear:(BOOL)animated
 {
     self.garbageArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.collectionView reloadData];
