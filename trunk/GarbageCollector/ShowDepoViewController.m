@@ -164,7 +164,7 @@
         if (!pinView) {
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"depoAnnotationView"];
             pinView.canShowCallout = YES;
-            pinView.pinColor=MKPinAnnotationColorGreen;
+            pinView.pinColor=MKPinAnnotationColorPurple;
         }
         else
         {
