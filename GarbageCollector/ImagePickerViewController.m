@@ -66,6 +66,7 @@
 
 -(void) returnToPreviousScreen
 {
+    [self.locationManager stopUpdatingLocation];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)locationManager:(CLLocationManager *)manager
@@ -291,6 +292,7 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)  picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (IBAction)useImageClicked:(id)sender
