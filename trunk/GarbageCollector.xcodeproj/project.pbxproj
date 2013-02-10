@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F16F110616C8016A0029BD16 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16F110516C8016A0029BD16 /* AVFoundation.framework */; };
+		F16F110916C806170029BD16 /* empty_trash.aif in Resources */ = {isa = PBXBuildFile; fileRef = F16F110816C806170029BD16 /* empty_trash.aif */; };
 		F1A6138316BD3A7E00FED17D /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */; };
 		F1A613A116BD59F600FED17D /* ImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613A016BD59F500FED17D /* ImagePickerViewController.m */; };
 		F1A613B016C10B9500FED17D /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1A613AF16C10B9400FED17D /* MainCell.m */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		F16F110516C8016A0029BD16 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F16F110816C806170029BD16 /* empty_trash.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = empty_trash.aif; sourceTree = "<group>"; };
 		F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
 		F1A613A016BD59F500FED17D /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				F40653E816C7F86C00EC985C /* 2.jpg */,
 				F40653E916C7F86C00EC985C /* 3.jpg */,
 				F40653EA16C7F86D00EC985C /* 4.jpg */,
+				F16F110816C806170029BD16 /* empty_trash.aif */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
 				F421E34B16BD2D7000FE9E6F /* ViewController.h */,
 				F421E34C16BD2D7000FE9E6F /* ViewController.m */,
@@ -326,6 +329,7 @@
 				F40653EB16C7F86E00EC985C /* 2.jpg in Resources */,
 				F40653EC16C7F86E00EC985C /* 3.jpg in Resources */,
 				F40653ED16C7F86E00EC985C /* 4.jpg in Resources */,
+				F16F110916C806170029BD16 /* empty_trash.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
