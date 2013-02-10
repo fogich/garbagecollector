@@ -34,6 +34,9 @@
     UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(returnToPreviousScreen)];
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:backButton];
+    self.navigationItem.hidesBackButton=YES;
     UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
     title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
@@ -54,6 +57,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void) returnToPreviousScreen
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 -(void) addItem
 {
@@ -82,7 +89,7 @@
                                     forIndexPath:indexPath];
     
     GarbageSpot* currentSpot = [self.garbageArray objectAtIndex:indexPath.row];
-    myCell.cellImage.image=[UIImage imageNamed:@"Kaci.jpg"];
+    myCell.cellImage.image=[UIImage imageWithContentsOfFile:currentSpot.pictureFilename];
     myCell.cellText.text=currentSpot.pictureDescription;
     if(currentSpot.dateCleaned!=nil)
     {
@@ -98,7 +105,8 @@
 }
 - (void) cleanObject:(GarbageSpot*) garbageSpot;
 {
-    garbageSpot.dateCleaned=[NSDate dateWithTimeIntervalSinceNow:0];
+    garbageSpot.dateCleaned=[NSDate date];
+    [[GarbageStorage instance] saveContext];
     // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.collectionView reloadData];
 }

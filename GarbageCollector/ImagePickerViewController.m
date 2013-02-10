@@ -39,13 +39,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(returnToPreviousScreen)];
-    self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObjects:butt ,nil];
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(returnToPreviousScreen)];
+    self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObject:backButton];
     UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
     
@@ -269,6 +268,7 @@
                  editingInfo:(NSDictionary *)editingInfo
 {
     self.imageView.image = image;
+    self.addGarbageSpotButton.enabled=YES;
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
     {
         [[self popOver] dismissPopoverAnimated:YES];
@@ -290,13 +290,18 @@
     
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Pick action" message:@"Pick how you want your garbage spot to be posted" delegate:self cancelButtonTitle:@"Dont post" otherButtonTitles:@"Facebook" ,@"Twitter"  , nil];
     [alert show];
+    
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self postToFacebook];
+        [self returnToPreviousScreen];
     }
     else if (buttonIndex == 2) {
         [self postToTwitter];
+        [self returnToPreviousScreen];
     }
+    else
+        [self returnToPreviousScreen];
 }
 @end
