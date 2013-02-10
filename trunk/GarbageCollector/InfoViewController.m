@@ -59,6 +59,7 @@
     self.dateLabel.text = formattedDateString;
     self.descriptionLabel.text=self.garbageSpot.pictureDescription;
 	// Do any additional setup after loading the view.
+    
 }
 -(BOOL)canBecomeFirstResponder{
 	return YES;

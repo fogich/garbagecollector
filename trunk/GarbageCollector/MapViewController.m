@@ -41,9 +41,11 @@
     UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Table" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
+    UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(returnToPreviousScreen)];
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObject:backButton];
+    self.navigationItem.hidesBackButton=YES;
     UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
     UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
-    
     title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
     [title setTextColor:[UIColor blackColor]];
     [title setFont:[UIFont boldSystemFontOfSize:16.0]];
@@ -74,6 +76,10 @@
     
     self.map.delegate = self;
     [self.map addAnnotations: annots];
+}
+-(void) returnToPreviousScreen
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 -(void) addItem
 {

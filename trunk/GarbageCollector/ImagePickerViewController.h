@@ -20,5 +20,6 @@
 -(IBAction)selectExitingPicture;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItems;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIButton *addGarbageSpotButton;
 
 @end

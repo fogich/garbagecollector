@@ -38,7 +38,7 @@
     
 //Moved to updateUI
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture] style:UIBarButtonItemStylePlain target:self action:nil];
-    
+    [self.activityIndicator startAnimating];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUI:) name:@"pictureDownloaded" object:nil];
     
     //test
@@ -70,6 +70,12 @@
     [myView setBackgroundColor:[UIColor  clearColor]];
     [myView addSubview:myImageView];
     self.navigationItem.titleView = myView;
+    [self.activityIndicator stopAnimating];
+    [self.activityIndicator setHidden:YES];
+    [self.activityIndicatorText setHidden:YES];
+    self.tableViewButton.enabled=YES;
+    self.mapViewButton.enabled=YES;
+    self.statisticsButton.enabled=YES;
 }
 
 - (void)didReceiveMemoryWarning

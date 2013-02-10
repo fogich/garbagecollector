@@ -12,11 +12,14 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtg-Kf-JAj">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtg-Kf-JAj">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="See Stats">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Please Wait">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,11 +36,14 @@
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4q-he-R0v">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4q-he-R0v">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Table View">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Please Wait">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,11 +52,14 @@
                                     <action selector="switchToTableScreen:" destination="IjM-Bp-u8H" eventType="touchUpInside" id="1vC-HL-Ti6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11J-54-11g">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11J-54-11g">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Map View">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="Please Wait">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,6 +68,12 @@
                                     <action selector="switchToMapScreen:" destination="IjM-Bp-u8H" eventType="touchUpInside" id="zvI-bX-NhZ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Please wait, loading user info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUI-2a-4bk">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bSr-Tu-Dx4"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -70,14 +85,24 @@
                             <constraint firstItem="Qtg-Kf-JAj" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NUd-UU-4pR"/>
                             <constraint firstItem="11J-54-11g" firstAttribute="top" secondItem="M4q-he-R0v" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QB7-JH-Vsh"/>
                             <constraint firstAttribute="trailing" secondItem="Qtg-Kf-JAj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VKr-iO-kCg"/>
+                            <constraint firstItem="ZUI-2a-4bk" firstAttribute="centerX" secondItem="bSr-Tu-Dx4" secondAttribute="centerX" type="default" id="fJh-LO-lKB"/>
                             <constraint firstAttribute="trailing" secondItem="M4q-he-R0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gBj-ha-dUU"/>
                             <constraint firstItem="M4q-he-R0v" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gxj-58-LPd"/>
+                            <constraint firstAttribute="trailing" secondItem="ZUI-2a-4bk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hg5-rC-dkc"/>
+                            <constraint firstItem="bSr-Tu-Dx4" firstAttribute="top" secondItem="7Y4-bV-swC" secondAttribute="top" constant="128" id="it4-Ia-w7E"/>
                             <constraint firstAttribute="trailing" secondItem="RVO-8m-itD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pam-CX-sLD"/>
                             <constraint firstAttribute="bottom" secondItem="Qtg-Kf-JAj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="rpC-Eg-Hmt"/>
+                            <constraint firstItem="ZUI-2a-4bk" firstAttribute="top" secondItem="7Y4-bV-swC" secondAttribute="top" constant="172" id="vI5-cW-4vp"/>
+                            <constraint firstItem="ZUI-2a-4bk" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="zLe-nf-dsh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VSM-sI-mkZ"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="bSr-Tu-Dx4" id="KXo-VQ-a1U"/>
+                        <outlet property="activityIndicatorText" destination="ZUI-2a-4bk" id="qu8-qC-vZq"/>
+                        <outlet property="mapViewButton" destination="11J-54-11g" id="ZoJ-oG-22s"/>
+                        <outlet property="statisticsButton" destination="Qtg-Kf-JAj" id="9nh-eV-R44"/>
+                        <outlet property="tableViewButton" destination="M4q-he-R0v" id="dbu-Ka-IB5"/>
                         <segue destination="7rJ-o0-WYC" kind="push" identifier="gotoTableScreen" id="yS9-zr-Byt"/>
                         <segue destination="pDv-eb-iem" kind="push" identifier="gotoMapScreen" id="70U-3C-7SB"/>
                     </connections>
@@ -415,7 +440,7 @@
                                     <navigationItem id="DYh-NK-VMj"/>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-7T-ITG">
+                            <button opaque="NO" alpha="0.99999999999999989" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb9-7T-ITG">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="99" id="FU1-ch-1wC"/>
                                 </constraints>
@@ -423,6 +448,9 @@
                                 <state key="normal" title="Add Spot">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" title="No Picture">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -464,6 +492,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addGarbageSpotButton" destination="zb9-7T-ITG" id="iQ4-at-9DS"/>
                         <outlet property="descriptionTextView" destination="I4M-DD-TSg" id="s4N-AZ-KLR"/>
                         <outlet property="imageView" destination="XNw-CA-Rys" id="jTO-2W-rGK"/>
                         <outlet property="navigationBarItems" destination="DYh-NK-VMj" id="aVn-mG-MAq"/>
@@ -505,6 +534,7 @@
                 <relationship kind="action" name="getCameraPicture:"/>
                 <relationship kind="action" name="selectExitingPicture"/>
                 <relationship kind="action" name="useImageClicked:"/>
+                <relationship kind="outlet" name="addGarbageSpotButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
@@ -559,6 +589,11 @@
             <relationships>
                 <relationship kind="action" name="switchToMapScreen:"/>
                 <relationship kind="action" name="switchToTableScreen:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="activityIndicatorText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapViewButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="statisticsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableViewButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
