@@ -100,6 +100,11 @@
         [myCell.greenCheckmarkImage setHidden:NO];
         [myCell.cleanedTextIdentifier setHidden:NO];
     }
+    else
+    {
+        [myCell.greenCheckmarkImage setHidden:YES];
+        [myCell.cleanedTextIdentifier setHidden:YES];
+    }
     
     return myCell;
 }
