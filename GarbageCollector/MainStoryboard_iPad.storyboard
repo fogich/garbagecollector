@@ -72,17 +72,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="6Ez-EG-OrG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1mt-mH-9b2"/>
-                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4FY-gn-5f1"/>
-                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" type="default" id="6IQ-Nr-uoe"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JlJ-DF-aLd"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="top" secondItem="ZKq-Xc-euy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PWR-Wu-3F1"/>
+                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="leading" secondItem="585-2h-pgV" secondAttribute="leading" type="default" id="EoZ-as-j0m"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="top" secondItem="ZKq-Xc-euy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ILf-ZT-x8h"/>
                             <constraint firstItem="6Ez-EG-OrG" firstAttribute="top" secondItem="5" secondAttribute="top" constant="36" id="RU7-uV-jaF"/>
-                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" type="default" id="SSV-XW-64A"/>
-                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="top" secondItem="585-2h-pgV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aze-LJ-eMn"/>
-                            <constraint firstAttribute="bottom" secondItem="oQH-yi-Yrf" secondAttribute="bottom" constant="98" id="bFR-Lc-8Xr"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="leading" secondItem="oQH-yi-Yrf" secondAttribute="leading" type="default" id="Y9Z-17-u8K"/>
+                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="centerX" secondItem="6Ez-EG-OrG" secondAttribute="centerX" type="default" id="Ysy-jn-xgX"/>
                             <constraint firstItem="6Ez-EG-OrG" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eVb-Dd-JAT"/>
-                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kkk-hr-m3s"/>
+                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" type="default" id="lx9-uF-Csz"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="trailing" secondItem="oQH-yi-Yrf" secondAttribute="trailing" type="default" id="r4C-ay-Vj3"/>
+                            <constraint firstAttribute="bottom" secondItem="585-2h-pgV" secondAttribute="bottom" constant="126" id="tYc-pp-Nev"/>
+                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="wpq-rL-crC"/>
+                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="top" secondItem="585-2h-pgV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zVs-3p-MN6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q9v-9t-XxZ"/>
@@ -175,7 +175,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <color key="backgroundColor" red="0.9106445312" green="0.0" blue="0.010735275250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="FoF-OZ-IBw" firstAttribute="bottom" secondItem="X5V-BD-ZV8" secondAttribute="bottom" type="default" id="1dR-Ox-7ok"/>
                                     <constraint firstItem="wTp-aF-Rcn" firstAttribute="centerY" secondItem="zJj-Jd-KxT" secondAttribute="centerY" type="default" id="3Rj-cx-dw8"/>
@@ -524,6 +524,9 @@
         </class>
         <class className="DrawView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
+            <relationships>
+                <relationship kind="action" name="random:"/>
+            </relationships>
         </class>
         <class className="ImagePickerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
@@ -604,7 +607,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6VQ-ZA-97K"/>
-        <segue reference="rPd-QH-v4m"/>
+        <segue reference="T2a-yU-M2b"/>
+        <segue reference="lpO-JJ-fli"/>
     </inferredMetricsTieBreakers>
 </document>
