@@ -70,7 +70,14 @@
     if(!result || result.count==0)
     {
         region = [NSEntityDescription insertNewObjectForEntityForName:@"Region" inManagedObjectContext:self.managedObjectContext];
-        region.name = regionName;
+        if(regionName)
+        {
+            region.name = regionName;
+        }
+        else
+        {
+            region.name = @"Unknown";
+        }
     }
     else
     {

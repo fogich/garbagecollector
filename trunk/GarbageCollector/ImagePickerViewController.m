@@ -67,18 +67,16 @@
 }
 -(void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
-    CLLocation *location = [locations objectAtIndex:0];
-//  CLLocation *location = [[CLLocation alloc] initWithLatitude:42.691126 longitude:23.319875];
+    [manager stopUpdatingLocation];
     
+    CLLocation *location = [locations objectAtIndex:0];
     CLGeocoder* geocoder = [[CLGeocoder alloc] init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarkers, NSError* error)
     {
         //error handling
-        [manager stopUpdatingLocation];
         CLPlacemark* placemark = [placemarkers objectAtIndex:0];
         
-        //update the current garbage address
-        //and location
+        //update the current garbage address and location
         [self performSelectorOnMainThread:@selector(addNewGarbageSpotWithPlaceMark:) withObject:placemark waitUntilDone:NO];
     }];
     
@@ -86,7 +84,7 @@
 
 -(void)addNewGarbageSpotWithPlaceMark: (CLPlacemark*) placemark
 {
-    NSString* address = [NSString stringWithFormat:@"%@, %@, %@, %@, %@", placemark.country, placemark.locality, placemark.subLocality, placemark.thoroughfare, placemark.subThoroughfare];
+    NSString* address = [NSString stringWithFormat:@"%@, %@, %@", placemark.locality, placemark.thoroughfare, placemark.subThoroughfare];
     
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
     self.garbageSpot.dateCreated = [NSDate date];
@@ -96,15 +94,11 @@
     self.garbageSpot.location = location;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
     
-    
     //start facebook post dialog
     //[self postToFacebook];
     
-    //get fbid from facebook... naahh, maybe not :)
-    
     //save context
     [[GarbageStorage instance] addGarbageSpot:self.garbageSpot];
-    //
 }
 
 
