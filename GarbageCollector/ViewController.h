@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+-(IBAction) switchToTableScreen:(id)sender;
+-(IBAction) switchToMapScreen:(id)sender;
 -(void) switchToMapScreen;
 -(void) switchToTableScreen;
 @end

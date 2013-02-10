@@ -11,7 +11,59 @@
                     <view key="view" contentMode="scaleToFill" id="5">
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wellcome to Garbage collector, your garbage app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="6Ez-EG-OrG">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="169" id="p8y-7A-fuj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKq-Xc-euy">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="R5z-nD-abh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Show Garbage Spots in Collection View">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchToTableScreen:" destination="2" eventType="touchUpInside" id="5u4-8K-Mx3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="585-2h-pgV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="b9E-xk-KCz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Show Garbage Spots in Map View">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchToMapScreen:" destination="2" eventType="touchUpInside" id="qeM-6x-OUQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6Ez-EG-OrG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1mt-mH-9b2"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="bottom" secondItem="ZKq-Xc-euy" secondAttribute="bottom" type="default" id="9yZ-45-T38"/>
+                            <constraint firstAttribute="bottom" secondItem="ZKq-Xc-euy" secondAttribute="bottom" constant="69" id="GVx-3P-2pR"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="top" secondItem="ZKq-Xc-euy" secondAttribute="top" type="default" id="NmH-oy-SvW"/>
+                            <constraint firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="OrV-81-Nib"/>
+                            <constraint firstItem="6Ez-EG-OrG" firstAttribute="top" secondItem="5" secondAttribute="top" constant="36" id="RU7-uV-jaF"/>
+                            <constraint firstItem="6Ez-EG-OrG" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eVb-Dd-JAT"/>
+                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kkk-hr-m3s"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Q9v-9t-XxZ"/>
                     <connections>
@@ -21,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-100"/>
+            <point key="canvasLocation" x="1136" y="-100"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="uj5-Vb-GiB">
@@ -149,14 +201,12 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4z-oZ-gaB">
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="572" type="user" id="0hz-uT-EIa"/>
                                     <constraint firstAttribute="width" constant="685" id="LMI-Fy-sMF"/>
                                     <constraint firstAttribute="height" priority="500" constant="794" type="user" id="lE3-vU-bwJ"/>
                                 </constraints>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBp-zN-TcM">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="768" id="FGr-i5-TZm"/>
-                                </constraints>
                                 <items>
                                     <navigationItem id="lxY-5o-1kW"/>
                                 </items>
@@ -210,27 +260,37 @@
                                     <action selector="selectExitingPicture" destination="5sI-7n-5kf" eventType="touchUpInside" id="88u-iQ-9SN"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Add Spot Description Here" translatesAutoresizingMaskIntoConstraints="NO" id="8Ag-ri-eBr">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" type="user" id="iNE-b5-W3N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="MaQ-Wc-nD8" secondAttribute="bottom" constant="44" type="user" id="3Hb-qZ-Xd0"/>
-                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="top" secondItem="0Tz-zm-gGu" secondAttribute="top" type="user" id="JAa-Df-dkb"/>
-                            <constraint firstItem="SBp-zN-TcM" firstAttribute="leading" secondItem="bXq-LI-s2r" secondAttribute="leading" constant="-9" id="NRI-Z1-Rp5"/>
-                            <constraint firstItem="MaQ-Wc-nD8" firstAttribute="top" secondItem="C4z-oZ-gaB" secondAttribute="bottom" constant="43" type="user" id="NiL-J4-L7F"/>
-                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="top" secondItem="bXq-LI-s2r" secondAttribute="top" constant="901" type="user" id="Qck-sh-iCr"/>
-                            <constraint firstItem="C4z-oZ-gaB" firstAttribute="centerX" secondItem="bXq-LI-s2r" secondAttribute="centerX" type="default" id="Xrh-ux-Fwh"/>
-                            <constraint firstItem="SBp-zN-TcM" firstAttribute="top" secondItem="bXq-LI-s2r" secondAttribute="top" constant="-5" id="ejg-Jj-zpc"/>
-                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="top" secondItem="C4z-oZ-gaB" secondAttribute="bottom" constant="43" type="user" id="fJV-k7-hzg"/>
-                            <constraint firstAttribute="bottom" secondItem="0Tz-zm-gGu" secondAttribute="bottom" constant="44" type="user" id="gfq-bH-QAI"/>
-                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="centerX" secondItem="C4z-oZ-gaB" secondAttribute="centerX" type="default" id="izt-2g-FzV"/>
+                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="trailing" secondItem="8Ag-ri-eBr" secondAttribute="trailing" type="default" id="2nt-jb-vaS"/>
+                            <constraint firstItem="8Ag-ri-eBr" firstAttribute="leading" secondItem="MaQ-Wc-nD8" secondAttribute="leading" type="default" id="9PU-Mc-CyI"/>
+                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="bottom" secondItem="MaQ-Wc-nD8" secondAttribute="bottom" type="default" id="Am4-hs-hBx"/>
+                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="top" secondItem="8Ag-ri-eBr" secondAttribute="bottom" constant="21" type="user" id="CFz-7c-kSj"/>
+                            <constraint firstItem="SBp-zN-TcM" firstAttribute="top" secondItem="bXq-LI-s2r" secondAttribute="top" type="default" id="GsK-Lk-c0J"/>
+                            <constraint firstItem="SBp-zN-TcM" firstAttribute="centerX" secondItem="C4z-oZ-gaB" secondAttribute="centerX" type="default" id="H98-bS-LCz"/>
+                            <constraint firstAttribute="bottom" secondItem="8Ag-ri-eBr" secondAttribute="bottom" constant="124" type="user" id="JQw-Rc-NF6"/>
+                            <constraint firstAttribute="bottom" secondItem="MaQ-Wc-nD8" secondAttribute="bottom" constant="44" type="user" id="K0c-JZ-l0G"/>
+                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="top" secondItem="DZU-Ss-xZu" secondAttribute="top" type="user" id="Tkb-Se-Rdx"/>
+                            <constraint firstItem="SBp-zN-TcM" firstAttribute="leading" secondItem="bXq-LI-s2r" secondAttribute="leading" type="default" id="UOp-Ve-8vb"/>
+                            <constraint firstItem="8Ag-ri-eBr" firstAttribute="centerX" secondItem="0Tz-zm-gGu" secondAttribute="centerX" type="default" id="Y4p-GC-Yhi"/>
                             <constraint firstItem="C4z-oZ-gaB" firstAttribute="top" secondItem="bXq-LI-s2r" secondAttribute="top" constant="64" type="user" id="kR8-YL-erC"/>
-                            <constraint firstItem="MaQ-Wc-nD8" firstAttribute="leading" secondItem="C4z-oZ-gaB" secondAttribute="leading" type="default" id="nUC-YS-RaT"/>
-                            <constraint firstAttribute="bottom" secondItem="DZU-Ss-xZu" secondAttribute="bottom" constant="44" type="user" id="oej-FF-idW"/>
-                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="trailing" secondItem="C4z-oZ-gaB" secondAttribute="trailing" type="default" id="q9E-7i-a5F"/>
-                            <constraint firstItem="MaQ-Wc-nD8" firstAttribute="bottom" secondItem="0Tz-zm-gGu" secondAttribute="bottom" type="user" id="qZU-sL-7Cs"/>
-                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="bottom" secondItem="0Tz-zm-gGu" secondAttribute="bottom" type="user" id="ufe-Na-lrd"/>
-                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="top" secondItem="MaQ-Wc-nD8" secondAttribute="top" type="user" id="yWR-Jg-JE3"/>
-                            <constraint firstItem="DZU-Ss-xZu" firstAttribute="top" secondItem="C4z-oZ-gaB" secondAttribute="bottom" constant="43" type="user" id="zaa-H1-dv0"/>
+                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="top" secondItem="MaQ-Wc-nD8" secondAttribute="top" type="user" id="kUf-5e-Bzl"/>
+                            <constraint firstItem="C4z-oZ-gaB" firstAttribute="trailing" secondItem="8Ag-ri-eBr" secondAttribute="trailing" type="default" id="lZY-SV-aYg"/>
+                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="bottom" secondItem="DZU-Ss-xZu" secondAttribute="bottom" type="default" id="lzb-ra-pMn"/>
+                            <constraint firstItem="8Ag-ri-eBr" firstAttribute="top" secondItem="C4z-oZ-gaB" secondAttribute="bottom" constant="14" type="user" id="njl-Vq-wVm"/>
+                            <constraint firstItem="SBp-zN-TcM" firstAttribute="trailing" secondItem="bXq-LI-s2r" secondAttribute="trailing" type="default" id="p6U-WN-GgP"/>
+                            <constraint firstItem="MaQ-Wc-nD8" firstAttribute="top" secondItem="8Ag-ri-eBr" secondAttribute="bottom" constant="21" type="user" id="wQ4-nk-Z5d"/>
+                            <constraint firstItem="8Ag-ri-eBr" firstAttribute="leading" secondItem="C4z-oZ-gaB" secondAttribute="leading" type="default" id="xMG-mK-BoH"/>
+                            <constraint firstItem="0Tz-zm-gGu" firstAttribute="top" secondItem="8Ag-ri-eBr" secondAttribute="bottom" constant="21" type="user" id="ygy-DP-xib"/>
                         </constraints>
                     </view>
                     <connections>
@@ -494,6 +554,10 @@
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="switchToMapScreen:"/>
+                <relationship kind="action" name="switchToTableScreen:"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
