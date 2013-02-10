@@ -123,8 +123,10 @@
             
             if (result == SLComposeViewControllerResultCancelled) {
                 NSLog(@"Canceled");
+                [self dismissViewControllerAnimated:YES completion:nil];
                 
-            }else{
+            }
+            else{
                 
                 NSLog(@"Done posting!");
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -159,7 +161,8 @@
             
             if (result == SLComposeViewControllerResultCancelled) {
                 NSLog(@"Canceled");
-            }else{
+            }
+            else{
                 
                 NSLog(@"Done posting!");
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -306,11 +309,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self postToFacebook];
-
     }
     else if (buttonIndex == 2) {
         [self postToTwitter];
-        [self returnToPreviousScreen];
 
     }
     else
