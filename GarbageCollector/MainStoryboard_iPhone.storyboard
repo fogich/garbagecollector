@@ -22,7 +22,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="F4V-Ol-mww" kind="modal" id="ika-uU-5U8"/>
+                                    <segue destination="F4V-Ol-mww" kind="modal" identifier="seeStats" id="ika-uU-5U8"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wellcome to Garbage collector, your garbage app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="RVO-8m-itD">
@@ -63,18 +63,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="RVO-8m-itD" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1Ah-Pr-tWn"/>
-                            <constraint firstAttribute="trailing" secondItem="11J-54-11g" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="5tK-0C-d15"/>
                             <constraint firstItem="RVO-8m-itD" firstAttribute="top" secondItem="7Y4-bV-swC" secondAttribute="top" constant="20" symbolic="YES" type="default" id="8mp-85-s2e"/>
-                            <constraint firstAttribute="bottom" secondItem="Qtg-Kf-JAj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="DYX-an-b8h"/>
-                            <constraint firstItem="M4q-he-R0v" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="J2R-3h-mAQ"/>
-                            <constraint firstItem="Qtg-Kf-JAj" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="S9Z-uf-7Xh"/>
-                            <constraint firstAttribute="trailing" secondItem="M4q-he-R0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Tyn-AV-2PB"/>
-                            <constraint firstAttribute="bottom" secondItem="11J-54-11g" secondAttribute="bottom" constant="129" id="WMc-Ya-c1S"/>
-                            <constraint firstItem="11J-54-11g" firstAttribute="baseline" secondItem="M4q-he-R0v" secondAttribute="baseline" type="default" id="Zff-b6-6xm"/>
-                            <constraint firstItem="M4q-he-R0v" firstAttribute="top" secondItem="11J-54-11g" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="fzg-LV-MXH"/>
-                            <constraint firstAttribute="trailing" secondItem="Qtg-Kf-JAj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gun-hE-uaw"/>
-                            <constraint firstItem="11J-54-11g" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="p3B-3P-e4g"/>
+                            <constraint firstAttribute="trailing" secondItem="11J-54-11g" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="98K-qu-R3x"/>
+                            <constraint firstItem="11J-54-11g" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bv7-VY-YJH"/>
+                            <constraint firstItem="Qtg-Kf-JAj" firstAttribute="top" secondItem="11J-54-11g" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="M8M-xD-oKP"/>
+                            <constraint firstItem="Qtg-Kf-JAj" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NUd-UU-4pR"/>
+                            <constraint firstItem="11J-54-11g" firstAttribute="top" secondItem="M4q-he-R0v" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QB7-JH-Vsh"/>
+                            <constraint firstAttribute="trailing" secondItem="Qtg-Kf-JAj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VKr-iO-kCg"/>
+                            <constraint firstAttribute="trailing" secondItem="M4q-he-R0v" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gBj-ha-dUU"/>
+                            <constraint firstItem="M4q-he-R0v" firstAttribute="leading" secondItem="7Y4-bV-swC" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gxj-58-LPd"/>
                             <constraint firstAttribute="trailing" secondItem="RVO-8m-itD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pam-CX-sLD"/>
+                            <constraint firstAttribute="bottom" secondItem="Qtg-Kf-JAj" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="rpC-Eg-Hmt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VSM-sI-mkZ"/>
@@ -162,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cn8-h7-1Ve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715" y="1151"/>
+            <point key="canvasLocation" x="1655" y="759"/>
         </scene>
         <!--Show Depo View Controller-->
         <scene sceneID="dFd-Ta-L7d">
@@ -234,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRI-uV-AL0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2131" y="1061"/>
+            <point key="canvasLocation" x="2159" y="411"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="NS4-OU-wNJ">
@@ -257,14 +256,13 @@
                     <navigationItem key="navigationItem" id="LQk-O1-YSh"/>
                     <connections>
                         <outlet property="map" destination="v0F-MD-c33" id="WaK-aw-ucY"/>
-                        <segue destination="F4V-Ol-mww" kind="modal" identifier="seeStats" id="2oY-Gm-xX1"/>
                         <segue destination="JQ3-ul-6at" kind="modal" identifier="fullInfo" id="O5O-xX-gH4"/>
                         <segue destination="IW1-TD-4TU" kind="modal" identifier="newGarbageSpot" id="90Y-lL-JS7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07f-7I-rHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960" y="885"/>
+            <point key="canvasLocation" x="939" y="867"/>
         </scene>
         <!--View Controller - Statistics-->
         <scene sceneID="XjK-9A-KM7">
@@ -297,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7OF-uO-los" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="243"/>
+            <point key="canvasLocation" x="939" y="161"/>
         </scene>
         <!--Main Table View Controller-->
         <scene sceneID="Ta8-Fk-m9E">
@@ -356,14 +354,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="aFg-iM-qwJ"/>
                     <connections>
-                        <segue destination="F4V-Ol-mww" kind="modal" identifier="seeStats" id="SVA-fZ-1fk"/>
                         <segue destination="JQ3-ul-6at" kind="modal" identifier="fullInfo" id="Ueo-jp-xd2"/>
                         <segue destination="IW1-TD-4TU" kind="modal" identifier="newGarbageSpot" id="SnD-N5-OYE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KM-9h-S9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960" y="-468"/>
+            <point key="canvasLocation" x="939" y="-520"/>
         </scene>
         <!--Image Picker View Controller-->
         <scene sceneID="n97-Bt-EpR">
@@ -476,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fZ-yS-qAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1693" y="-565"/>
+            <point key="canvasLocation" x="1655" y="-57"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y6h-h4-BfE">
@@ -498,14 +495,80 @@
         <image name="Kaci.jpg" width="660" height="528"/>
         <image name="green_checkmark.jpg" width="225" height="225"/>
     </resources>
+    <classes>
+        <class className="DrawView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
+        </class>
+        <class className="ImagePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getCameraPicture:"/>
+                <relationship kind="action" name="selectExitingPicture"/>
+                <relationship kind="action" name="useImageClicked:"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="selectFromCameraRollButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="commentTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="infoPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="MainCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkMarkImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MainTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTableViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ShowDepoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDepoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeScreen:"/>
+                <relationship kind="action" name="sendMail:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="depoDescriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="switchToMapScreen:"/>
+                <relationship kind="action" name="switchToTableScreen:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ika-uU-5U8"/>
-        <segue reference="Ueo-jp-xd2"/>
-        <segue reference="SnD-N5-OYE"/>
+        <segue reference="O5O-xX-gH4"/>
+        <segue reference="90Y-lL-JS7"/>
     </inferredMetricsTieBreakers>
 </document>
