@@ -94,7 +94,7 @@
     
     NSString *toPath = [self destinationPathForFile:dateString filetype:@"jpg" directory:NSDocumentDirectory];
     
-    int randomPic = (arc4random() % 4) + 1;
+    int randomPic = (arc4random() % 12);
     NSString* picName = [NSString stringWithFormat:@"imgres-%d.jpeg", randomPic];
     UIImage* image = [UIImage imageNamed:picName];
     [UIImageJPEGRepresentation(image, 1.0) writeToFile:toPath atomically:YES];
