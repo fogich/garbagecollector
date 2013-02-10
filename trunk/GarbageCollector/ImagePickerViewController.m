@@ -17,6 +17,8 @@
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) GarbageSpot* garbageSpot;
 @property (nonatomic)  UIPopoverController* popOver;
+@property (strong, nonatomic) CLPlacemark* placemark;
+
 - (IBAction)useImageClicked:(id)sender;
 @end
 
@@ -59,6 +61,8 @@
     [myView setBackgroundColor:[UIColor  clearColor]];
     [myView addSubview:myImageView];
     self.navigationBarItems.titleView = myView;
+    
+    [self.locationManager startUpdatingLocation];
 }
 
 -(void) returnToPreviousScreen
@@ -77,22 +81,29 @@
         CLPlacemark* placemark = [placemarkers objectAtIndex:0];
         
         //update the current garbage address and location
-        [self performSelectorOnMainThread:@selector(addNewGarbageSpotWithPlaceMark:) withObject:placemark waitUntilDone:NO];
+        [self performSelectorOnMainThread:@selector(updateLocation:) withObject:placemark waitUntilDone:NO];
     }];
     
 }
 
--(void)addNewGarbageSpotWithPlaceMark: (CLPlacemark*) placemark
+-(void)updateLocation: (CLPlacemark*) placemark
 {
+    self.placemark = placemark;
     NSString* address = [NSString stringWithFormat:@"%@, %@, %@", placemark.locality, placemark.thoroughfare, placemark.subThoroughfare];
-    
+    self.descriptionTextView.text = [NSString stringWithFormat: @"I have found a new garbage spot at %@.", address];
+}
+
+-(void)createSpot
+{
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
     self.garbageSpot.dateCreated = [NSDate date];
     
-    Location* location = [[GarbageStorage instance] createLocationWithLatitude:placemark.location.coordinate.latitude Longitude:placemark.location.coordinate.longitude Address:address Region: placemark.subLocality];
+    NSString* address = [NSString stringWithFormat:@"%@, %@, %@", self.placemark.locality, self.placemark.thoroughfare, self.placemark.subThoroughfare];
+    Location* location = [[GarbageStorage instance] createLocationWithLatitude:self.placemark.location.coordinate.latitude Longitude:self.placemark.location.coordinate.longitude Address:address Region: self.placemark.subLocality];
     
     self.garbageSpot.location = location;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
+    self.garbageSpot.pictureDescription = self.descriptionTextView.text;
     
     //start facebook post dialog
     //[self postToFacebook];
@@ -100,7 +111,6 @@
     //save context
     [[GarbageStorage instance] addGarbageSpot:self.garbageSpot];
 }
-
 
 - (void)postToFacebook{
     
@@ -276,6 +286,6 @@
 
 - (IBAction)useImageClicked:(id)sender
 {
-
+    [self createSpot];
 }
 @end
