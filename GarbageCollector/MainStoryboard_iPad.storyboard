@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQ7-1Q-c5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQ7-1Q-c5M">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -159,42 +159,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.89678375912408759" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RYZ-z9-kRU">
-                            <size key="itemSize" width="247" height="335"/>
+                            <size key="itemSize" width="199" height="319"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionCell" id="l9b-7x-YdY" customClass="MainCollectionCell">
-                                <rect key="frame" x="0.0" y="0.0" width="247" height="335"/>
+                                <rect key="frame" x="0.0" y="0.0" width="199" height="319"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="247" height="335"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="199" height="319"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5V-BD-ZV8">
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" type="user" id="GDl-be-kSj"/>
-                                                <constraint firstAttribute="height" constant="175" type="user" id="R34-Xm-jqw"/>
+                                                <constraint firstAttribute="height" constant="160" id="ZyJ-bW-uSG"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" type="user" id="qHP-Az-mur" userLabel="Height (≥140) - Image View"/>
                                             </constraints>
                                         </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="green_checkmark.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zJj-Jd-KxT">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="klN-EA-gsJ"/>
-                                                <constraint firstAttribute="height" constant="20" type="user" id="nAm-hR-zfa"/>
+                                                <constraint firstAttribute="height" constant="20" id="nAm-hR-zfa"/>
                                             </constraints>
                                         </imageView>
                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Clean" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTp-aF-Rcn">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="145" id="ogA-uy-r0q"/>
+                                                <constraint firstAttribute="width" constant="99" id="tYe-Di-3Hx"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Garbage Info" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="207" translatesAutoresizingMaskIntoConstraints="NO" id="FoF-OZ-IBw">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Garbage Info" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="159" translatesAutoresizingMaskIntoConstraints="NO" id="FoF-OZ-IBw">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="105" type="user" id="HM8-QA-6yk"/>
+                                                <constraint firstAttribute="height" constant="83" id="4qS-tt-3nh"/>
+                                                <constraint firstAttribute="width" constant="159" id="HKa-Mn-AgT"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -205,17 +206,16 @@
                                 </view>
                                 <color key="backgroundColor" white="0.80320483576642332" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="FoF-OZ-IBw" secondAttribute="trailing" constant="20" type="default" id="8ND-ue-Tqj"/>
-                                    <constraint firstAttribute="bottom" secondItem="FoF-OZ-IBw" secondAttribute="bottom" constant="13" id="AJg-Qz-OpQ"/>
-                                    <constraint firstItem="X5V-BD-ZV8" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="Du5-Ni-NAD"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="top" secondItem="wTp-aF-Rcn" secondAttribute="bottom" constant="1" type="user" id="GIU-Ky-Xpk"/>
-                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="top" secondItem="X5V-BD-ZV8" secondAttribute="bottom" constant="1" type="user" id="Qpe-8x-hrF"/>
-                                    <constraint firstAttribute="trailing" secondItem="wTp-aF-Rcn" secondAttribute="trailing" constant="20" type="default" id="RVq-QY-ks4"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="top" secondItem="zJj-Jd-KxT" secondAttribute="bottom" constant="1" type="user" id="Wcb-Bm-xHC"/>
-                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="top" secondItem="X5V-BD-ZV8" secondAttribute="bottom" constant="1" type="user" id="jUG-0j-nMF"/>
-                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="lA7-2t-TwQ"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="oob-P1-gVC"/>
-                                    <constraint firstAttribute="trailing" secondItem="X5V-BD-ZV8" secondAttribute="trailing" constant="20" type="default" id="zsz-xb-Vmj"/>
+                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="centerX" secondItem="FoF-OZ-IBw" secondAttribute="centerX" type="default" id="Abt-8j-XC2"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="Luw-NC-yRN"/>
+                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="top" secondItem="FoF-OZ-IBw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NbB-GD-76N"/>
+                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="SMt-d4-CSF"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="centerX" secondItem="X5V-BD-ZV8" secondAttribute="centerX" type="default" id="Xlb-rF-aZx"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="top" secondItem="X5V-BD-ZV8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Yva-um-0yp"/>
+                                    <constraint firstItem="X5V-BD-ZV8" firstAttribute="top" secondItem="l9b-7x-YdY" secondAttribute="top" constant="20" type="default" id="a7t-B5-7Yf"/>
+                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="top" secondItem="FoF-OZ-IBw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ez5-qx-fjS"/>
+                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="bottom" secondItem="zJj-Jd-KxT" secondAttribute="bottom" type="default" id="nVF-ec-kBg"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="trailing" secondItem="X5V-BD-ZV8" secondAttribute="trailing" type="default" id="sNU-jJ-45B"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cellImage" destination="X5V-BD-ZV8" id="joh-XB-BP9"/>
@@ -551,92 +551,6 @@
     <resources>
         <image name="green_checkmark.jpg" width="225" height="225"/>
     </resources>
-    <classes>
-        <class className="CollectionViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CollectionViewController.h"/>
-        </class>
-        <class className="DrawView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
-        </class>
-        <class className="ImagePickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="getCameraPicture:"/>
-                <relationship kind="action" name="selectExitingPicture"/>
-                <relationship kind="action" name="useImageClicked:"/>
-                <relationship kind="outlet" name="addGarbageSpotButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
-                <relationship kind="outlet" name="selectFromCameraRollButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="InfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="commentTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="infoPicture" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
-            </relationships>
-        </class>
-        <class className="MainCollectionCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCollectionCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cellImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="cleanedTextIdentifier" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="greenCheckmarkImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MapViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ShowDepoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDepoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="closeScreen:"/>
-                <relationship kind="action" name="sendMail:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="depoDescriptionTextView" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="switchToMapScreen:"/>
-                <relationship kind="action" name="switchToTableScreen:"/>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="activityIndicatorText" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mapViewButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="statisticsButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableViewButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

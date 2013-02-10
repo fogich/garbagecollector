@@ -132,6 +132,10 @@
     {
         pinView.pinColor = MKPinAnnotationColorGreen;
     }
+    else
+    {
+        pinView.pinColor = MKPinAnnotationColorRed;
+    }
     
     return pinView;
 }
