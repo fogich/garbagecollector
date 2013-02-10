@@ -10,7 +10,7 @@
 #import "GarbageStorage.h"
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
-
+#import "AppDelegate.h"
 @interface ImagePickerViewController ()
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
@@ -41,19 +41,25 @@
     self.locationManager.delegate = self;
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    self.navigationBarItems.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
     UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(returnToPreviousScreen)];
-    self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObjects:butt ,nil];
-    UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleView.backgroundColor = [UIColor clearColor];
-    titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
-    titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    titleView.textColor = [UIColor blackColor]; // Your color here
-    titleView.text=@"Facebook Profile";
-    self.navigationBarItems.titleView = titleView;
-    [titleView sizeToFit];
-    self.navigationBarItems.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObjects:butt ,nil];
+    UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
+    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
+    
+    title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
+    [title setTextColor:[UIColor blackColor]];
+    [title setFont:[UIFont boldSystemFontOfSize:16.0]];
+    
+    [title setBackgroundColor:[UIColor clearColor]];
+    UIImage *image = [(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture];
+    UIImageView *myImageView = [[UIImageView alloc] initWithImage:image];
+    myImageView.frame = CGRectMake((self.view.window.bounds.size.width/2)-80, 0, 30, 30);
+    [myView addSubview:title];
+    [myView setBackgroundColor:[UIColor  clearColor]];
+    [myView addSubview:myImageView];
+    self.navigationBarItems.titleView = myView;
 }
+
 -(void) returnToPreviousScreen
 {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -54,17 +54,9 @@
 }
 
 -(void)updateUI: (NSNotification *) not{
-
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
-    //set some custom font for the label
-	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
-	[label setBackgroundColor:[UIColor clearColor]];
-	[label setTextColor:[UIColor blackColor]];
-	[label setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
-	[self.navigationController.navigationBar.topItem setTitleView:label];
   
     UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
-    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, self.view.window.bounds.size.width, 30)];
+    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
     
     title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
     [title setTextColor:[UIColor blackColor]];
