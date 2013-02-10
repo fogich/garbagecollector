@@ -14,12 +14,12 @@
         <relationship name="spot" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="GarbageSpot" inverseName="location" inverseEntity="GarbageSpot" syncable="YES"/>
     </entity>
     <entity name="Region" representedClassName="Region" syncable="YES">
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <relationship name="spotLocations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
     </entity>
     <elements>
         <element name="GarbageSpot" positionX="-182" positionY="-378" width="128" height="120"/>
-        <element name="Location" positionX="-360" positionY="-270" width="128" height="105"/>
+        <element name="Location" positionX="-387" positionY="-396" width="128" height="105"/>
         <element name="Region" positionX="-567" positionY="-246" width="128" height="75"/>
     </elements>
 </model>

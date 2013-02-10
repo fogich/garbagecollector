@@ -11,6 +11,8 @@
 #import "GarbageStorage.h"
 #import "MainCollectionCell.h"
 #import "InfoViewController.h"
+#import "ViewController.h"
+#import "AppDelegate.h"
 @interface CollectionViewController ()<InfoModalDelegate>
 @property (nonatomic) NSArray* garbageArray;
 @end
@@ -53,6 +55,12 @@
 -(void) addItem
 {
     [self performSegueWithIdentifier:@"newGarbageSpot" sender:self];
+}
+-(void) switchScreen
+{
+    ViewController* mvc = self.navigationController.viewControllers[0];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [mvc switchToMapScreen];
 }
 -(NSInteger)numberOfSectionsInCollectionView:
 (UICollectionView *)collectionView
