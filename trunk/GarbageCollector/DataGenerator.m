@@ -53,8 +53,11 @@
 
 -(void)createSpot
 {
+    double randomSeconds = -(double)(arc4random() % (60*60*24*PAST_DAYS_MAX));
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:randomSeconds];
+    
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
-    self.garbageSpot.dateCreated = [NSDate date];
+    self.garbageSpot.dateCreated = date;
     
     NSString* address = [NSString stringWithFormat:@"%@, %@, %@", self.placemark.locality, self.placemark.thoroughfare, self.placemark.subThoroughfare];
     Location* location = [[GarbageStorage instance] createLocationWithLatitude:self.placemark.location.coordinate.latitude Longitude:self.placemark.location.coordinate.longitude Address:address Region: self.placemark.subLocality];
@@ -72,15 +75,10 @@
     }
 }
 
-
 -(NSString*)saveImageToDocuments
 {
-    //copy the image into documents
-    //and get its new filename
-    //self.imageView.image;
+    NSDate* date = self.garbageSpot.dateCreated;
     
-    //set filename with timestamp
-    NSDate* date = [NSDate date];
     NSCalendar* gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents* comps = [gregorian components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit|NSMinuteCalendarUnit|NSHourCalendarUnit|NSSecondCalendarUnit fromDate:date];
@@ -91,14 +89,14 @@
     int hour = [comps hour];
     int min = [comps minute];
     int sec = [comps second];
-    //randomize date
+
     NSString* dateString = [NSString stringWithFormat:@"%d_%d_%d_%d_%d_%d", year, month, day, hour, min, sec];
     
     NSString *toPath = [self destinationPathForFile:dateString filetype:@"jpg" directory:NSDocumentDirectory];
     
-
-    
-    UIImage* image = [UIImage imageNamed:@""];
+    int randomPic = (arc4random() % 4) + 1;
+    NSString* picName = [NSString stringWithFormat:@"%d.jpg", randomPic];
+    UIImage* image = [UIImage imageNamed:picName];
     [UIImageJPEGRepresentation(image, 1.0) writeToFile:toPath atomically:YES];
     
     return toPath;
@@ -112,12 +110,5 @@
     NSString* resultPath = [NSString stringWithFormat: @"%@.%@", [NSString pathWithComponents: [NSArray arrayWithObjects:dirPath, filename, nil]], filetype];
     return resultPath;
 }
-
--(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    //cannot add location
-}
-
-@end
 
 @end
