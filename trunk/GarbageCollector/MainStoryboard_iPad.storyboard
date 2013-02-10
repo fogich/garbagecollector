@@ -22,7 +22,8 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKq-Xc-euy">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="R5z-nD-abh"/>
+                                    <constraint firstAttribute="width" constant="496" id="2zS-zB-vP6"/>
+                                    <constraint firstAttribute="height" constant="70" id="hZt-v6-4nQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Show Garbage Spots in Collection View">
@@ -38,7 +39,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="585-2h-pgV">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="b9E-xk-KCz"/>
+                                    <constraint firstAttribute="height" constant="69" id="rP5-nW-xcl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Show Garbage Spots in Map View">
@@ -52,15 +53,34 @@
                                     <action selector="switchToMapScreen:" destination="2" eventType="touchUpInside" id="qeM-6x-OUQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQH-yi-Yrf">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="BS8-9Q-yBj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="See Graph Statistics">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1jh-io-sSy" kind="modal" identifier="seeStats" id="qIu-LS-MKG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="6Ez-EG-OrG" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1mt-mH-9b2"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="bottom" secondItem="ZKq-Xc-euy" secondAttribute="bottom" type="default" id="9yZ-45-T38"/>
-                            <constraint firstAttribute="bottom" secondItem="ZKq-Xc-euy" secondAttribute="bottom" constant="69" id="GVx-3P-2pR"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="top" secondItem="ZKq-Xc-euy" secondAttribute="top" type="default" id="NmH-oy-SvW"/>
-                            <constraint firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="OrV-81-Nib"/>
+                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4FY-gn-5f1"/>
+                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" type="default" id="6IQ-Nr-uoe"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JlJ-DF-aLd"/>
+                            <constraint firstItem="585-2h-pgV" firstAttribute="top" secondItem="ZKq-Xc-euy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PWR-Wu-3F1"/>
                             <constraint firstItem="6Ez-EG-OrG" firstAttribute="top" secondItem="5" secondAttribute="top" constant="36" id="RU7-uV-jaF"/>
+                            <constraint firstItem="ZKq-Xc-euy" firstAttribute="trailing" secondItem="585-2h-pgV" secondAttribute="trailing" type="default" id="SSV-XW-64A"/>
+                            <constraint firstItem="oQH-yi-Yrf" firstAttribute="top" secondItem="585-2h-pgV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aze-LJ-eMn"/>
+                            <constraint firstAttribute="bottom" secondItem="oQH-yi-Yrf" secondAttribute="bottom" constant="98" id="bFR-Lc-8Xr"/>
                             <constraint firstItem="6Ez-EG-OrG" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eVb-Dd-JAT"/>
                             <constraint firstItem="ZKq-Xc-euy" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="kkk-hr-m3s"/>
                         </constraints>
@@ -101,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fas-TS-FlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2304" y="752"/>
+            <point key="canvasLocation" x="2197" y="1144"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="cm0-LU-nV4">
@@ -189,7 +209,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eER-ii-vN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2243" y="-1292"/>
+            <point key="canvasLocation" x="2191" y="-1292"/>
         </scene>
         <!--Image Picker View Controller-->
         <scene sceneID="gO7-Uv-Av2">
@@ -303,7 +323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFz-w4-Cx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3459" y="-1752"/>
+            <point key="canvasLocation" x="3427" y="-608"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fo6-TH-DA9">
@@ -405,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bn6-8p-c7V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3687" y="935"/>
+            <point key="canvasLocation" x="3427" y="799"/>
         </scene>
         <!--Show Depo View Controller-->
         <scene sceneID="phq-GF-8b2">
@@ -477,7 +497,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7dF-5N-66T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4703" y="1113"/>
+            <point key="canvasLocation" x="4479" y="173"/>
+        </scene>
+        <!--Draw View - Statistics-->
+        <scene sceneID="ijL-B1-XiY">
+            <objects>
+                <viewController title="Statistics" id="1jh-io-sSy" customClass="drawView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IXI-HK-Rae" customClass="DrawView">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JOc-ig-eui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2197" y="-100"/>
         </scene>
     </scenes>
     <resources>
@@ -489,9 +524,6 @@
         </class>
         <class className="DrawView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
-            <relationships>
-                <relationship kind="action" name="random:"/>
-            </relationships>
         </class>
         <class className="ImagePickerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
@@ -558,9 +590,6 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
@@ -575,7 +604,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="T2a-yU-M2b"/>
-        <segue reference="lpO-JJ-fli"/>
+        <segue reference="6VQ-ZA-97K"/>
+        <segue reference="rPd-QH-v4m"/>
     </inferredMetricsTieBreakers>
 </document>
