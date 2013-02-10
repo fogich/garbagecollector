@@ -159,23 +159,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.89678375912408759" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RYZ-z9-kRU">
-                            <size key="itemSize" width="199" height="319"/>
+                            <size key="itemSize" width="249" height="289"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionCell" id="l9b-7x-YdY" customClass="MainCollectionCell">
-                                <rect key="frame" x="0.0" y="0.0" width="199" height="319"/>
+                                <rect key="frame" x="0.0" y="0.0" width="249" height="289"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="199" height="319"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="249" height="289"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5V-BD-ZV8">
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" type="user" id="GDl-be-kSj"/>
-                                                <constraint firstAttribute="height" constant="160" id="ZyJ-bW-uSG"/>
+                                                <constraint firstAttribute="height" constant="175" id="R34-Xm-jqw"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" type="user" id="qHP-Az-mur" userLabel="Height (≥140) - Image View"/>
                                             </constraints>
                                         </imageView>
@@ -187,15 +187,14 @@
                                         </imageView>
                                         <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Clean" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTp-aF-Rcn">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="99" id="tYe-Di-3Hx"/>
+                                                <constraint firstAttribute="width" constant="145" id="ogA-uy-r0q"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Garbage Info" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="159" translatesAutoresizingMaskIntoConstraints="NO" id="FoF-OZ-IBw">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Garbage Info" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="209" translatesAutoresizingMaskIntoConstraints="NO" id="FoF-OZ-IBw">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="83" id="4qS-tt-3nh"/>
-                                                <constraint firstAttribute="width" constant="159" id="HKa-Mn-AgT"/>
+                                                <constraint firstAttribute="height" constant="43" id="WRM-I9-nLF"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -206,16 +205,17 @@
                                 </view>
                                 <color key="backgroundColor" white="0.80320483576642332" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="centerX" secondItem="FoF-OZ-IBw" secondAttribute="centerX" type="default" id="Abt-8j-XC2"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="Luw-NC-yRN"/>
-                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="top" secondItem="FoF-OZ-IBw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NbB-GD-76N"/>
-                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="SMt-d4-CSF"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="centerX" secondItem="X5V-BD-ZV8" secondAttribute="centerX" type="default" id="Xlb-rF-aZx"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="top" secondItem="X5V-BD-ZV8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Yva-um-0yp"/>
-                                    <constraint firstItem="X5V-BD-ZV8" firstAttribute="top" secondItem="l9b-7x-YdY" secondAttribute="top" constant="20" type="default" id="a7t-B5-7Yf"/>
-                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="top" secondItem="FoF-OZ-IBw" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ez5-qx-fjS"/>
-                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="bottom" secondItem="zJj-Jd-KxT" secondAttribute="bottom" type="default" id="nVF-ec-kBg"/>
-                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="trailing" secondItem="X5V-BD-ZV8" secondAttribute="trailing" type="default" id="sNU-jJ-45B"/>
+                                    <constraint firstAttribute="trailing" secondItem="X5V-BD-ZV8" secondAttribute="trailing" constant="20" type="default" id="4wR-rw-Mad"/>
+                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="75" id="5Ev-IH-LRM"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="top" secondItem="zJj-Jd-KxT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="FLE-Z2-xnZ"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="top" secondItem="wTp-aF-Rcn" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ODq-wM-XLB"/>
+                                    <constraint firstItem="wTp-aF-Rcn" firstAttribute="top" secondItem="zJj-Jd-KxT" secondAttribute="top" type="default" id="fLD-c5-sde"/>
+                                    <constraint firstItem="X5V-BD-ZV8" firstAttribute="top" secondItem="l9b-7x-YdY" secondAttribute="top" constant="20" type="default" id="gd3-Dc-yKW"/>
+                                    <constraint firstAttribute="bottom" secondItem="FoF-OZ-IBw" secondAttribute="bottom" constant="20" type="default" id="irR-UP-HuF"/>
+                                    <constraint firstItem="X5V-BD-ZV8" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="niM-fD-Xv1"/>
+                                    <constraint firstAttribute="trailing" secondItem="FoF-OZ-IBw" secondAttribute="trailing" constant="20" type="default" id="sW9-1P-ncj"/>
+                                    <constraint firstItem="zJj-Jd-KxT" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="whi-mV-9l8"/>
+                                    <constraint firstItem="FoF-OZ-IBw" firstAttribute="leading" secondItem="l9b-7x-YdY" secondAttribute="leading" constant="20" type="default" id="yfM-W0-agi"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="cellImage" destination="X5V-BD-ZV8" id="joh-XB-BP9"/>
@@ -557,9 +557,6 @@
         </class>
         <class className="DrawView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrawView.h"/>
-            <relationships>
-                <relationship kind="action" name="random:"/>
-            </relationships>
         </class>
         <class className="ImagePickerViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
