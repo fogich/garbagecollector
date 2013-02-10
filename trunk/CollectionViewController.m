@@ -13,12 +13,15 @@
 #import "InfoViewController.h"
 #import "ViewController.h"
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 @interface CollectionViewController ()<InfoModalDelegate>
+@property (nonatomic) AVAudioPlayer *audioPlayer;
 @property (nonatomic) NSArray* garbageArray;
 @end
 
 @implementation CollectionViewController
-
+@synthesize audioPlayer=_audioPlayer;
+@synthesize garbageArray=_garbageArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -52,6 +55,11 @@
     self.navigationItem.titleView = myView;
     self.garbageArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
 	// Do any additional setup after loading the view.
+    NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.audioPlayer.numberOfLoops = 0;
+    [self.audioPlayer play];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -109,6 +117,11 @@
     [[GarbageStorage instance] saveContext];
     // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.collectionView reloadData];
+    NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty trash" withExtension:@"aif"];
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.audioPlayer.numberOfLoops = 0;
+    [self.audioPlayer play];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {   if([segue.identifier isEqualToString:@"fullInfo"])
