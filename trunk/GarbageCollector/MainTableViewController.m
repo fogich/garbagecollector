@@ -102,7 +102,13 @@
     cell.cellText.text=currentSpot.pictureDescription;
     cell.cellPicture.image=[UIImage imageWithContentsOfFile:currentSpot.pictureFilename];
     if(currentSpot.dateCleaned!=nil)
+    {
         cell.checkMarkImage.alpha=1;
+    }
+    else
+    {
+        cell.checkMarkImage.alpha=0;
+    }
     // Configure the cell...
     
     return cell;
