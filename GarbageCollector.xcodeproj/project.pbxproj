@@ -58,7 +58,6 @@
 
 /* Begin PBXFileReference section */
 		F16F110516C8016A0029BD16 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		F16F110716C803060029BD16 /* empty_trash.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = empty_trash.aif; sourceTree = "<group>"; };
 		F1A6138116BD3A7E00FED17D /* MainStoryboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F1A6139F16BD59F500FED17D /* ImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePickerViewController.h; sourceTree = "<group>"; };
 		F1A613A016BD59F500FED17D /* ImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePickerViewController.m; sourceTree = "<group>"; };
@@ -229,7 +228,6 @@
 				F40653E816C7F86C00EC985C /* 2.jpg */,
 				F40653E916C7F86C00EC985C /* 3.jpg */,
 				F40653EA16C7F86D00EC985C /* 4.jpg */,
-				F16F110716C803060029BD16 /* empty_trash.aif */,
 				F421E33416BD2D7000FE9E6F /* Supporting Files */,
 				F421E34B16BD2D7000FE9E6F /* ViewController.h */,
 				F421E34C16BD2D7000FE9E6F /* ViewController.m */,
