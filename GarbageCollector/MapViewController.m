@@ -80,6 +80,11 @@
         [annots addObject: p];
     }
     
+    if (self.map.annotations.count > 0)
+    {
+        [self.map removeAnnotations:self.map.annotations];
+    }
+
     [self.map addAnnotations: annots];
 }
 
@@ -125,7 +130,7 @@
     GarbageSpotPinAnnotation* spotPinAnnotation = pinView.annotation;
     if(spotPinAnnotation.garbageSpot.dateCleaned)
     {
-        pinView.pinColor = MKPinAnnotationColorPurple;
+        pinView.pinColor = MKPinAnnotationColorGreen;
     }
     
     return pinView;
