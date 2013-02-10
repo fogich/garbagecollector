@@ -12,7 +12,7 @@
 #import <Accounts/Accounts.h>
 #import "AppDelegate.h"
 
-@interface ImagePickerViewController ()
+@interface ImagePickerViewController ()<UIAlertViewDelegate>
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property (strong, nonatomic) GarbageSpot* garbageSpot;
@@ -287,5 +287,16 @@
 - (IBAction)useImageClicked:(id)sender
 {
     [self createSpot];
+    
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Pick action" message:@"Pick how you want your garbage spot to be posted" delegate:self cancelButtonTitle:@"Dont post" otherButtonTitles:@"Facebook" ,@"Twitter"  , nil];
+    [alert show];
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self postToFacebook];
+    }
+    else if (buttonIndex == 2) {
+        [self postToTwitter];
+    }
 }
 @end
