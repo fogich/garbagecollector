@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface DataGenerator : NSObject
+#define LAT_D_MAX 99903
+#define LNG_D_MAX 183334
+#define DATA_LENGTH 10
+
+@interface DataGenerator : NSObject<CLLocationManagerDelegate>
+
+-(void)generate;
 
 @end
