@@ -10,6 +10,7 @@
 #import "GarbageStorage.h"
 #import "ShowDepoViewController.h"
 #import "MainTableViewController.h"
+#import "AppDelegate.h"
 @interface InfoViewController ()
 
 @end
@@ -37,10 +38,10 @@
     titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
     titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
     titleView.textColor = [UIColor blackColor]; // Your color here
-    titleView.text=@"Facebook Profile";
-    self.navigationBarItems.titleView = titleView;
+    [titleView setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
+    self.navigationItem.titleView = titleView;
     [titleView sizeToFit];
-    UIBarButtonItem* imageButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem* imageButton = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture]  style:UIBarButtonItemStylePlain target:self action:nil];
     UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(returnToPreviousScreen)];
     self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObjects:backButton, imageButton, nil];    
     self.infoPicture.image = [UIImage imageWithContentsOfFile:self.garbageSpot.pictureFilename];

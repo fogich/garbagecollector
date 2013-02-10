@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "GarbageStorage.h"
 #import "InfoViewController.h"
+#import "AppDelegate.h"
 @interface MainTableViewController ()<InfoModalDelegate>
 @property(nonatomic) NSMutableArray* tableArray;
 @end
@@ -38,10 +39,10 @@
     titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
     titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
     titleView.textColor = [UIColor blackColor]; // Your color here
-    titleView.text=@"Facebook Profile";
+    [titleView setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
     self.navigationItem.titleView = titleView;
     [titleView sizeToFit];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"images.jpg"] style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture] style:UIBarButtonItemStylePlain target:self action:nil];
     
     self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     // Uncomment the following line to preserve selection between presentations.

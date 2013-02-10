@@ -34,9 +34,6 @@
 //	[self.navigationController.navigationBar.topItem setTitleView:label];
     
     
-    UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchToMapScreen)];
-    UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Table" style:UIBarButtonItemStyleBordered target:self action:@selector(switchToTableScreen)];
-    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
     
     
 //Moved to updateUI
@@ -58,15 +55,29 @@
 
 -(void)updateUI: (NSNotification *) not{
 
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 160, 30)];
     //set some custom font for the label
 	[label setFont:[UIFont fontWithName:@"Helvetica" size:18]];
 	[label setBackgroundColor:[UIColor clearColor]];
 	[label setTextColor:[UIColor blackColor]];
 	[label setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
 	[self.navigationController.navigationBar.topItem setTitleView:label];
+  
+    UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
+    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, self.view.window.bounds.size.width, 30)];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture] style:UIBarButtonItemStylePlain target:self action:nil];
+    title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
+    [title setTextColor:[UIColor blackColor]];
+    [title setFont:[UIFont boldSystemFontOfSize:16.0]];
+    
+    [title setBackgroundColor:[UIColor clearColor]];
+    UIImage *image = [(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture];
+    UIImageView *myImageView = [[UIImageView alloc] initWithImage:image];
+    myImageView.frame = CGRectMake((self.view.window.bounds.size.width/2)-80, 0, 30, 30);
+    [myView addSubview:title];
+    [myView setBackgroundColor:[UIColor  clearColor]];
+    [myView addSubview:myImageView];
+    self.navigationItem.titleView = myView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -128,4 +139,10 @@
 //    
 //}
 
+- (IBAction)switchToMapScreen:(id)sender {
+    [self performSegueWithIdentifier:@"gotoMapScreen" sender:self];
+}
+- (IBAction)switchToTableScreen:(id)sender {
+    [self performSegueWithIdentifier:@"gotoTableScreen" sender:self];
+}
 @end

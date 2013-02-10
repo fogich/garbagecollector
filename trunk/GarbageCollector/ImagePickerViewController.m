@@ -89,7 +89,6 @@
     self.garbageSpot.location = location;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
     
-    NSLog(@"%@", self.garbageSpot.pictureFilename);
     
     //start facebook post dialog
     //[self postToFacebook];
