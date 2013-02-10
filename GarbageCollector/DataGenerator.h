@@ -12,6 +12,7 @@
 #define LAT_D_MAX 99903
 #define LNG_D_MAX 183334
 #define DATA_LENGTH 10
+#define PAST_DAYS_MAX 31
 
 @interface DataGenerator : NSObject<CLLocationManagerDelegate>
 
