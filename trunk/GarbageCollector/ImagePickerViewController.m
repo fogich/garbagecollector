@@ -11,6 +11,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import "AppDelegate.h"
+
 @interface ImagePickerViewController ()
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
@@ -107,29 +108,6 @@
 }
 
 
-//getting username from the accounts framework requires Facebook developers account to generate facebook app ID
--(void)getUsername{
-    
-    ACAccountStore *accStore = [ACAccountStore new];
-    ACAccountType *accType = [accStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
-    //NSDictionary *options = @{@"ACFacebookAppIdKey" : @"426647264082273", @"ACFacebookPermissionsKey", @""};
-    
-    [accStore requestAccessToAccountsWithType:accType options:nil completion:^(BOOL granted, NSError *err){
-        
-        if (granted == YES) {
-            NSLog(@"Granted");
-            NSArray *accArray = [accStore accountsWithAccountType:accType];
-            ACAccount *fbAcc = [accArray lastObject];
-            
-            NSLog(@"Account desc: %@ UserName: %@ Identifier: %@", fbAcc.description, fbAcc.username, fbAcc.identifier);
-        }
-                    NSLog(@"Something else!");
-        
-    }];
-    
-}
-
 - (void)postToFacebook{
     
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
@@ -148,7 +126,38 @@
             }
         };
         
-        [controller setInitialText:[NSString stringWithFormat:@"I have found a new garbage spot at %@", self.garbageSpot.location.address]];
+        [controller setInitialText:self.descriptionTextView.text];
+        [controller addImage:self.imageView.image];
+        controller.completionHandler = fbBlock;
+        
+        [self presentViewController:controller animated:YES completion:nil];
+        
+    }else{
+        
+        NSLog(@"NOT connected");
+    }
+    
+}
+
+- (void)postToTwitter{
+    
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){
+        
+        NSLog(@"Connected");
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+        
+        SLComposeViewControllerCompletionHandler fbBlock = ^(SLComposeViewControllerResult result){
+            
+            if (result == SLComposeViewControllerResultCancelled) {
+                NSLog(@"Canceld");
+            }else{
+                
+                NSLog(@"Done posting!");
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+        };
+        
+        [controller setInitialText:self.descriptionTextView.text];
         [controller addImage:self.imageView.image];
         controller.completionHandler = fbBlock;
         
@@ -273,6 +282,6 @@
 
 - (IBAction)useImageClicked:(id)sender
 {
-    [self.locationManager startUpdatingLocation];
+
 }
 @end
