@@ -61,12 +61,18 @@
     
 	// Do any additional setup after loading the view.
     
-    //initializing map annotations
+    self.map.delegate = self;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
+    //initializing map annotations
     self.firstLoad = YES;
     self.garbages = [[GarbageStorage instance] allGarbageSpots];
     NSMutableArray* annots = [NSMutableArray array];
-
+    
     for(int i = 0; i < garbages.count; i++)
     {
         GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
@@ -74,13 +80,14 @@
         [annots addObject: p];
     }
     
-    self.map.delegate = self;
     [self.map addAnnotations: annots];
 }
+
 -(void) returnToPreviousScreen
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
 }
+
 -(void) addItem
 {
     [self performSegueWithIdentifier:@"newGarbageSpot" sender:self];
@@ -113,6 +120,12 @@
     {
         GarbageSpotPinAnnotation* pA = (GarbageSpotPinAnnotation*)annotation;
         pinView.annotation = pA;
+    }
+    
+    GarbageSpotPinAnnotation* spotPinAnnotation = pinView.annotation;
+    if(spotPinAnnotation.garbageSpot.dateCleaned)
+    {
+        pinView.pinColor = MKPinAnnotationColorPurple;
     }
     
     return pinView;

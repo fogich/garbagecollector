@@ -72,9 +72,10 @@
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
 	if (event.subtype == UIEventSubtypeMotionShake)
 	{   //Dobavi kakvoto iskame da pravi pri shake gesture tuk
+        self.garbageSpot.dateCleaned=[NSDate date];
+        [[GarbageStorage instance] saveContext];
         [self.delegate cleanObject:self.garbageSpot];
         [self returnToPreviousScreen];
-        
 	}
 }
 - (void)didReceiveMemoryWarning
