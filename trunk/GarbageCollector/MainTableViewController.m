@@ -139,18 +139,6 @@
     return YES;
 }
 */
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView* view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
-               action:@selector(buttonClicked)
-     forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"See Graph" forState:UIControlStateNormal];
-    button.frame = CGRectMake(self.view.window.center.x-60, 0, 120.0, 40.0);
-    [view addSubview:button];
-    return view;
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 40;
