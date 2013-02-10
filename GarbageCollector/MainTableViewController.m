@@ -162,7 +162,7 @@
 }
 - (void) cleanObject:(GarbageSpot*) garbageSpot;
 {
-   // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+    self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.tableView reloadData];
     NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
     NSError *error;
@@ -181,7 +181,7 @@
         mvc.delegate = self;
     }
 }
--(void) viewDidAppear:(BOOL)animated
+-(void) viewWillAppear:(BOOL)animated
 {
     self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.tableView reloadData];
