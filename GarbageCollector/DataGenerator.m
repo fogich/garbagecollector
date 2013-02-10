@@ -64,7 +64,7 @@
     
     self.garbageSpot.location = location;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
-    self.garbageSpot.pictureDescription = [NSString stringWithFormat:@"description %d", self.counter];
+    self.garbageSpot.pictureDescription = [NSString stringWithFormat: @"I have found a new garbage spot at %@.", address];
     
     [[GarbageStorage instance] addGarbageSpot:self.garbageSpot];
     
