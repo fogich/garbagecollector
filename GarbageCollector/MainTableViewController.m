@@ -12,7 +12,9 @@
 #import "GarbageStorage.h"
 #import "InfoViewController.h"
 #import "AppDelegate.h"
+#import <AVFoundation/AVFoundation.h>
 @interface MainTableViewController ()<InfoModalDelegate>
+@property(nonatomic) AVAudioPlayer *audioPlayer;
 @property(nonatomic) NSMutableArray* tableArray;
 @end
 
@@ -51,6 +53,14 @@
     [myView addSubview:myImageView];
     self.navigationItem.titleView = myView;
     self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
+    NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
+    NSError *error;
+    NSLog(@"%@",url);
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if (error)
+        NSLog(@"error");
+    self.audioPlayer.numberOfLoops = 0;
+    [self.audioPlayer play];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -164,6 +174,11 @@
     [[GarbageStorage instance] saveContext];
    // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.tableView reloadData];
+    NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
+    NSError *error;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    self.audioPlayer.numberOfLoops = 0;
+    [self.audioPlayer play];
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {   if([segue.identifier isEqualToString:@"fullInfo"])
