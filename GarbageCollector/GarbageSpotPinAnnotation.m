@@ -24,7 +24,20 @@
 
 -(NSString *)subtitle
 {
-    return [NSString stringWithFormat: @"Since: %@", self.garbageSpot.dateCreated];
+    NSCalendar* gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents* comps = [gregorian components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit|NSMinuteCalendarUnit|NSHourCalendarUnit|NSSecondCalendarUnit fromDate:self.garbageSpot.dateCreated];
+    
+    int year = [comps year];
+    int month = [comps month];
+    int day = [comps day];
+    int hour = [comps hour];
+    int min = [comps minute];
+    int sec = [comps second];
+    
+    NSString* dateString = [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", year, month, day, hour, min, sec];
+    
+    return [NSString stringWithFormat: @"Since: %@", dateString];
 }
 
 @end

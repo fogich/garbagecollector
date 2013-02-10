@@ -10,7 +10,7 @@
 #import "MainTableViewController.h"
 #import "GarbageStorage.h"
 #import "AppDelegate.h"
-
+#import "DataGenerator.h"
 
 @interface ViewController ()
 
@@ -21,6 +21,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    DataGenerator* gen = [[DataGenerator alloc] init];
+//    [gen generate];
+    
 	// Do any additional setup after loading the view, typically from a nib.
    
 //Moved to updateUI
