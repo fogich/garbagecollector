@@ -53,14 +53,6 @@
     [myView addSubview:myImageView];
     self.navigationItem.titleView = myView;
     self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
-    NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
-    NSError *error;
-    NSLog(@"%@",url);
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    if (error)
-        NSLog(@"error");
-    self.audioPlayer.numberOfLoops = 0;
-    [self.audioPlayer play];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -156,7 +148,7 @@
 */
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40;
+    return 0;
 }
 -(void) buttonClicked
 {
@@ -177,6 +169,8 @@
     NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
     NSError *error;
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if(error)
+        NSLog(@"Error in audio play");
     self.audioPlayer.numberOfLoops = 0;
     [self.audioPlayer play];
 }

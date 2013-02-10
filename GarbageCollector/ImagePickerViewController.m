@@ -121,12 +121,17 @@
         SLComposeViewControllerCompletionHandler fbBlock = ^(SLComposeViewControllerResult result){
             
             if (result == SLComposeViewControllerResultCancelled) {
-                NSLog(@"Canceld");
+                NSLog(@"Canceled");
+                
             }else{
                 
                 NSLog(@"Done posting!");
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                //Update UI here
+                [self returnToPreviousScreen];
+            });
         };
         
         [controller setInitialText:self.descriptionTextView.text];
@@ -152,12 +157,16 @@
         SLComposeViewControllerCompletionHandler fbBlock = ^(SLComposeViewControllerResult result){
             
             if (result == SLComposeViewControllerResultCancelled) {
-                NSLog(@"Canceld");
+                NSLog(@"Canceled");
             }else{
                 
                 NSLog(@"Done posting!");
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                //Update UI here
+                [self returnToPreviousScreen];
+            });
         };
         
         [controller setInitialText:self.descriptionTextView.text];
@@ -295,11 +304,12 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self postToFacebook];
-        [self returnToPreviousScreen];
+
     }
     else if (buttonIndex == 2) {
         [self postToTwitter];
         [self returnToPreviousScreen];
+
     }
     else
         [self returnToPreviousScreen];

@@ -55,11 +55,6 @@
     self.navigationItem.titleView = myView;
     self.garbageArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
 	// Do any additional setup after loading the view.
-    NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
-    NSError *error;
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
-    self.audioPlayer.numberOfLoops = 0;
-    [self.audioPlayer play];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -120,6 +115,8 @@
     NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty trash" withExtension:@"aif"];
     NSError *error;
     self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:&error];
+    if(error)
+        NSLog(@"Error in audio play");
     self.audioPlayer.numberOfLoops = 0;
     [self.audioPlayer play];
 }
