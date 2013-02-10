@@ -17,10 +17,14 @@
 
 @property BOOL firstLoad;
 @property id<MKAnnotation> selectedAnnotation;
+@property NSArray* garbages;
 @end
 
 @implementation MapViewController
 @synthesize map;
+@synthesize firstLoad;
+@synthesize garbages;
+@synthesize selectedAnnotation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,13 +62,13 @@
     //initializing map annotations
     
     self.firstLoad = YES;
-    NSArray* garbages = [[GarbageStorage instance] allGarbageSpots];
+    self.garbages = [[GarbageStorage instance] allGarbageSpots];
     NSMutableArray* annots = [NSMutableArray array];
 
     for(int i = 0; i < garbages.count; i++)
     {
         GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
-        p.garbageSpot = [garbages objectAtIndex:i];
+        p.garbageSpot = [self.garbages objectAtIndex:i];
         [annots addObject: p];
     }
     
@@ -128,8 +132,18 @@
 {
     if(self.firstLoad)
     {
+        MKCoordinateRegion region;
         //center on the first spot
-        MKCoordinateRegion region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.01, 0.01));
+        if(self.garbages && self.garbages.count > 0)
+        {
+            GarbageSpot* spot = [self.garbages objectAtIndex:0];
+            region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake([spot.location.latitude doubleValue], [spot.location.longitude doubleValue]), MKCoordinateSpanMake(0.1, 0.1));
+        }
+        else
+        {
+           region  = MKCoordinateRegionMake(CLLocationCoordinate2DMake(42.691126,23.319875), MKCoordinateSpanMake(0.1, 0.1));
+        }
+        
         self.map.region = [self.map regionThatFits:region];
         self.firstLoad = NO;
     }
