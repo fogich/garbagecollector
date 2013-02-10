@@ -34,16 +34,21 @@
     UIBarButtonItem* butt= [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addItem)];
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStyleBordered target:self action:@selector(switchScreen)];
     self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects:butt,butt1 ,nil];
-    UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleView.backgroundColor = [UIColor clearColor];
-    titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
-    titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    titleView.textColor = [UIColor blackColor]; // Your color here
-    [titleView setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
-    self.navigationItem.titleView = titleView;
-    [titleView sizeToFit];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture] style:UIBarButtonItemStylePlain target:self action:nil];
+    UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
+    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
     
+    title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
+    [title setTextColor:[UIColor blackColor]];
+    [title setFont:[UIFont boldSystemFontOfSize:16.0]];
+    
+    [title setBackgroundColor:[UIColor clearColor]];
+    UIImage *image = [(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture];
+    UIImageView *myImageView = [[UIImageView alloc] initWithImage:image];
+    myImageView.frame = CGRectMake((self.view.window.bounds.size.width/2)-80, 0, 30, 30);
+    [myView addSubview:title];
+    [myView setBackgroundColor:[UIColor  clearColor]];
+    [myView addSubview:myImageView];
+    self.navigationItem.titleView = myView;
     self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

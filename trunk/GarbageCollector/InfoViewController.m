@@ -32,18 +32,24 @@
     //UIBarButtonItem* butt= [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(returnToPreviousScreen)];
     
     UIBarButtonItem* butt1= [[UIBarButtonItem alloc] initWithTitle:@"Find Depo" style:UIBarButtonItemStyleBordered target:self action:@selector(findPath)];
-    self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObjects:butt1 ,nil];
-    UILabel * titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleView.backgroundColor = [UIColor clearColor];
-    titleView.font = [UIFont fontWithName:@"Helvetica" size:16];
-    titleView.shadowOffset = CGSizeMake(0.0f, 1.0f);
-    titleView.textColor = [UIColor blackColor]; // Your color here
-    [titleView setText:[(AppDelegate *)[[UIApplication sharedApplication] delegate] userName]];
-    self.navigationItem.titleView = titleView;
-    [titleView sizeToFit];
-    UIBarButtonItem* imageButton = [[UIBarButtonItem alloc] initWithImage:[(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture]  style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationBarItems.rightBarButtonItems = [NSArray arrayWithObject:butt1];
+    UIView *myView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, self.view.window.bounds.size.width, 30)];
+    UILabel *title = [[UILabel alloc] initWithFrame: CGRectMake((self.view.window.bounds.size.width/2)-40, 0, 160, 30)];
+    
+    title.text = [(AppDelegate *)[[UIApplication sharedApplication] delegate] userName];
+    [title setTextColor:[UIColor blackColor]];
+    [title setFont:[UIFont boldSystemFontOfSize:16.0]];
+    
+    [title setBackgroundColor:[UIColor clearColor]];
+    UIImage *image = [(AppDelegate *)[[UIApplication sharedApplication] delegate] profilePicture];
+    UIImageView *myImageView = [[UIImageView alloc] initWithImage:image];
+    myImageView.frame = CGRectMake((self.view.window.bounds.size.width/2)-80, 0, 30, 30);
+    [myView addSubview:title];
+    [myView setBackgroundColor:[UIColor  clearColor]];
+    [myView addSubview:myImageView];
+    self.navigationBarItems.titleView = myView;
     UIBarButtonItem* backButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(returnToPreviousScreen)];
-    self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObjects:backButton, imageButton, nil];    
+    self.navigationBarItems.leftBarButtonItems = [NSArray arrayWithObject:backButton];    
     self.infoPicture.image = [UIImage imageWithContentsOfFile:self.garbageSpot.pictureFilename];
     self.addressLabel.text = self.garbageSpot.location.address;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
