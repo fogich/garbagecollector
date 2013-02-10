@@ -162,8 +162,6 @@
 }
 - (void) cleanObject:(GarbageSpot*) garbageSpot;
 {
-    garbageSpot.dateCleaned=[NSDate date];
-    [[GarbageStorage instance] saveContext];
    // self.tableArray=[NSMutableArray arrayWithArray: [[GarbageStorage instance] allGarbageSpots]];
     [self.tableView reloadData];
     NSURL *url= [[NSBundle mainBundle] URLForResource:@"empty_trash" withExtension:@"aif"];
