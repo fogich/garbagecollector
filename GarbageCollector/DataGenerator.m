@@ -53,7 +53,7 @@
 
 -(void)createSpot
 {
-    double randomSeconds = -(double)(arc4random() % (60*60*24*PAST_DAYS_MAX));
+    int randomSeconds = -(arc4random() % (60*60*24*PAST_DAYS_MAX));
     NSDate* date = [NSDate dateWithTimeIntervalSinceNow:randomSeconds];
     
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
@@ -65,6 +65,14 @@
     self.garbageSpot.location = location;
     self.garbageSpot.pictureFilename = [self saveImageToDocuments];
     self.garbageSpot.pictureDescription = [NSString stringWithFormat: @"I have found a new garbage spot at %@.", address];
+    
+    //generate cleaned garbage
+    int cleanedSeed = arc4random() % GENERATE_CLEANED_SEED;
+    if(cleanedSeed == 0)
+    {
+        int randomSecondsAfter = arc4random() % -randomSeconds;
+        self.garbageSpot.dateCleaned = [NSDate dateWithTimeInterval:randomSecondsAfter sinceDate:date];
+    }
     
     [[GarbageStorage instance] addGarbageSpot:self.garbageSpot];
     
