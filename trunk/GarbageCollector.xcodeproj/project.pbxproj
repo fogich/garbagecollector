@@ -49,6 +49,7 @@
 		F406541516C8243100EC985C /* camera.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406541216C8243100EC985C /* camera.jpeg */; };
 		F406541616C8243100EC985C /* library.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406541316C8243100EC985C /* library.jpeg */; };
 		F406541816C834DA00EC985C /* no_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F406541716C834DA00EC985C /* no_image.jpg */; };
+		F406542616C91CA900EC985C /* garbage_collector.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406542516C91CA900EC985C /* garbage_collector.jpeg */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -130,6 +131,7 @@
 		F406541216C8243100EC985C /* camera.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera.jpeg; sourceTree = "<group>"; };
 		F406541316C8243100EC985C /* library.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = library.jpeg; sourceTree = "<group>"; };
 		F406541716C834DA00EC985C /* no_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image.jpg; sourceTree = "<group>"; };
+		F406542516C91CA900EC985C /* garbage_collector.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = garbage_collector.jpeg; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -281,6 +283,7 @@
 		F421E33416BD2D7000FE9E6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F406542516C91CA900EC985C /* garbage_collector.jpeg */,
 				F406541716C834DA00EC985C /* no_image.jpg */,
 				F406541116C8243100EC985C /* recyclebin.jpeg */,
 				F406541216C8243100EC985C /* camera.jpeg */,
@@ -390,6 +393,7 @@
 				F406541516C8243100EC985C /* camera.jpeg in Resources */,
 				F406541616C8243100EC985C /* library.jpeg in Resources */,
 				F406541816C834DA00EC985C /* no_image.jpg in Resources */,
+				F406542616C91CA900EC985C /* garbage_collector.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
