@@ -22,11 +22,10 @@
 {
     [super viewDidLoad];
     
-//    DataGenerator* gen = [[DataGenerator alloc] init];
-//    [gen generate];
+    //DataGenerator* gen = [[DataGenerator alloc] init];
+    //[gen generate];
     
 	// Do any additional setup after loading the view, typically from a nib.
-   
 //Moved to updateUI
     
 //    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
