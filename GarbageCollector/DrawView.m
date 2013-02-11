@@ -9,6 +9,7 @@
 #import "DrawView.h"
 
 @implementation DrawView
+@synthesize data;
 
 //what part of the circle has been drawn so far
 //coordinates of the last point in the last drawn arc
@@ -41,18 +42,23 @@ UIColor *pieceColor;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        
     }
     return self;
 }
 
 -(void)drawRect: (CGRect) rect {
     
+    NSLog(@"DrawView INITIALIZED!");
+    
+    //self.data = [NSMutableDictionary dictionaryWithObjects:@[@3,@4,@1,@5,@8,@7,@4] forKeys:@[@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun"]];
+    //NSLog(@"1");
+    
     //adding "Random" button in top left
     UIButton *randomButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 70.0, 10.0)];
     [randomButton setTitle:@"Random" forState:UIControlStateNormal];
     [randomButton addTarget:self action:@selector(random:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview: randomButton];
+    //[self addSubview: randomButton];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -61,10 +67,10 @@ UIColor *pieceColor;
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     
     //Setting position
-    radius = 0.8*self.frame.size.width/2;
+    radius = 0.75f*self.frame.size.width/2;
     
-    NSLog(@"width: %f \nradius: %d",0.8*self.frame.size.width/2, radius);
-    borderOffset = radius/4;
+    NSLog(@"width: %f \nradius: %d",0.9f*self.frame.size.width/2, radius);
+    borderOffset = (self.frame.size.width-radius*2)/2;
     
     //positioning the pie chart
     circleCenter = CGPointMake(borderOffset+radius, borderOffset+radius);
@@ -77,21 +83,22 @@ UIColor *pieceColor;
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:12.0];
     
     //temporary array of values; should be recieved as parameter
-    char array[3+arc4random() % 6];//]={3,4,1,5,8,7,4};//[[self.data allValues] count]];
-    
+    char array[[[self.data allValues] count]];//3+arc4random() % 6];//]={3,4,1,5,8,7,4};//
+    NSLog(@"sizeof(array): %ld",sizeof(array));
     
     //positions of the lables
     CGPoint labelPoints[sizeof(array)];
-    //NSLog(@"sizeof(array): %ld",sizeof(array));
+    
+    //NSLog(@"2");
     
     //temporary labels array; should be recieved as parameter
-    NSArray *labels = @[@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun"]; //[self.data allKeys];
+    NSArray *labels = [self.data allKeys];
     
     //random array - debug/test/fun feature ;)
     for (int i=0; i<sizeof(array); i++) {
-        array[i]= arc4random() % 10;
-        //array[i] = [[self.data valueForKey:[labels objectAtIndex:i]] intValue];
-        //NSLog(@"array[%d]=%d",i,array[i]);
+        //array[i]= arc4random() % 10;
+        array[i] = [[self.data valueForKey:[labels objectAtIndex:i]] intValue];
+        NSLog(@"array[%d]=%d",i,array[i]);
     }
     
     //good example of problematic array with narrow pieces where similar colors merge
@@ -188,7 +195,7 @@ UIColor *pieceColor;
         if ((previousLabelBox.origin.y+previousLabelBox.size.height+2 >= labelBox.origin.y
              && previousLabelBox.origin.y <= labelBox.origin.y)
             || i+1==sizeof(labelPoints)/8) {
-            labelBox.origin.y-=2*previousLabelBox.size.height;
+            labelBox.origin.y-=1.8*previousLabelBox.size.height;
             CGContextMoveToPoint(context, labelPoints[i].x, labelPoints[i].y);
             CGContextAddLineToPoint(context, labelBox.origin.x+labelBox.size.width/2, labelBox.origin.y+labelBox.size.height/2);
             CGContextDrawPath(context, kCGPathFillStroke);
