@@ -22,10 +22,10 @@ CGPoint currentLabelPoint;
 CGPoint circleCenter;
 
 //radius of the circle
-char radius;
+int radius;
 
 //offset from upper and left border of the screen
-char borderOffset;
+int borderOffset;
 
 //what part of the circle has been drawn so far
 //angle in RAD
@@ -48,6 +48,12 @@ UIColor *pieceColor;
 
 -(void)drawRect: (CGRect) rect {
     
+    //adding "Random" button in top left
+    UIButton *randomButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0, 0.0, 70.0, 10.0)];
+    [randomButton setTitle:@"Random" forState:UIControlStateNormal];
+    [randomButton addTarget:self action:@selector(random:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview: randomButton];
+    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     //width in pts; 1pt=2px
@@ -55,8 +61,9 @@ UIColor *pieceColor;
     CGContextSetStrokeColorWithColor(context, [UIColor blackColor].CGColor);
     
     //Setting position
-    radius = 0.8*self.window.frame.size.width/2;
-    NSLog(@"width: %f",0.8*self.window.frame.size.width/2);
+    radius = 0.8*self.frame.size.width/2;
+    
+    NSLog(@"width: %f \nradius: %d",0.8*self.frame.size.width/2, radius);
     borderOffset = radius/4;
     
     //positioning the pie chart
@@ -70,18 +77,20 @@ UIColor *pieceColor;
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:12.0];
     
     //temporary array of values; should be recieved as parameter
-    char array[3+arc4random() % 5];//]={3,4,1,5,8,7,4};
+    char array[3+arc4random() % 6];//]={3,4,1,5,8,7,4};//[[self.data allValues] count]];
+    
     
     //positions of the lables
     CGPoint labelPoints[sizeof(array)];
     //NSLog(@"sizeof(array): %ld",sizeof(array));
     
     //temporary labels array; should be recieved as parameter
-    NSArray *labels = @[@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun"];
+    NSArray *labels = @[@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun"]; //[self.data allKeys];
     
     //random array - debug/test/fun feature ;)
     for (int i=0; i<sizeof(array); i++) {
         array[i]= arc4random() % 10;
+        //array[i] = [[self.data valueForKey:[labels objectAtIndex:i]] intValue];
         //NSLog(@"array[%d]=%d",i,array[i]);
     }
     
@@ -129,9 +138,9 @@ UIColor *pieceColor;
         CGFloat x = 0.0;
         CGFloat y = 0.0;
         
-        if (i > 10) {
+        if (i > 3) {
             x = radius+borderOffset;
-            y = 11*borderOffset/2;
+            y = 4*borderOffset/2;
         }
         
         NSLog(@"i=%d mod=%d sc=%f",i,i % labels.count, x);
