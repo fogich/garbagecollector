@@ -59,7 +59,22 @@
     self.garbageSpot = [[GarbageStorage instance] createGarbageSpot];
     self.garbageSpot.dateCreated = date;
     
-    NSString* address = [NSString stringWithFormat:@"%@, %@, %@", self.placemark.locality, self.placemark.thoroughfare, self.placemark.subThoroughfare];
+    NSString* address = @"";
+    if(self.placemark.locality)
+    {
+        address = self.placemark.locality;
+    }
+    
+    if(self.placemark.thoroughfare)
+    {
+        address = [NSString stringWithFormat:@"%@, %@", address, self.placemark.thoroughfare];
+    }
+    
+    if(self.placemark.subThoroughfare)
+    {
+        address = [NSString stringWithFormat:@"%@, %@", address, self.placemark.subThoroughfare];
+    }
+    
     Location* location = [[GarbageStorage instance] createLocationWithLatitude:self.placemark.location.coordinate.latitude Longitude:self.placemark.location.coordinate.longitude Address:address Region: self.placemark.subLocality];
     
     self.garbageSpot.location = location;
