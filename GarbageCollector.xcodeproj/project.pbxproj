@@ -53,6 +53,7 @@
 		F406542A16C9298400EC985C /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F406542916C9298300EC985C /* StatsViewController.m */; };
 		F406542D16C934BF00EC985C /* 7day_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = F406542B16C934BF00EC985C /* 7day_icon.gif */; };
 		F406542E16C934BF00EC985C /* 30days.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406542C16C934BF00EC985C /* 30days.jpeg */; };
+		F406543016C935DC00EC985C /* podium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406542F16C935DC00EC985C /* podium.jpeg */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -139,6 +140,7 @@
 		F406542916C9298300EC985C /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		F406542B16C934BF00EC985C /* 7day_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 7day_icon.gif; sourceTree = "<group>"; };
 		F406542C16C934BF00EC985C /* 30days.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 30days.jpeg; sourceTree = "<group>"; };
+		F406542F16C935DC00EC985C /* podium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = podium.jpeg; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -292,6 +294,7 @@
 		F421E33416BD2D7000FE9E6F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F406542F16C935DC00EC985C /* podium.jpeg */,
 				F406542B16C934BF00EC985C /* 7day_icon.gif */,
 				F406542C16C934BF00EC985C /* 30days.jpeg */,
 				F406542516C91CA900EC985C /* garbage_collector.jpeg */,
@@ -407,6 +410,7 @@
 				F406542616C91CA900EC985C /* garbage_collector.jpeg in Resources */,
 				F406542D16C934BF00EC985C /* 7day_icon.gif in Resources */,
 				F406542E16C934BF00EC985C /* 30days.jpeg in Resources */,
+				F406543016C935DC00EC985C /* podium.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
