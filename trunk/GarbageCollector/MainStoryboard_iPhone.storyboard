@@ -272,8 +272,7 @@
                             <constraint firstItem="ZPx-Ye-oyJ" firstAttribute="leading" secondItem="vCQ-ga-dCA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CZg-m4-fo9"/>
                             <constraint firstItem="USp-AI-Lac" firstAttribute="trailing" secondItem="vCQ-ga-dCA" secondAttribute="trailing" type="default" id="EHE-qS-bjP"/>
                             <constraint firstItem="USp-AI-Lac" firstAttribute="top" secondItem="vCQ-ga-dCA" secondAttribute="top" type="default" id="EYj-zA-wWI"/>
-                            <constraint firstItem="USp-AI-Lac" firstAttribute="centerX" secondItem="H6B-LO-x67" secondAttribute="centerX" type="default" id="Fil-SK-sXv"/>
-                            <constraint firstItem="H6B-LO-x67" firstAttribute="top" secondItem="vCQ-ga-dCA" secondAttribute="top" constant="51" type="user" id="HjZ-2P-vc8"/>
+                            <constraint firstItem="H6B-LO-x67" firstAttribute="top" secondItem="vCQ-ga-dCA" secondAttribute="top" constant="60" type="user" id="HjZ-2P-vc8"/>
                             <constraint firstAttribute="trailing" secondItem="zGz-Zl-YbD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kl0-ot-6rH"/>
                             <constraint firstAttribute="bottom" secondItem="ZPx-Ye-oyJ" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="Lw2-QD-Ffk"/>
                             <constraint firstItem="USp-AI-Lac" firstAttribute="leading" secondItem="vCQ-ga-dCA" secondAttribute="leading" type="default" id="TAV-8g-Dub"/>
@@ -282,6 +281,7 @@
                             <constraint firstItem="ZPx-Ye-oyJ" firstAttribute="top" secondItem="gOt-4r-cJV" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="ZJE-dy-hmL"/>
                             <constraint firstItem="zGz-Zl-YbD" firstAttribute="leading" secondItem="vCQ-ga-dCA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="i8h-9C-oqe"/>
                             <constraint firstAttribute="trailing" secondItem="gOt-4r-cJV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lHl-9w-Ddk"/>
+                            <constraint firstItem="zGz-Zl-YbD" firstAttribute="centerX" secondItem="H6B-LO-x67" secondAttribute="centerX" type="default" id="qeg-WR-2x2"/>
                             <constraint firstItem="zGz-Zl-YbD" firstAttribute="top" secondItem="H6B-LO-x67" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="znn-kh-48R"/>
                         </constraints>
                     </view>
@@ -629,6 +629,85 @@
         <image name="recyclebin.jpeg" width="204" height="204"/>
         <image name="table1.jpeg" width="102" height="102"/>
     </resources>
+    <classes>
+        <class className="ImagePickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImagePickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="getCameraPicture:"/>
+                <relationship kind="action" name="selectExitingPicture"/>
+                <relationship kind="action" name="useImageClicked:"/>
+                <relationship kind="outlet" name="addGarbageSpotButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="descriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="selectFromCameraRollButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="infoPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="navigationBarItems" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="MainCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellPicture" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="cellText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="checkMarkImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MainTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainTableViewController.h"/>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ShowDepoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDepoViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeScreen:"/>
+                <relationship kind="action" name="sendMail:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="depoDescriptionTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="mapCoverLayer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="phoneLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="StatsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StatsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="monthClick:"/>
+                <relationship kind="action" name="topClick:"/>
+                <relationship kind="action" name="weekClick:"/>
+                <relationship kind="outlet" name="graphicsView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="switchToMapScreen:"/>
+                <relationship kind="action" name="switchToTableScreen:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="activityIndicatorText" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapViewButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="statisticsButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableViewButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
