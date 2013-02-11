@@ -9,6 +9,7 @@
 #import "StatsViewController.h"
 #import "DrawView.h"
 #import "AppDelegate.h"
+#import "GraphView.h"
 
 @interface StatsViewController ()
 @property (weak, nonatomic) IBOutlet UIView *graphicsView;
@@ -59,12 +60,76 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) returnToPreviousScreen
+{
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
 - (IBAction)monthClick:(id)sender {
+    
+    CGRect frame = CGRectMake(0, 0, self.graphicsView.frame.size.width, self.graphicsView.frame.size.height);
+    
+    GraphView *monthlyView = [[GraphView alloc] initWithFrame:frame];
+
+    NSMutableDictionary *randomData = [[NSMutableDictionary alloc] init];
+    for (int i=0; i < 30; i++) {
+        [randomData setValue: @(arc4random() % 30) forKey: [NSString stringWithFormat:@"%d",(arc4random() % 100)]];
+    }
+
+    monthlyView.data = randomData;
+    monthlyView.backgroundColor = [UIColor whiteColor];
+    [self.graphicsView addSubview: monthlyView];
+    [monthlyView setNeedsDisplay];
+    NSLog(@"Monthly");
+    
+    NSLog(@"%@", randomData);
+    
 }
 
 - (IBAction)weekClick:(id)sender {
+    
+    CGRect frame = CGRectMake(0, 0, self.graphicsView.frame.size.width, self.graphicsView.frame.size.height);
+    GraphView *weeklyView = [[GraphView alloc] initWithFrame:frame];
+   
+    
+    NSArray *labels = @[@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun"];
+    
+    NSMutableDictionary *randomData = [[NSMutableDictionary alloc] init];
+    for (NSString *str in labels) {
+        [randomData setValue:@(arc4random() % 10) forKey:str];
+    }
+    
+    weeklyView.data = randomData;
+    weeklyView.backgroundColor = [UIColor whiteColor];
+    [self.graphicsView addSubview: weeklyView];
+    //[monthlyView drawRect:nil];
+    [weeklyView setNeedsDisplay];
+    
+    NSLog(@"Top");
+    
+    NSLog(@"%@", randomData);
 }
 
 - (IBAction)topClick:(id)sender {
+    
+    CGRect frame = CGRectMake(0, 0, self.graphicsView.frame.size.width, self.graphicsView.frame.size.height);
+    DrawView *topView = [[DrawView alloc] initWithFrame:frame];
+    //temporary labels array; should be recieved as parameter
+    NSArray *labels = @[@"Centar",@"Mladost",@"Liulin",@"Ovcha Kupel",@"Levski",@"Vitosha",@"Ilienci"];//[self.data allKeys];
+    NSMutableDictionary *randomData = [[NSMutableDictionary alloc] init];
+    for (NSString *str in labels) {
+        [randomData setValue:@(arc4random() % 10) forKey:str];
+    }
+    
+    topView.data = randomData;
+    topView.backgroundColor = [UIColor whiteColor];
+    [self.graphicsView addSubview: topView];
+    //[monthlyView drawRect:nil];
+    [topView setNeedsDisplay];
+
+    NSLog(@"Top");
+    
+    NSLog(@"%@", randomData);
+    
 }
 @end

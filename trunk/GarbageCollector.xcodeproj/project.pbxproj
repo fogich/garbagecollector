@@ -72,6 +72,7 @@
 		F42D599716BD762600F1CA6E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599616BD762600F1CA6E /* MapKit.framework */; };
 		F42D599A16BD791A00F1CA6E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F42D599916BD791A00F1CA6E /* CoreLocation.framework */; };
 		F42D599D16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */; };
+		F456AD8216C9380C000A1F88 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = F456AD8116C9380C000A1F88 /* GraphView.m */; };
 		F460D80516C5F175009A80B0 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F460D80416C5F175009A80B0 /* MainStoryboard_iPhone.storyboard */; };
 		F49433EB16BDF9A4001712D3 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = F49433EA16BDF9A4001712D3 /* DrawView.m */; };
 		F49433ED16BDFB6A001712D3 /* Kaci.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F49433EC16BDFB6A001712D3 /* Kaci.jpg */; };
@@ -168,6 +169,8 @@
 		F42D599916BD791A00F1CA6E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F42D599B16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GarbageSpotPinAnnotation.h; sourceTree = "<group>"; };
 		F42D599C16BD7D4000F1CA6E /* GarbageSpotPinAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GarbageSpotPinAnnotation.m; sourceTree = "<group>"; };
+		F456AD8016C9380C000A1F88 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		F456AD8116C9380C000A1F88 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		F460D80416C5F175009A80B0 /* MainStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		F49433E916BDF9A4001712D3 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		F49433EA16BDF9A4001712D3 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
@@ -265,6 +268,8 @@
 				F40653C416C6BAA700EC985C /* GarbageSpot.m */,
 				F49433E916BDF9A4001712D3 /* DrawView.h */,
 				F49433EA16BDF9A4001712D3 /* DrawView.m */,
+				F456AD8016C9380C000A1F88 /* GraphView.h */,
+				F456AD8116C9380C000A1F88 /* GraphView.m */,
 				F406542816C9298200EC985C /* StatsViewController.h */,
 				F406542916C9298300EC985C /* StatsViewController.m */,
 				F49433EC16BDFB6A001712D3 /* Kaci.jpg */,
@@ -446,6 +451,7 @@
 				F40653D516C6D17400EC985C /* Region.m in Sources */,
 				F40653E416C7EB0C00EC985C /* DataGenerator.m in Sources */,
 				F406542A16C9298400EC985C /* StatsViewController.m in Sources */,
+				F456AD8216C9380C000A1F88 /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
