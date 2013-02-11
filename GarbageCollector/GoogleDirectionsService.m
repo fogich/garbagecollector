@@ -11,18 +11,43 @@
 
 @interface GoogleDirectionsService ()
 
+@property (strong, nonatomic) NSURLConnection* connection;
+@property (strong, nonatomic) NSMutableData* data;
+
 @end
 
 @implementation GoogleDirectionsService
 
--(MKPolyline*)getKeyLocationsBetweenPointA:(CLLocationCoordinate2D)locationA pointB:(CLLocationCoordinate2D)locationB
+-(void)getKeyLocationsBetweenPointA:(CLLocationCoordinate2D)locationA pointB:(CLLocationCoordinate2D)locationB
 {
+    self.data = [NSMutableData data];
+    
     NSString* googleDirectionsAPICall = [NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/directions/json?origin=%f,%f&destination=%f,%f&sensor=false&mode=walking", locationA.latitude, locationA.longitude, locationB.latitude, locationB.longitude];
     
     NSURL* url = [NSURL URLWithString:googleDirectionsAPICall];
-    NSData* routeData = [NSData dataWithContentsOfURL:url];
-    
-    MKPolyline* polyline = [[[JSONParser alloc] init] getKeyLocationsFromData:routeData];
-    return polyline;
+    NSURLRequest* request = [NSURLRequest requestWithURL:url];
+    self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    [self.connection start];
 }
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"Error: %@", error);
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    MKPolyline* polyline = [[[JSONParser alloc] init] getKeyLocationsFromData:self.data];
+    
+    //notify subscribers
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    NSDictionary* dictionary = [NSDictionary dictionaryWithObject:polyline forKey:@"polyline"];
+    [center postNotificationName:@"PolylineReady" object:self userInfo:dictionary];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    [self.data appendData:data];
+}
+
 @end

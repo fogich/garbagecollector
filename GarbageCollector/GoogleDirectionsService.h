@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface GoogleDirectionsService : NSObject
+@interface GoogleDirectionsService : NSObject<NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
--(MKPolyline*) getKeyLocationsBetweenPointA: (CLLocationCoordinate2D) locationA pointB: (CLLocationCoordinate2D) locationB;
+-(void) getKeyLocationsBetweenPointA: (CLLocationCoordinate2D) locationA pointB: (CLLocationCoordinate2D) locationB;
 
 @end
