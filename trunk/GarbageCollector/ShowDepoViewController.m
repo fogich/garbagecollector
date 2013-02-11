@@ -45,50 +45,51 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
+    self.map.delegate = self;
     self.mapCoverLayer.hidden = FALSE;
     [self.activityIndicator startAnimating];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.location.latitude doubleValue], [self.spotDetail.location.longitude doubleValue]);
-        GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
-        self.depo = nearestDepo;
-        CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
-        MKPolyline* polyline = [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
-        
-        dispatch_async(dispatch_get_main_queue(),^{
-            self.depoDescriptionTextView.text = nearestDepo.aDescription;
-            self.phoneLabel.text = [NSString stringWithFormat:@"  Phone: %@", nearestDepo.phone];
-            
-            NSMutableArray* annots = [NSMutableArray array];
-            GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
-            p.garbageSpot = self.spotDetail;
-            [annots addObject: p];
-            
-            DepoPinAnnotation* p1 = [[DepoPinAnnotation alloc] init];
-            p1.garbageDepo = nearestDepo;
-            [annots addObject: p1];
-            
-            self.map.delegate = self;
-            [self.map addAnnotations: annots];
-            
-            self.polyline = polyline;
-            [self.map addOverlay:self.polyline];
-            
-            MKCoordinateSpan span = [self findGeographicalRect:self.polyline];
-            self.map.region = MKCoordinateRegionMake(self.polyline.coordinate, span);
-            
-            [self.activityIndicator stopAnimating];
-            self.activityIndicator.hidden = TRUE;
-            self.mapCoverLayer.hidden = TRUE;
-        });
-    });
+    
+    GarbageSpotPinAnnotation* p = [[GarbageSpotPinAnnotation alloc] init];
+    p.garbageSpot = self.spotDetail;
+    [self.map addAnnotation: p];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector: @selector(garbageDepoReadyNotification:) name: @"GarbageDepoReady" object:nil];
+    [center addObserver:self selector: @selector(polylineReadyNotification:) name: @"PolylineReady" object:nil];
+    
+    CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.location.latitude doubleValue], [self.spotDetail.location.longitude doubleValue]);
+    [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
 }
+
+-(void)garbageDepoReadyNotification:(NSNotification *) notification
+{
+    GarbageDepo* nearestDepo = [notification.userInfo objectForKey:@"depo"];
+    self.depo = nearestDepo;
+    self.depoDescriptionTextView.text = nearestDepo.aDescription;
+    self.phoneLabel.text = [NSString stringWithFormat:@"  Phone: %@", nearestDepo.phone];
+    
+    CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.location.latitude doubleValue], [self.spotDetail.location.longitude doubleValue]);
+    CLLocationCoordinate2D endLocationCoordinate = CLLocationCoordinate2DMake(nearestDepo.latitude, nearestDepo.longitude);
+    [[[GoogleDirectionsService alloc] init] getKeyLocationsBetweenPointA: startLocationCoordinate pointB: endLocationCoordinate];
+    
+    DepoPinAnnotation* p1 = [[DepoPinAnnotation alloc] init];
+    p1.garbageDepo = nearestDepo;
+    [self.map addAnnotation: p1];
+}
+
+-(void)polylineReadyNotification:(NSNotification *) notification
+{
+    self.polyline = [notification.userInfo objectForKey:@"polyline"];
+    [self.map addOverlay:self.polyline];
+    
+    MKCoordinateSpan span = [self findGeographicalRect:self.polyline];
+    self.map.region = MKCoordinateRegionMake(self.polyline.coordinate, span);
+    
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = TRUE;
+    self.mapCoverLayer.hidden = TRUE;
+}
+
 
 -(MKCoordinateSpan)findGeographicalRect: (MKPolyline*) polyline
 {
