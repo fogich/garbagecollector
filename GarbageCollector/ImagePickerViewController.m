@@ -66,24 +66,29 @@
 
 -(void) returnToPreviousScreen
 {
-    [self.locationManager stopUpdatingLocation];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations {
-    [manager stopUpdatingLocation];
     
     CLLocation *location = [locations objectAtIndex:0];
-    CLGeocoder* geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarkers, NSError* error)
+    NSDate* tenSecondsBeforeNow = [NSDate dateWithTimeIntervalSinceNow:-10];
+    if([location.timestamp compare:tenSecondsBeforeNow] == NSOrderedDescending)
     {
-        //error handling
-        CLPlacemark* placemark = [placemarkers objectAtIndex:0];
+        [manager stopUpdatingLocation];
+        CLGeocoder* geocoder = [[CLGeocoder alloc] init];
+        [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray* placemarkers, NSError* error)
+         {
+             //error handling
+             CLPlacemark* placemark = [placemarkers objectAtIndex:0];
         
-        //update the current garbage address and location
-        [self performSelectorOnMainThread:@selector(updateLocation:) withObject:placemark waitUntilDone:NO];
-    }];
-    
+             NSLog(@"%f", placemark.location.coordinate.latitude);
+             NSLog(@"%f", placemark.location.coordinate.longitude);
+        
+             //update the current garbage address and location
+             [self performSelectorOnMainThread:@selector(updateLocation:) withObject:placemark waitUntilDone:NO];
+         }];
+    }
 }
 
 -(void)updateLocation: (CLPlacemark*) placemark
