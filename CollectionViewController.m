@@ -94,7 +94,6 @@
     GarbageSpot* currentSpot = [self.garbageArray objectAtIndex:indexPath.row];
     myCell.cellImage.image=[UIImage imageWithContentsOfFile:currentSpot.pictureFilename];
     myCell.cellText.text=currentSpot.pictureDescription;
-    NSLog(@"%@",currentSpot.dateCleaned);
     if(currentSpot.dateCleaned)
     {
         [myCell.greenCheckmarkImage setHidden:NO];
