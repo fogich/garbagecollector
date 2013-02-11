@@ -11,7 +11,7 @@
 #import "AppDelegate.h"
 
 @interface StatsViewController ()
-@property (weak, nonatomic) IBOutlet DrawView *graphicsView;
+@property (weak, nonatomic) IBOutlet UIView *graphicsView;
 - (IBAction)monthClick:(id)sender;
 - (IBAction)weekClick:(id)sender;
 - (IBAction)topClick:(id)sender;
