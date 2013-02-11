@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarItems;
 @property (nonatomic) GarbageSpot* garbageSpot;
 @property (nonatomic) id<InfoModalDelegate> delegate;

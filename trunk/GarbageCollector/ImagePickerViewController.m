@@ -322,4 +322,12 @@
     else
         [self returnToPreviousScreen];
 }
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.descriptionTextView isFirstResponder] && [touch view] != self.descriptionTextView) {
+        [self.descriptionTextView resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
 @end
