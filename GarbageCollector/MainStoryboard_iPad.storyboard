@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQ7-1Q-c5M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="yQ7-1Q-c5M">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -12,14 +12,6 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wellcome to Garbage collector, your garbage app" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="6Ez-EG-OrG">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="169" id="p8y-7A-fuj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKq-Xc-euy">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="cmk-gI-AOR"/>
@@ -87,22 +79,38 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="garbage_collector.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-ZH-eoa">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="278" id="iPk-XN-7we"/>
+                                    <constraint firstAttribute="width" constant="454" id="zAr-bI-ByW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Garbage Collector" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-D6-yGs">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="715" id="cBD-ei-iDR"/>
+                                    <constraint firstAttribute="height" constant="77" id="j6H-b4-Jov"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="60"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ZKq-Xc-euy" firstAttribute="baseline" secondItem="585-2h-pgV" secondAttribute="baseline" type="user" id="2Gv-NM-0aW"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="centerX" secondItem="6Ez-EG-OrG" secondAttribute="centerX" type="default" id="9em-3V-jIH"/>
                             <constraint firstItem="oQH-yi-Yrf" firstAttribute="top" secondItem="585-2h-pgV" secondAttribute="top" type="default" id="AsF-Gj-E3V"/>
                             <constraint firstAttribute="bottom" secondItem="ZKq-Xc-euy" secondAttribute="bottom" constant="184" id="C6S-bg-u0r"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="centerX" secondItem="S14-qa-gLh" secondAttribute="centerX" type="default" id="DQx-U5-sc2"/>
-                            <constraint firstItem="Oqc-h7-Cit" firstAttribute="top" secondItem="5" secondAttribute="top" constant="226" id="F8X-nn-bX1"/>
+                            <constraint firstItem="Oqc-h7-Cit" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="DlI-AT-ovq"/>
+                            <constraint firstItem="S14-qa-gLh" firstAttribute="top" secondItem="Oqc-h7-Cit" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NDl-NH-eH8"/>
                             <constraint firstItem="ZKq-Xc-euy" firstAttribute="top" secondItem="585-2h-pgV" secondAttribute="top" type="default" id="OcM-N0-q62"/>
-                            <constraint firstItem="6Ez-EG-OrG" firstAttribute="top" secondItem="5" secondAttribute="top" constant="36" id="RU7-uV-jaF"/>
-                            <constraint firstItem="585-2h-pgV" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="user" id="WmU-jG-8Gm"/>
-                            <constraint firstItem="S14-qa-gLh" firstAttribute="centerX" secondItem="Oqc-h7-Cit" secondAttribute="centerX" type="user" id="YKp-dc-O8E"/>
-                            <constraint firstItem="6Ez-EG-OrG" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="eVb-Dd-JAT"/>
+                            <constraint firstItem="SU9-ZH-eoa" firstAttribute="top" secondItem="5" secondAttribute="top" constant="94" id="Q7B-Bu-gTa"/>
+                            <constraint firstAttribute="bottom" secondItem="S14-qa-gLh" secondAttribute="bottom" constant="402" id="Qoi-rP-a9d"/>
+                            <constraint firstItem="S14-qa-gLh" firstAttribute="centerX" secondItem="Oqc-h7-Cit" secondAttribute="centerX" type="default" id="V69-fK-CBQ"/>
+                            <constraint firstItem="tD9-D6-yGs" firstAttribute="centerX" secondItem="SU9-ZH-eoa" secondAttribute="centerX" type="default" id="XNo-Bz-MQz"/>
+                            <constraint firstItem="tD9-D6-yGs" firstAttribute="top" secondItem="5" secondAttribute="top" constant="389" id="ZZR-aB-ErC"/>
                             <constraint firstItem="oQH-yi-Yrf" firstAttribute="leading" secondItem="585-2h-pgV" secondAttribute="trailing" constant="100" type="user" id="jDn-hH-97f"/>
-                            <constraint firstItem="S14-qa-gLh" firstAttribute="top" secondItem="5" secondAttribute="top" constant="267" id="lb7-6e-A9G"/>
+                            <constraint firstItem="S14-qa-gLh" firstAttribute="centerX" secondItem="585-2h-pgV" secondAttribute="centerX" type="default" id="lL2-k7-m3m"/>
+                            <constraint firstItem="tD9-D6-yGs" firstAttribute="centerX" secondItem="Oqc-h7-Cit" secondAttribute="centerX" type="default" id="oa1-Fj-OWI"/>
                             <constraint firstAttribute="trailing" secondItem="oQH-yi-Yrf" secondAttribute="trailing" priority="500" constant="82" type="user" id="rMt-P5-WNJ"/>
                             <constraint firstItem="ZKq-Xc-euy" firstAttribute="leading" secondItem="5" secondAttribute="leading" priority="500" constant="66" type="user" id="tpo-n6-QRS"/>
                             <constraint firstItem="585-2h-pgV" firstAttribute="leading" secondItem="ZKq-Xc-euy" secondAttribute="trailing" constant="100" type="user" id="tq9-6J-cve"/>
@@ -558,6 +566,7 @@
     </scenes>
     <resources>
         <image name="camera.jpeg" width="225" height="225"/>
+        <image name="garbage_collector.jpeg" width="235" height="214"/>
         <image name="green_checkmark.jpg" width="225" height="225"/>
         <image name="library.jpeg" width="102" height="102"/>
         <image name="map1.jpeg" width="137" height="124"/>
@@ -591,7 +600,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="commentTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="infoPicture" candidateClass="UIImageView"/>
@@ -639,9 +647,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
