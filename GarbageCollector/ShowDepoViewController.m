@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UITextView *depoDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UIView *mapCoverLayer;
 @property GarbageDepo* depo;
 
 - (IBAction)closeScreen:(id)sender;
@@ -44,9 +45,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
+    self.mapCoverLayer.hidden = FALSE;
     [self.activityIndicator startAnimating];
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         CLLocationCoordinate2D startLocationCoordinate = CLLocationCoordinate2DMake([self.spotDetail.location.latitude doubleValue], [self.spotDetail.location.longitude doubleValue]);
         GarbageDepo* nearestDepo = [[[GarbageDepoService alloc] init] getNearestGarbageDepoFromPoint:startLocationCoordinate];
@@ -78,14 +85,9 @@
             
             [self.activityIndicator stopAnimating];
             self.activityIndicator.hidden = TRUE;
+            self.mapCoverLayer.hidden = TRUE;
         });
     });
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [self.activityIndicator startAnimating];
 }
 
 -(MKCoordinateSpan)findGeographicalRect: (MKPolyline*) polyline
