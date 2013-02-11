@@ -227,4 +227,11 @@
 {
     [controller dismissViewControllerAnimated:NO completion:nil];
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver: self];
+}
+
 @end
