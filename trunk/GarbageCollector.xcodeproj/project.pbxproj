@@ -50,6 +50,7 @@
 		F406541616C8243100EC985C /* library.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406541316C8243100EC985C /* library.jpeg */; };
 		F406541816C834DA00EC985C /* no_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F406541716C834DA00EC985C /* no_image.jpg */; };
 		F406542616C91CA900EC985C /* garbage_collector.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F406542516C91CA900EC985C /* garbage_collector.jpeg */; };
+		F406542A16C9298400EC985C /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F406542916C9298300EC985C /* StatsViewController.m */; };
 		F421E32E16BD2D7000FE9E6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32D16BD2D7000FE9E6F /* UIKit.framework */; };
 		F421E33016BD2D7000FE9E6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E32F16BD2D7000FE9E6F /* Foundation.framework */; };
 		F421E33216BD2D7000FE9E6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F421E33116BD2D7000FE9E6F /* CoreGraphics.framework */; };
@@ -132,6 +133,8 @@
 		F406541316C8243100EC985C /* library.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = library.jpeg; sourceTree = "<group>"; };
 		F406541716C834DA00EC985C /* no_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = no_image.jpg; sourceTree = "<group>"; };
 		F406542516C91CA900EC985C /* garbage_collector.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = garbage_collector.jpeg; sourceTree = "<group>"; };
+		F406542816C9298200EC985C /* StatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsViewController.h; sourceTree = "<group>"; };
+		F406542916C9298300EC985C /* StatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsViewController.m; sourceTree = "<group>"; };
 		F421E32916BD2D7000FE9E6F /* GarbageCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GarbageCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F421E32D16BD2D7000FE9E6F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F421E32F16BD2D7000FE9E6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -256,6 +259,8 @@
 				F40653C416C6BAA700EC985C /* GarbageSpot.m */,
 				F49433E916BDF9A4001712D3 /* DrawView.h */,
 				F49433EA16BDF9A4001712D3 /* DrawView.m */,
+				F406542816C9298200EC985C /* StatsViewController.h */,
+				F406542916C9298300EC985C /* StatsViewController.m */,
 				F49433EC16BDFB6A001712D3 /* Kaci.jpg */,
 				F1A613C916C42E6600FED17D /* green_checkmark.jpg */,
 				F16F110816C806170029BD16 /* empty_trash.aif */,
@@ -428,6 +433,7 @@
 				F40653D316C6D17400EC985C /* Location.m in Sources */,
 				F40653D516C6D17400EC985C /* Region.m in Sources */,
 				F40653E416C7EB0C00EC985C /* DataGenerator.m in Sources */,
+				F406542A16C9298400EC985C /* StatsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
