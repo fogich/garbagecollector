@@ -13,6 +13,7 @@
 #define LNG_D_MAX 183334
 #define DATA_LENGTH 40
 #define PAST_DAYS_MAX 31
+#define GENERATE_CLEANED_SEED 7
 
 @interface DataGenerator : NSObject<CLLocationManagerDelegate>
 
