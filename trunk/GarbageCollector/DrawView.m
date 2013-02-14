@@ -80,7 +80,7 @@ UIColor *pieceColor;
     currentPointInArc = CGPointMake(circleCenter.x, circleCenter.y-radius);
     
     //our font :)
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:12.0];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:13.0];
     
     //temporary array of values; should be recieved as parameter
     char array[[[self.data allValues] count]];//3+arc4random() % 6];//]={3,4,1,5,8,7,4};//
